@@ -8,11 +8,11 @@ Mit FitLog können Trainingseinheiten getrackt werden. Die Applikation soll eine
 
 Als User möchte ich meine Trainings mit Datum, Dauer und Beschrieb erfassen, bearbeiten und löschen können, um mein Training zu tracken.
 
- Darstellung - MUST
+### Darstellung - MUST
 
 Als User möchte ich meine Trainings in mindestens zwei Darstellungsformen (Listenansicht mit Filterung und Kalenderansicht) anzeigen lassen, um den Überblick zu behalten.
 
- Kategorien - SHOULD
+### Kategorien - SHOULD
 
 Als User möchte ich für meine Trainings Kategorien (wie Kraft, Ausdauer, Beweglichkeit) definieren können, damit ich meine Einheiten strukturiert kategorisieren kann.
 
