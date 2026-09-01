@@ -1,37 +1,40 @@
 # Projektvorschlag - FitLog
-Mit FitLog können Trainingseinheiten einfach getrackt werden. Die Applikation soll einem dabei unterstützen seine Trainingsziele zu erreichen und in einer strukturierte Darstellung die Übersicht zu behalten. 
+
+Mit FitLog können Trainingseinheiten getrackt werden. Die Applikation soll einem dabei unterstützen, seine Trainingsziele zu erreichen und in einer strukturierten Darstellung die Übersicht zu behalten.
 
 ## User Stories
-### Workouts und Trainings erfassen - MUST
-Als User möchte ich meine Workouts und Trainings mit Datum, Dauer und Beschrieb erfassen, bearbeiten und löschen können, um mein Training zu tracken.
 
-### Darstellung - MUST
+### Workouts und Trainings erfassen - MUST
+
+Als User möchte ich meine Trainings mit Datum, Dauer und Beschrieb erfassen, bearbeiten und löschen können, um mein Training zu tracken.
+
+ Darstellung - MUST
+
 Als User möchte ich meine Trainings in mindestens zwei Darstellungsformen (Listenansicht mit Filterung und Kalenderansicht) anzeigen lassen, um den Überblick zu behalten.
 
-### Kategorien - SHOULD
+ Kategorien - SHOULD
+
 Als User möchte ich für meine Trainings Kategorien (wie Kraft, Ausdauer, Beweglichkeit) definieren können, damit ich meine Einheiten strukturiert kategorisieren kann.
 
 ### Ziele - SHOULD
-Als User möchte ich wöchentliche Trainingsziele (wie zum Beispiel zwei mal pro Woche Kraft) definieren können um mich zu motivieren. 
+
+Als User möchte ich wöchentliche Trainingsziele (wie zum Beispiel zwei Mal pro Woche Kraft) definieren können, um mich zu motivieren.
 
 ### Unterkategorien - COULD
+
 Als User möchte ich für meine Kategorien spezifische Unterkategorien (z. B. Fitness, Laufen, Yoga) anlegen, um mein Training noch detaillierter zu analysieren.
 
 ### Fortschrittsbalken - COULD
-Als User möchte ich einen Fortschrittsbalken meiner definierten Ziele sehen um mich zu motivieren. 
+
+Als User möchte ich einen Fortschrittsbalken meiner definierten Ziele sehen, um mich zu motivieren.
 
 ## Technologiestack
 
-### Frontend
-- Angular
-
-### Backend
-- Node.js
-
-### Persistierung
-
-### Testing
-
+- **Frontend**: Angular
+- **Backend**: Node.js
+- **Persistierung**: PostgreSQL
+- **Deployment**: Docker Compose
+- **Tests**: Vitest (Unit/Integration), E2E TBD
 
 ## Projektanforderungen
 ### Funktionale Anforderungen
@@ -41,8 +44,9 @@ Als User möchte ich einen Fortschrittsbalken meiner definierten Ziele sehen um 
 - Die Daten müssen in mindestens zwei inhaltlich unterschiedlichen Darstellungsformen präsentiert werden.
 
 ### Nicht funktionale Anforderungen
-- Die Applikation soll neben der Desktop-Ansicht, auch für die Mobile/Tablet-Ansicht optimiert sein.
-- Die Funktionalitäten sollen mittels sinnvollen automatisierten Unit/Integration/E2E-Tests überprüft werden.
+
+- Die Applikation soll neben der Desktop-Ansicht auch für die Mobile/Tablet-Ansicht optimiert sein.
+- Die Funktionalitäten sollen mittels sinnvoller automatisierter Unit/Integration/E2E-Tests überprüft werden.
 - Lighthouse-Score von mindestens 90 (Durchschnitt aller Analysen) für Mobile sowie Desktop.
 - Das Prod-Bundle der Applikation soll reproduzierbar gestartet werden können.
     - Option 1: Deployed auf einer öffentlichen URL
