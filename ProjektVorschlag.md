@@ -28,6 +28,13 @@ Als User möchte ich für meine Kategorien spezifische Unterkategorien (z. B. Fi
 
 Als User möchte ich einen Fortschrittsbalken meiner definierten Ziele sehen, um mich zu motivieren.
 
+## Abgrenzung - Won't have
+- Keine Benutzerverwaltung & Authentifizierung
+- Kein Social Feed und Sharing
+- Keine Auswertungen und Statistiken
+- Keine Push-Benachrichtigungen
+- Kein Cloud-Deployment
+
 ## Technologiestack
 
 - **Frontend**: Angular
