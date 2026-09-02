@@ -1,12 +1,44 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { PATHS } from './core/config/path.config';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Navigation],
   selector: 'app-root',
-  styleUrl: './app.css',
-  templateUrl: './app.html',
+    template: `
+    <app-navigation [links]="getAvailableLinks()"></app-navigation>
+
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  `,
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styles: `
+    :host {
+      display: flex;
+      flex-direction: column;
+      height: 100dvh;
+    }
+
+    :host > div {
+      display: block;
+      flex: 1;
+      min-height: 0;
+      width: min(100% - 2rem, 1200px);
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    @media (max-width: 600px) {
+      :host > div {
+        width: min(100% - 1rem, 1200px);
+        padding: 1rem 0;
+      }
+    }
+  `
 })
 export class App {
-  protected readonly title = signal('FitLog');
+  getAvailableLinks() {
+    return Object.values(PATHS);
+  }
 }
