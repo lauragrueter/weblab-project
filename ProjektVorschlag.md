@@ -4,7 +4,7 @@ Mit FitLog können Trainingseinheiten getrackt werden. Die Applikation soll eine
 
 ## User Stories
 
-### Workouts und Trainings erfassen - MUST
+### Trainings erfassen - MUST
 
 Als User möchte ich meine Trainings mit Datum, Dauer und Beschrieb erfassen, bearbeiten und löschen können, um mein Training zu tracken.
 
