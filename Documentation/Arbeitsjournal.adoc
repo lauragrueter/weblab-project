@@ -1,0 +1,17 @@
+= Arbeitsjournal
+
+In diesem File sind die Tätigkeiten zum Projekt dokumentiert
+
+
+[cols="3"]
+|===
+|**Datum** |**Stunden** | **Tätigkeit**
+
+|02.09.2026 | 4 | 
+    Projekt aufsetzen, Templates erstellen, erste Versuche im Frontend
+
+| 03.09.2026 | TBD | TBD
+
+|===
+
+**Total Stunden**: 
