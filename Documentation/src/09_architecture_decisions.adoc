@@ -2,7 +2,59 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-design-decisions]]
 == Architekturentscheidungen
+Im den folgenden Kapitel werden die Architekturentscheidungen begründet. 
 
+=== Angular als Frontend-Framework
+TBD
+
+=== NestJS als Backend-Framework
+**Entscheid**: NestJS als Node.js backend framework
+
+**Begründung**: 
+
+- Architekturähnlichkeit zu Angular: Wechsel zwischen frontend und backend wird vereinfacht
+- Vorgegebene Projektstruktur: Code Struktur Entscheidungen werden vereinfacht
+- TypeScript Unterstützung: Typisierung in frontend und backend (Fehlervermeidung)
+
+**Konsequenz**:
+
+- Höhere Lernkurve
+- Erhöhte Durchgängigkeit im Projekt
+
+=== PostgreSQL
+**Entscheid**: PostgreSQL als relationales Datenbankmanagementsystem
+
+**Begründung**: 
+
+- Verbreitung: grosse Community und somit viele Informationen frei zugänglich
+- Relationales Datenmodell: FitLog Daten sind strukturiert und gut geeignet für ein relationales Modell
+
+**Konsequenz**:
+
+- Schema muss definiert werden
+- Installation etwas komplexer als z.B. bei MongoDB
+
+=== TypeORM
+**Entscheid**: TypeORM zur Datenbankabstraktion und Persistenz
+
+**Begründung**: 
+
+- NestJS Integration
+- TypScript Integration
+
+**Konsequenz**:
+- TypeORM muss installiert werden
+
+=== Docker Compose
+**Entscheid**: Docker Compose zur Orchestrierung der Container für Datenbank, Backend und Frontend
+
+**Begründung**: 
+
+- Dev- und Bewertungsumgebung laufen in identischen isolierten Containern
+- DB bleibt isoliert und befindet sich nicht lokal
+
+**Konsequenz**:
+- Docker wird benötigt
 
 
 
