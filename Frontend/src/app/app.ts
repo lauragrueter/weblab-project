@@ -1,44 +1,23 @@
-import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PATHS } from './core/config/path.config';
+import { Navigation } from './shared/components/navigation/navigation';
+import { NavigationItem } from './shared/components/navigation/navigation.types';
 
 @Component({
   imports: [RouterOutlet, Navigation],
   selector: 'app-root',
-    template: `
+  template: `
     <app-navigation [links]="getAvailableLinks()"></app-navigation>
 
     <div>
       <router-outlet></router-outlet>
     </div>
   `,
-  changeDetection: ChangeDetectionStrategy.Eager,
-  styles: `
-    :host {
-      display: flex;
-      flex-direction: column;
-      height: 100dvh;
-    }
 
-    :host > div {
-      display: block;
-      flex: 1;
-      min-height: 0;
-      width: min(100% - 2rem, 1200px);
-      margin: 0 auto;
-      padding: 2rem 0;
-    }
-
-    @media (max-width: 600px) {
-      :host > div {
-        width: min(100% - 1rem, 1200px);
-        padding: 1rem 0;
-      }
-    }
-  `
 })
 export class App {
-  getAvailableLinks() {
+  getAvailableLinks(): NavigationItem[] {
     return Object.values(PATHS);
   }
 }
