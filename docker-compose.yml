@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: fitlog_db
+    environment:
+      POSTGRES_USER: fitlog_user
+      POSTGRES_PASSWORD: fitlog_password
+      POSTGRES_DB: fitlog_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
