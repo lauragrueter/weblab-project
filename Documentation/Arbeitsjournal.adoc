@@ -7,6 +7,10 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert
 |===
 |**Datum** |**Stunden** | **Tätigkeit**
 
+|31.08.2026 | 1 | 
+    Projektidee brainstorming
+|01.09.2026 | 2 | 
+    Projektauftrag erstellen
 |02.09.2026 | 4 | 
     Projekt aufsetzen, Templates erstellen, erste Versuche im Frontend
 
