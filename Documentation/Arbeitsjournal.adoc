@@ -15,7 +15,7 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert
     Projekt aufsetzen, Templates erstellen, erste Versuche im Frontend
 
 | 03.09.2026 | 6 | 
-    Doku templates, Recherche backend / DB, DB und backend einrichten, POST Methode erstellen
+    Doku templates, Recherche backend / DB, DB und backend einrichten, CRUD Methode erstellen, Testing, Doku
 | 03.09.2026 | TBD | 
     TBD
 
