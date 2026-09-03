@@ -11,7 +11,7 @@ export class CreateWorkoutDto {
     name: string;
 
     @ApiProperty({
-        example: '15.05.2026'
+        example: '2026-09-03'
     })
     @IsDateString()
     @IsNotEmpty()

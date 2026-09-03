@@ -14,8 +14,11 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert
 |02.09.2026 | 4 | 
     Projekt aufsetzen, Templates erstellen, erste Versuche im Frontend
 
-| 03.09.2026 | TBD | Doku templates, Recherche backend / DB, 
+| 03.09.2026 | 6 | 
+    Doku templates, Recherche backend / DB, DB und backend einrichten, POST Methode erstellen
+| 03.09.2026 | TBD | 
+    TBD
 
 |===
 
-**Total Stunden**: 
+**Total Stunden**: 13
