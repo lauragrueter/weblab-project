@@ -16,9 +16,9 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert
 
 | 03.09.2026 | 6 | 
     Doku templates, Recherche backend / DB, DB und backend einrichten, CRUD Methode erstellen, Testing, Doku
-| 03.09.2026 | TBD | 
-    TBD
+| 03.09.2026 | 3 | 
+    frontent für workouts, UI ausprobieren
 
 |===
 
-**Total Stunden**: 13
+**Total Stunden**: 16
