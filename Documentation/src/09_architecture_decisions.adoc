@@ -2,7 +2,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-design-decisions]]
 == Architekturentscheidungen
-Im den folgenden Kapitel werden die Architekturentscheidungen begründet. 
+Im folgendem Kapitel werden die Architekturentscheidungen begründet. 
 
 === Angular als Frontend-Framework
 TBD
@@ -56,5 +56,9 @@ TBD
 **Konsequenz**:
 - Docker wird benötigt
 
+=== Struktur Frontend
+TBD
 
+=== Struktur Backend
+TBD
 

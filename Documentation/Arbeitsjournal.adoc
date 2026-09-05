@@ -13,12 +13,14 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert
     Projektauftrag erstellen
 |02.09.2026 | 4 | 
     Projekt aufsetzen, Templates erstellen, erste Versuche im Frontend
-
 | 03.09.2026 | 6 | 
     Doku templates, Recherche backend / DB, DB und backend einrichten, CRUD Methode erstellen, Testing, Doku
-| 03.09.2026 | 3 | 
-    frontent für workouts, UI ausprobieren
+| 04.09.2026 | 3 | 
+    frontend für workouts, UI ausprobieren
+| 05.09.2026 | 3 | 
+    frontend: Listenansicht, Angular Material recherche, Code Struktur ausprobieren
+
 
 |===
 
-**Total Stunden**: 16
+**Total Stunden**: 19

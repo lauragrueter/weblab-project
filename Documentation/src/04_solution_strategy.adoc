@@ -2,7 +2,5 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-solution-strategy]]
 == Lösungsstrategie
-
-
-
-
+Das System wird als Webanwendung, Single Page Application (SPA) umgesetzt. 
+Die detaillierten Technologientscheidungen (Angular, NestJS, PostgreSQL, TypeORM, Docker Compose) sind in <<section-design-decisions,Kapitel 9 (Architekturentscheidungen)>> dokumentiert.
