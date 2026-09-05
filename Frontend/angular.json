@@ -9,9 +9,6 @@
     "FitLog": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "inlineTemplate": true
-        }
       },
       "root": "",
       "sourceRoot": "src",

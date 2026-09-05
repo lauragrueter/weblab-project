@@ -2,7 +2,7 @@ export interface Workout {
   id: string;
   date: string;
   duration: number; // in minutes
-  description: string;
+  name: string;
   createdAt?: string;
   updatedAt? : string;
 }

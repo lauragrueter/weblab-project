@@ -10,21 +10,17 @@ export class WorkoutService {
   private http = inject(HttpClient);
   private apiUrl = `${environment.apiUrl}/workouts`;
 
-  // Internal Signals State
   #workouts = signal<Workout[]>([]);
   #isLoading = signal<boolean>(false);
 
-  // Read-only Public Signals
   readonly workouts = this.#workouts.asReadonly();
   readonly isLoading = this.#isLoading.asReadonly();
 
-  // Computed Signal: Gesamtanzahl & Gesamtdauer
   readonly totalWorkouts = computed(() => this.#workouts().length);
   readonly totalDurationMinutes = computed(() => 
     this.#workouts().reduce((sum, w) => sum + w.duration, 0)
   );
 
-  // Get All Workouts
   loadWorkouts(): void {
     this.#isLoading.set(true);
     this.http.get<Workout[]>(this.apiUrl).subscribe({
@@ -39,7 +35,6 @@ export class WorkoutService {
     });
   }
 
-  // Create Workout
   createWorkout(dto: CreateWorkoutDto): void {
     this.http.post<Workout>(this.apiUrl, dto).subscribe({
       next: (newWorkout) => {
@@ -49,7 +44,6 @@ export class WorkoutService {
     });
   }
 
-  // Update Workout
   updateWorkout(id: string, dto: UpdateWorkoutDto): void {
     this.http.put<Workout>(`${this.apiUrl}/${id}`, dto).subscribe({
       next: (updated) => {
@@ -61,7 +55,6 @@ export class WorkoutService {
     });
   }
 
-  // Delete Workout
   deleteWorkout(id: string): void {
     this.http.delete<void>(`${this.apiUrl}/${id}`).subscribe({
       next: () => {

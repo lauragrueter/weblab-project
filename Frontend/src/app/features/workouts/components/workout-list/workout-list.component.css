@@ -1,0 +1,43 @@
+.workout-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.search-field {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mat-mdc-row:hover {
+  background-color: rgba(57, 226, 79, 0.04);
+}
+
+.mat-column-date {
+  width: 15%;
+}
+
+.mat-column-duration {
+  width: 15%;
+}
+
+.mat-column-description {
+  width: 55%;
+}
+
+.mat-column-actions {
+  width: 15%;
+  text-align: right;
+}
+
+.mat-no-data-row td {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
