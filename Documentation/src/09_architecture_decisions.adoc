@@ -58,6 +58,7 @@ TBD
 
 === Struktur Frontend
 TBD
+- Begründung im ts mit html / css oder ohne
 
 === Struktur Backend
 TBD

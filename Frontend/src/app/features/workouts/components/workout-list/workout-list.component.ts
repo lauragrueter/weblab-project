@@ -14,7 +14,6 @@ import { Workout } from '../../models/workout.models';
 
 @Component({
   selector: 'app-workout-list',
-  standalone: true,
   imports: [
     CommonModule,
     FormsModule,
@@ -55,7 +54,7 @@ export class WorkoutListComponent {
 
   editWorkout(workout: Workout): void {
   const dialogRef = this.dialog.open(WorkoutDialog, {
-    width: '400px',
+    width: '400px', //TODO keine fixe grösse
     data: { workout }
   });
 
