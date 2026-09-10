@@ -12,7 +12,7 @@ import { WorkoutService } from './services/workout.service';
 
     <ul>
       @for (workout of workoutService.workouts(); track workout.id) {
-        <li>{{ workout.date }} - {{ workout.description }} ({{ workout.duration }} Min)</li>
+        <li>{{ workout.date }} - {{ workout.name }} ({{ workout.duration }} Min)</li>
       } @empty {
         <li>Keine Workouts vorhanden.</li>
       }

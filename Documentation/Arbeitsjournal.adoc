@@ -17,10 +17,12 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert
     Doku templates, Recherche backend / DB, DB und backend einrichten, CRUD Methode erstellen, Testing, Doku
 | 04.09.2026 | 3 | 
     frontend für workouts, UI ausprobieren
-| 05.09.2026 | 3 | 
+| 05.09.2026 | 4 | 
     frontend: Listenansicht, Angular Material recherche, Code Struktur ausprobieren
+| 10.09.2026 | TBD | 
+    TBD
 
 
 |===
 
-**Total Stunden**: 19
+**Total Stunden**: 20
