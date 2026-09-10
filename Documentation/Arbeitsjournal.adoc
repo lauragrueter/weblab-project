@@ -19,10 +19,10 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert
     frontend für workouts, UI ausprobieren
 | 05.09.2026 | 4 | 
     frontend: Listenansicht, Angular Material recherche, Code Struktur ausprobieren
-| 10.09.2026 | TBD | 
-    TBD
+| 10.09.2026 | 5 | 
+    docker config für deployment, cypress setup und erster Test
 
 
 |===
 
-**Total Stunden**: 20
+**Total Stunden**: 25
