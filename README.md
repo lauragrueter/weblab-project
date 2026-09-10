@@ -1,6 +1,9 @@
-# fitLog
-- simple logbook
-- track workouts and training sessions
-- set goals
-- visualisation of trainings and goals
+# Start
+```shell
+docker compose up --build
+```
+
+# URL
+`http://localhost/`
+
 

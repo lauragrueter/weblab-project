@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "FitLog": {
+    "fitLog": {
       "projectType": "application",
       "schematics": {
       },
@@ -53,12 +53,15 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "proxyConfig": "config/proxy.conf.json"
+          },
           "configurations": {
             "production": {
-              "buildTarget": "FitLog:build:production"
+              "buildTarget": "fitLog:build:production"
             },
             "development": {
-              "buildTarget": "FitLog:build:development"
+              "buildTarget": "fitLog:build:development"
             }
           },
           "defaultConfiguration": "development"

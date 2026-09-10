@@ -1,6 +1,5 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environments';
 import { Workout, CreateWorkoutDto, UpdateWorkoutDto } from '../models/workout.models';
 
 @Injectable({
@@ -8,7 +7,7 @@ import { Workout, CreateWorkoutDto, UpdateWorkoutDto } from '../models/workout.m
 })
 export class WorkoutService {
   private http = inject(HttpClient);
-  private apiUrl = `${environment.apiUrl}/workouts`;
+  private apiUrl = `/api/workouts`;
 
   #workouts = signal<Workout[]>([]);
   #isLoading = signal<boolean>(false);
