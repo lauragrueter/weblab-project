@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { Module } from '@nestjs/common';
 import { WorkoutsModule } from './modules/workouts/workouts.module.js';
 import { TypeOrmModule } from '@nestjs/typeorm';
