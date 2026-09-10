@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
@@ -33,7 +33,6 @@ export class WorkoutListComponent {
   private dialog = inject(MatDialog);
 
   displayedColumns: string[] = ['date', 'duration', 'name', 'actions'];
-
   searchTerm = signal('');
 
   filteredWorkouts = computed(() => {
@@ -46,6 +45,10 @@ export class WorkoutListComponent {
       w.name.toLowerCase().includes(term)
     );
   });
+
+  ngOnInit():void {
+    this.workoutService.loadWorkouts();
+  }
 
   onSearchChange(event: Event): void {
     const value = (event.target as HTMLInputElement).value;
