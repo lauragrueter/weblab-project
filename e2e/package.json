@@ -1,0 +1,20 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "e2e cypress test für fitLog",
+  "author": "Laura Grüter",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "stack:up": "docker compose -f ../docker-compose.yml up -d --build --wait",
+    "stack:down": "docker compose -f ../docker-compose.yml down -v",
+    "cypress:open": "npm run stack:up && cypress open --e2e --browser chrome"
+  },
+  "devDependencies": {
+    "cypress": "^16.0.0",
+    "typescript": "^6.0.2"
+  },
+  "allowScripts": {
+    "cypress@16.0.0": true
+  }
+}

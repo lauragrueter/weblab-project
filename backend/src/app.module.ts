@@ -3,6 +3,8 @@ import { Module } from '@nestjs/common';
 import { WorkoutsModule } from './modules/workouts/workouts.module.js';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Workout } from './modules/workouts/entities/workout.entity.js';
+import { TerminusModule } from '@nestjs/terminus';
+import { HealthController } from './health/health.controller.js';
 
 @Module({
   imports: [
@@ -17,6 +19,8 @@ import { Workout } from './modules/workouts/entities/workout.entity.js';
       synchronize: true, // only for dev //TODO deactivate
     }),
     WorkoutsModule,
+    TerminusModule
   ],
+  controllers: [HealthController]
 })
 export class AppModule {}

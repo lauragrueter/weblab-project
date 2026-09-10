@@ -12,9 +12,9 @@ services:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U fitlog_user -d fitlog_db"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
+      interval: 1s
+      timeout: 1s
+      retries: 20
 
   backend:
     container_name: fitLog-backend
@@ -32,6 +32,11 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/3000' || exit 1"]
+      interval: 1s
+      timeout: 1s
+      retries: 20
 
   frontend:
     container_name: fitLog-frontend
@@ -42,6 +47,11 @@ services:
       - "80:80"
     depends_on:
       - backend
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 80 || exit 1"]
+      interval: 1s
+      timeout: 1s
+      retries: 20
 
 volumes:
   postgres_data:
