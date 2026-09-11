@@ -27,7 +27,7 @@ TBD
 **Begründung**: 
 
 - Verbreitung: grosse Community und somit viele Informationen frei zugänglich
-- Relationales Datenmodell: FitLog Daten sind strukturiert und gut geeignet für ein relationales Modell
+- Relationales Datenmodell: fitLog Daten sind strukturiert und gut geeignet für ein relationales Modell
 
 **Konsequenz**:
 

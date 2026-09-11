@@ -21,8 +21,9 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert
     frontend: Listenansicht, Angular Material recherche, Code Struktur ausprobieren
 | 10.09.2026 | 5 | 
     docker config für deployment, cypress setup und erster Test
-
+| 11.09.2026 | 2 | 
+    paginator implementiert, an Doku gearbeitet
 
 |===
 
-**Total Stunden**: 25
+**Total Stunden**: 27

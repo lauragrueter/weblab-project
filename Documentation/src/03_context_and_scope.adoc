@@ -2,24 +2,19 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-context-and-scope]]
 == Kontextabgrenzung
-
-
-
-
-
 === Fachlicher Kontext
 
+Die Anwendung wird lokal von einer einzelnen Person verwendet, um Trainingseinheiten administrieren zu können.
+Es gibt keine Mehrbenutzerverwaltung oder externe Benutzerrollen. 
 
-
-
-
-**<Diagramm und/oder Tabelle>**
-
-**<optional: Erläuterung der externen fachlichen Schnittstellen>**
+image::context.png[fachlicher Kontext]
 
 === Technischer Kontext
 
+Das System wird lokal via Docker bereitgestellt und läuft in getrennten Containern. Der Benutzer greift über einen Standard-Webbrowser auf die Webanwendung zu.
 
+//TODO anpassen
+image::context_technisch.jpg[technischer Kontext]
 
 
 
