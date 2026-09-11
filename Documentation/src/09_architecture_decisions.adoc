@@ -56,6 +56,19 @@ TBD
 **Konsequenz**:
 - Docker wird benötigt
 
+=== Angular Material
+**Entscheid**: Angular Material wird als UI-Komponenten Libary verwendet
+
+**Begründung**: 
+
+- Fertige Komponten können verwendet werden
+- Integrierte Accessibility
+- einfaches Design
+
+**Konsequenz**:
+- Angular Material muss installiert werden
+- Design sieht nach Angular Material aus
+
 === Struktur Frontend
 TBD
 - Begründung im ts mit html / css oder ohne
