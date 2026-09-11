@@ -8,7 +8,8 @@
   "scripts": {
     "stack:up": "docker compose -f ../docker-compose.yml up -d --build --wait",
     "stack:down": "docker compose -f ../docker-compose.yml down -v",
-    "cypress:open": "npm run stack:up && cypress open --e2e --browser chrome"
+    "cypress:open": "npm run stack:up && cypress open --e2e --browser chrome",
+    "e2e": "npm run stack:up && cypress run --browser chrome"
   },
   "devDependencies": {
     "cypress": "^16.0.0",
