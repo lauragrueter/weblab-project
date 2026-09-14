@@ -1,0 +1,19 @@
+.calendar-page {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+::ng-deep .has-workout .mat-calendar-body-cell-content {
+  background-color: var(--mat-sys-primary-container, #d0e4ff);
+  border-radius: 50%;
+  font-weight: 600;
+}
+
+.day-detail {
+  min-width: 250px;
+}
+
+.empty {
+  color: gray;
+}

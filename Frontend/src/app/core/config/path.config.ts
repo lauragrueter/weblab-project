@@ -6,9 +6,15 @@ export const PATHS: { [key: string]: NavigationItem } = {
     label: 'Home',
     icon: 'home'
   },
+    WORKOUTCALENDAR: {
+      path: 'workout-calendar',
+      label: 'Kalender',
+      icon: 'calendar_month'
+
+  },
   SETTINGS: {
     path: 'settings',
-    label: 'Settings',
+    label: 'Einstellungen',
     icon: 'settings'
   }
 }

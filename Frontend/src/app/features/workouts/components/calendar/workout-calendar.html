@@ -1,0 +1,21 @@
+<div class="calendar-page">
+  <mat-calendar
+    [selected]="selectedDate()"
+    [dateClass]="dateClass"
+    (selectedChange)="onSelectedChange($event)"
+  ></mat-calendar>
+
+  <div class="day-detail">
+    <h3>Workouts am {{ selectedDate() | date: 'dd.MM.yyyy' }}</h3>
+
+    @if (workoutsOnSelectedDate().length === 0) {
+      <p class="empty">Keine Workouts an diesem Tag.</p>
+    } @else {
+      <ul>
+        @for (w of workoutsOnSelectedDate(); track w.id) {
+          <li>{{ w.name }} – {{ w.duration }} min</li>
+        }
+      </ul>
+    }
+  </div>
+</div>
