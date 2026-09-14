@@ -2,7 +2,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-design-decisions]]
 == Architekturentscheidungen
-Im folgendem Kapitel werden die Architekturentscheidungen begründet. 
+Im folgendem Kapitel werden die Architekturentscheidungen begründet. Diese sind in der zeitlichen Reihenfolge aufgelistet. Ein paar Arkchitekturentscheidungen wurden während des Projektes gefällt, was als Konsequnez das refactoring des Codes zur Folge hat. 
 
 === Angular als Frontend-Framework
 TBD
@@ -75,4 +75,16 @@ TBD
 
 === Struktur Backend
 TBD
+
+=== Datum - Workout
+**Entscheid**: Datumsumformatierung wird als globale function zur Verfügung gestellt. 
+
+**Begründung**: 
+- String Umwandlung mit 'newDate' führt zu falscher Umrechnungen
+- functionen können in allen componenten wiederverwendet werden
+
+**Konsequenz**:
+- refactoring des alten Codes
+- überall wird die gleiche function verwendet
+- einfache Verwendung
 

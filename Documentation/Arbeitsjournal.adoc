@@ -23,9 +23,9 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert
     docker config für deployment, cypress setup und erster Test
 | 11.09.2026 | 2 | 
     paginator implementiert, an Doku gearbeitet
-| 14.09.2026 | TBD | 
-    refactor frontend, bug fix dialog box Kalenderpicker
+| 14.09.2026 | 5 | 
+    refactor frontend, bug fix dialog box Kalenderpicker, fix Datumsprobleme, implementieren globale Datumsfunktionen, Dokue überarbeiten, Kalenderansicht eingebaut, fix Sortierung
 
 |===
 
-**Total Stunden**: 27
+**Total Stunden**: 32

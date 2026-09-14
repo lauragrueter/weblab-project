@@ -2,7 +2,10 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-technical-risks]]
 == Risiken und technische Schulden
+=== Erfassung Workout
+Aktuell kann auch ein Workout auch in der Zukunft erfasst werden. 
 
-
+=== Mehrere Workouts
+Es kann mehrmals am selben Tag das exakt gleiche Workout erfasst werden. Es gibt keine Prüfung. 
 
 
