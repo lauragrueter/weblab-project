@@ -3,14 +3,12 @@ import {NavigationItem} from '../../shared/components/navigation/navigation.type
 export const PATHS: { [key: string]: NavigationItem } = {
   HOME: {
     path: 'home',
-    label: 'Home'
+    label: 'Home',
+    icon: 'home'
   },
   SETTINGS: {
     path: 'settings',
-    label: 'Settings'
-  },
-  CREATE: {
-    path: 'create',
-    label: 'Erstellen'
+    label: 'Settings',
+    icon: 'settings'
   }
 }

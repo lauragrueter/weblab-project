@@ -1,24 +1,18 @@
 import { Route } from '@angular/router';
-import { Home } from '../../features/home/home';
 import { PATHS } from './path.config';
 import { Categories } from '../../features/categories/categories';
-import { WorkoutComponent } from '../../features/workouts/workouts.component';
-import { WorkoutListComponent } from '../../features/workouts/components/workout-list/workout-list.component';
+import { WorkoutsComponent } from '../../features/workouts/workouts';
 
-const { HOME, SETTINGS, CREATE } = PATHS;
+const { HOME, SETTINGS } = PATHS;
 
 export const routes: Route[] = [
   {
     path: HOME.path,
-    component: WorkoutListComponent
+    component: WorkoutsComponent
   },
   {
     path: SETTINGS.path,
     component: Categories
-  },
-  {
-    path: CREATE.path,
-    component: WorkoutComponent
   },
   {
     path: '**',

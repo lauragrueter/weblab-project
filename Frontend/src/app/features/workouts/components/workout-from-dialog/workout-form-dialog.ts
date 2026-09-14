@@ -21,12 +21,12 @@ import { Workout } from '../../models/workout.models';
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  styleUrl: './workout-dialog.css',
-  templateUrl: './workout-dialog.html',
+  styleUrl: './workout-form-dialog.css',
+  templateUrl: './workout-form-dialog.html',
 })
-export class WorkoutDialog {
+export class WorkoutFormDialogComponent implements OnInit {
   private fb = inject(FormBuilder)
-  private dialogRef = inject(MatDialogRef<WorkoutDialog>);
+  private dialogRef = inject(MatDialogRef<WorkoutFormDialogComponent>);
   public data = inject<{ workout?: Workout }>(MAT_DIALOG_DATA);
 
   isEditMode = false;
@@ -39,7 +39,7 @@ export class WorkoutDialog {
     this.workoutForm = this.fb.group({
       id: [workout?.id ?? null],
       date: [workout?.date ?? new Date(), Validators.required],
-      duration: [workout?.duration ?? 30, [Validators.required, Validators.min(1)]],
+      duration: [workout?.duration ?? null, [Validators.required, Validators.min(1)]],
       name: [workout?.name ?? '', Validators.required]
     });
   }

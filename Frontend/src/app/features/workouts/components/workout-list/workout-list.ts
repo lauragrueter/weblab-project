@@ -10,7 +10,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconButton } from '@angular/material/button';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { WorkoutService } from '../../services/workout.service';
-import { WorkoutDialog } from '../workout-dialog/workout-dialog';
+import { WorkoutFormDialogComponent } from '../workout-from-dialog/workout-form-dialog';
 import { Workout } from '../../models/workout.models';
 
 @Component({
@@ -27,8 +27,8 @@ import { Workout } from '../../models/workout.models';
     MatIconButton,
     MatPaginatorModule,
   ],
-  templateUrl: './workout-list.component.html',
-  styleUrls: ['./workout-list.component.css'],
+  templateUrl: './workout-list.html',
+  styleUrls: ['./workout-list.css'],
 })
 export class WorkoutListComponent implements OnInit {
   private workoutService = inject(WorkoutService);
@@ -67,7 +67,7 @@ export class WorkoutListComponent implements OnInit {
   }
 
   editWorkout(workout: Workout): void {
-    const dialogRef = this.dialog.open(WorkoutDialog, {
+    const dialogRef = this.dialog.open(WorkoutFormDialogComponent, {
       width: '400px', //TODO keine fixe grösse
       data: { workout },
     });
