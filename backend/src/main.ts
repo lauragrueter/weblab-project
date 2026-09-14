@@ -21,10 +21,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/api/swagger', app, document); 
 
-  const port = 3000;
-  await app.listen(port);
+  await app.listen(3000);
 
-  console.log(`fitLog Backend: http://localhost:${port}/api`);
-  console.log(`Swagger: http://localhost:${port}/swagger`);
 }
 await bootstrap();

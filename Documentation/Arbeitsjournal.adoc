@@ -23,6 +23,8 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert
     docker config für deployment, cypress setup und erster Test
 | 11.09.2026 | 2 | 
     paginator implementiert, an Doku gearbeitet
+| 14.09.2026 | TBD | 
+    TBD
 
 |===
 
