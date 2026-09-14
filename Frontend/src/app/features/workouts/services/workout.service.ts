@@ -20,11 +20,15 @@ export class WorkoutService {
     this.#workouts().reduce((sum, w) => sum + w.duration, 0)
   );
 
+  private sortByDate(workouts: Workout[]): Workout[] {
+    return [...workouts].sort((a, b) => b.date.localeCompare(a.date));
+  }
+
   loadWorkouts(): void {
     this.#isLoading.set(true);
     this.http.get<Workout[]>(this.apiUrl).subscribe({
       next: (data) => {
-        this.#workouts.set(data);
+        this.#workouts.set(this.sortByDate(data));
         this.#isLoading.set(false);
       },
       error: (err) => {
@@ -37,7 +41,7 @@ export class WorkoutService {
   createWorkout(dto: CreateWorkoutDto): void {
     this.http.post<Workout>(this.apiUrl, dto).subscribe({
       next: (newWorkout) => {
-        this.#workouts.update(list => [newWorkout, ...list]);
+        this.#workouts.update(list => this.sortByDate([newWorkout, ...list]));
       },
       error: (err) => console.error('Fehler beim Erstellen:', err)
     });
@@ -47,7 +51,7 @@ export class WorkoutService {
     this.http.put<Workout>(`${this.apiUrl}/${id}`, dto).subscribe({
       next: (updated) => {
         this.#workouts.update(list =>
-          list.map(w => (w.id === id ? updated : w))
+          this.sortByDate(list.map(w => (w.id === id ? updated : w)))
         );
       },
       error: (err) => console.error('Fehler beim Aktualisieren:', err)
