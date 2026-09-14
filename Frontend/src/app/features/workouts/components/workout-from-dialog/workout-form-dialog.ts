@@ -6,7 +6,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
 import { Workout } from '../../models/workout.models';
 
 @Component({
@@ -18,8 +17,7 @@ import { Workout } from '../../models/workout.models';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatDatepickerModule,
-    MatNativeDateModule
+    MatDatepickerModule
   ],
   styleUrl: './workout-form-dialog.css',
   templateUrl: './workout-form-dialog.html',

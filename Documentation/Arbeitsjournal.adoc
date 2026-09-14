@@ -24,7 +24,7 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert
 | 11.09.2026 | 2 | 
     paginator implementiert, an Doku gearbeitet
 | 14.09.2026 | TBD | 
-    TBD
+    refactor frontend, bug fix dialog box Kalenderpicker
 
 |===
 
