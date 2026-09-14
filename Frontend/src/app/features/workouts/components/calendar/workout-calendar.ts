@@ -16,7 +16,6 @@ export class WorkoutCalendarComponent {
   selectedDate = signal<Date>(new Date());
 
   private workoutDates = computed(() => {
-    console.log('raw workouts:', this.workoutService.workouts());
     const dates = new Set<string>();
     for (const w of this.workoutService.workouts()) {
       const parsed = parseBackendDate(w.date);
