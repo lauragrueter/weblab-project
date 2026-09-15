@@ -25,7 +25,9 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert
     paginator implementiert, an Doku gearbeitet
 | 14.09.2026 | 5 | 
     refactor frontend, bug fix dialog box Kalenderpicker, fix Datumsprobleme, implementieren globale Datumsfunktionen, Dokue überarbeiten, Kalenderansicht eingebaut, fix Sortierung
+| 15.09.2026 | 2 | 
+    system settings for theme, improve styling, some refactoring, documentation
 
 |===
 
-**Total Stunden**: 32
+**Total Stunden**: 34

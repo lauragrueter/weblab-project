@@ -88,3 +88,12 @@ TBD
 - überall wird die gleiche function verwendet
 - einfache Verwendung
 
+=== Eigene Component Library für create button
+**Entscheid**: Create Button wird als shared library zur Verfügung gestellt
+
+**Begründung**: 
+- Create Button wird mehr als einmalal benötigt
+
+**Konsequenz**:
+- refactoring des alten Codes
+- Button kann wiederverwendet werden

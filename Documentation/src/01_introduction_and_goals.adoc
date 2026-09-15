@@ -14,7 +14,8 @@ fitLog wurde in der Blockwoche "WEBLAB" im Frühlingssemester 2026 an der Hochsc
 - Trainings / Workouts manuell tracken (manuelle Eingabe von Einheiten)
 - Filterung der Einheiten in einer Listenansicht
 - Löschen und Bearbeiten von Einheiten direkt in der Listenansicht
-- TBD
+- Kalenderansicht der Workouts
+-TBD
 
 === Projekt Anforderungen aus Aufgabenstellung
 Nachfolgend sind die grundlegenden Anforderungen für das Weblab-Projekt aufgeführt.

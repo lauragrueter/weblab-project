@@ -6,6 +6,6 @@ ifndef::imagesdir[:imagesdir: ../images]
 Aktuell kann auch ein Workout auch in der Zukunft erfasst werden. 
 
 === Mehrere Workouts
-Es kann mehrmals am selben Tag das exakt gleiche Workout erfasst werden. Es gibt keine Prüfung. 
+Es kann mehrmals am selben Tag das exakt gleiche Workout erfasst werden. Es gibt keine Prüfung auf Gleichheit. 
 
 

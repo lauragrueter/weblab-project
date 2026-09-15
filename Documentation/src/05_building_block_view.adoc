@@ -2,104 +2,39 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-building-block-view]]
 == Bausteinsicht
-
-
-
-
-
 === Whitebox Gesamtsystem
 
-
-
-
+TBD: Diagramm
 
 _**<Übersichtsdiagramm>**_
 
-Begründung:: _<Erläuternder Text>_
+Begründung:: Das System ist nach einer 3-Schichten-Architektur (Frontend, Backend, Datenbank) aufgebaut, um Benutzeroberfläche und Datenhaltung zu trennen.
 
-Enthaltene Bausteine:: _<Beschreibung der enthaltenen Bausteine (Blackboxen)>_
+Enthaltene Bausteine:: 
+- Web-Client (Single Page Application)
+- API-Server (Backend)
+- Datenbank (Persistenzschicht)
 
-Wichtige Schnittstellen:: _<Beschreibung wichtiger Schnittstellen>_
+Wichtige Schnittstellen:: REST-API zwischen Web-Client und API-Server.
 
+==== Web-Client
 
+Zweck:: Ermöglicht User das Erstellen, Löschen, Bearbeiten und Durchsuchen von Workouts
+Schnittstelle:: Bietet keine eigenen Services an, konsumiert die REST-API des API-Servers.
+Ablageort:: `/src/frontend/` -> TBD
 
+==== API-Server
+Zweck:: Verarbeitet Geschäftslogik, validiert Workouts und kommuniziert mit der Datenbank.
+Schnittstelle:: REST-Schnittstelle über HTTP/JSON (Port ?) TBD
+Ablageort:: `/src/backend/ -> TBD
 
-
-==== <Name Blackbox 1>
-
-
-
-
-
-_<Zweck/Verantwortung>_
-
-_<Schnittstelle(n)>_
-
-_<(Optional) Qualitäts-/Leistungsmerkmale>_
-
-_<(Optional) Ablageort/Datei(en)>_
-
-_<(Optional) Erfüllte Anforderungen>_
-
-_<(optional) Offene Punkte/Probleme/Risiken>_
-
-==== <Name Blackbox 2>
-
-_<Blackbox-Template>_
-
-==== <Name Blackbox n>
-
-_<Blackbox-Template>_
-
-
-==== <Name Schnittstelle 1>
-
-...
-
-==== <Name Schnittstelle m>
+==== Datenbank
+Zweck:: Speichert Workouts persistent
+Schnittstelle:: TBD
 
 === Ebene 2
-
-
-
-
-
 ==== Whitebox _<Baustein 1>_
 
+TBD Diagramm frontend / (backend) zusammenspiel
 
 
-
-
-_<Whitebox-Template>_
-
-==== Whitebox _<Baustein 2>_
-
-_<Whitebox-Template>_
-
-...
-
-==== Whitebox _<Baustein m>_
-
-_<Whitebox-Template>_
-
-=== Ebene 3
-
-
-
-
-
-==== Whitebox <_Baustein x.1_>
-
-
-
-
-
-_<Whitebox-Template>_
-
-==== Whitebox <_Baustein x.2_>
-
-_<Whitebox-Template>_
-
-==== Whitebox <_Baustein y.1_>
-
-_<Whitebox-Template>_
