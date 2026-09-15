@@ -40,3 +40,4 @@ ng serve
 ## URL
 fitLog Backend: http://localhost:3000/api
 Swagger: http://localhost:3000/api/swagger
+fitLog app: http://localhost:4200/
