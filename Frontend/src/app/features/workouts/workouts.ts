@@ -2,13 +2,14 @@ import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { WorkoutService } from './services/workout.service';
-import { WorkoutFormDialogComponent } from './components/workout-from-dialog/workout-form-dialog';
+import { WorkoutFormDialogComponent } from './components/workout-form-dialog/workout-form-dialog';
 import { WorkoutListComponent } from './components/workout-list/workout-list';
 import { Workout } from './models/workout.models';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-workouts',
-  imports: [MatButtonModule, WorkoutListComponent],
+  imports: [MatButtonModule, WorkoutListComponent, MatIconModule],
   templateUrl: './workouts.html',
   styleUrl: './workouts.css',
 })

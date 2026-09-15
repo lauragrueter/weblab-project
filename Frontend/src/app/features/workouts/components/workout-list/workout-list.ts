@@ -10,7 +10,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconButton } from '@angular/material/button';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { WorkoutService } from '../../services/workout.service';
-import { WorkoutFormDialogComponent } from '../workout-from-dialog/workout-form-dialog';
+import { WorkoutFormDialogComponent } from '../workout-form-dialog/workout-form-dialog';
 import { Workout } from '../../models/workout.models';
 
 @Component({

@@ -1,19 +1,84 @@
 .calendar-page {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  display: grid;
+  grid-template-columns: minmax(300px, 380px) 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.calendar-card,
+.day-detail-card {
+  border-radius: 12px;
+  background-color: var(--mat-sys-surface-container-low);
+  color: var(--mat-sys-on-surface);
+  border: 1px solid var(--mat-sys-outline-variant);
+  overflow: hidden;
+}
+
+mat-calendar {
+  width: 100%;
 }
 
 ::ng-deep .has-workout .mat-calendar-body-cell-content {
-  background-color: var(--mat-sys-primary-container, #d0e4ff);
+  background-color: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
   border-radius: 50%;
   font-weight: 600;
 }
 
-.day-detail {
-  min-width: 250px;
+.detail-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--mat-sys-on-surface);
+  margin-bottom: 0.5rem;
 }
 
-.empty {
-  color: gray;
+.detail-content {
+  padding-top: 0.5rem;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+  color: var(--mat-sys-on-surface-variant);
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.5rem;
+  opacity: 0.6;
+}
+
+.workout-list {
+  padding-top: 0;
+}
+
+.workout-item {
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
+}
+
+.workout-item:last-child {
+  border-bottom: none;
+}
+
+.workout-name {
+  font-weight: 500;
+}
+
+.workout-duration {
+  color: var(--mat-sys-on-surface-variant);
+}
+
+@media (max-width: 768px) {
+  .calendar-page {
+    grid-template-columns: 1fr;
+  }
 }

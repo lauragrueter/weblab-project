@@ -11,10 +11,5 @@ export const PATHS: { [key: string]: NavigationItem } = {
       label: 'Kalender',
       icon: 'calendar_month'
 
-  },
-  SETTINGS: {
-    path: 'settings',
-    label: 'Einstellungen',
-    icon: 'settings'
   }
 }

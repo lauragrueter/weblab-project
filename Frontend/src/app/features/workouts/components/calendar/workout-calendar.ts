@@ -1,12 +1,15 @@
 import { Component, inject, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDatepickerModule, MatCalendarCellClassFunction } from '@angular/material/datepicker';
-import { WorkoutService } from './../../services/workout.service';
+import { WorkoutService } from '../../services/workout.service';
 import { toDateKey, parseBackendDate } from '../../../../shared/utils/date.utils';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-workout-calendar',
-  imports: [CommonModule, MatDatepickerModule],
+  imports: [CommonModule, MatDatepickerModule, MatCardModule, MatListModule, MatIconModule],
   templateUrl: './workout-calendar.html',
   styleUrl: './workout-calendar.css',
 })
