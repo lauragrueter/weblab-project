@@ -1,20 +1,15 @@
 <div class="workouts-page">
-  <div class="page-header">
-    <div class="header-content">
-      <h1 class="page-title">Workouts</h1>
-      <p class="page-subtitle">Verwalte und verfolge deine täglichen Aktivitäten</p>
-    </div>
+  <fitLog-page-header 
+    title="Workouts" 
+    subtitle="Verwalte und verfolge deine täglichen Aktivitäten"
+  ></fitLog-page-header>
 
-    <button 
-      mat-raised-button 
-      color="primary" 
-      class="create-button" 
-      (click)="openCreateDialog()"
-    >
-      <mat-icon>add</mat-icon>
-      <span>Workout erstellen</span>
-    </button>
-  </div>
+  <fitLog-action-toolbar>
+    <fitLog-create-button 
+      label="Workout erstellen"
+      (btnClick)="openCreateDialog()"
+    ></fitLog-create-button>
+  </fitLog-action-toolbar>
 
   <app-workout-list />
 </div>

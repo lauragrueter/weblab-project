@@ -6,10 +6,20 @@ import { WorkoutFormDialogComponent } from './components/workout-form-dialog/wor
 import { WorkoutListComponent } from './components/workout-list/workout-list';
 import { Workout } from './models/workout.models';
 import { MatIconModule } from '@angular/material/icon';
+import { FitLogCreateButton } from '../../shared/components/create-button/create-button';
+import { FitLogPageHeader } from '../../shared/components/page-header/page-header';
+import { FitLogActionToolbar } from '../../shared/components/action-toolbar/action-toolbar';
 
 @Component({
   selector: 'app-workouts',
-  imports: [MatButtonModule, WorkoutListComponent, MatIconModule],
+  imports: [
+    MatButtonModule,
+    WorkoutListComponent, 
+    MatIconModule, 
+    FitLogCreateButton, 
+    FitLogPageHeader, 
+    FitLogActionToolbar
+  ],
   templateUrl: './workouts.html',
   styleUrl: './workouts.css',
 })

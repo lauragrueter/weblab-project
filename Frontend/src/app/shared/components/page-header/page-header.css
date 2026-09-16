@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.page-header {
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-text-main, #2c3e50);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.page-subtitle {
+  font-size: 0.95rem;
+  color: #6c757d;
+  margin: 0.25rem 0 0 0;
+}
