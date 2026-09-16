@@ -3,7 +3,7 @@
 In diesem File sind die Tätigkeiten zum Projekt dokumentiert
 
 
-[cols="3"]
+[cols="1,1,6"]
 |===
 |**Datum** |**Stunden** | **Tätigkeit**
 
@@ -27,7 +27,9 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert
     refactor frontend, bug fix dialog box Kalenderpicker, fix Datumsprobleme, implementieren globale Datumsfunktionen, Dokue überarbeiten, Kalenderansicht eingebaut, fix Sortierung
 | 15.09.2026 | 2 | 
     system settings for theme, improve styling, some refactoring, documentation
+| 16.09.2026 | 4 | 
+    create-button, page-header und action-toolbar als shared library und einbauen in bestehende Komponenten, Architekturentscheide ergänzen, improve styling, Kalenderansicht überarbeitet
 
 |===
 
-**Total Stunden**: 34
+**Total Stunden**: 38

@@ -5,7 +5,16 @@ ifndef::imagesdir[:imagesdir: ../images]
 Im folgendem Kapitel werden die Architekturentscheidungen begründet. Diese sind in der zeitlichen Reihenfolge aufgelistet. Ein paar Arkchitekturentscheidungen wurden während des Projektes gefällt, was als Konsequnez das refactoring des Codes zur Folge hat. 
 
 === Angular als Frontend-Framework
-TBD
+**Entscheid**: Angular als frontend Framework
+
+**Begründung**: 
+
+- Neues Wissen aufbauen
+- In der Blockwoche gelerntes gleich umsetzen
+
+**Konsequenz**:
+
+- Höhere Lernkurve
 
 === NestJS als Backend-Framework
 **Entscheid**: NestJS als Node.js backend framework
@@ -66,12 +75,31 @@ TBD
 - einfaches Design
 
 **Konsequenz**:
+
 - Angular Material muss installiert werden
 - Design sieht nach Angular Material aus
 
 === Struktur Frontend
+**Entscheid**: Das Frontend wird in `core`, `features` und `shared` gegliedert. 
+
+**Begründung**: 
+
+- Seperation of Concerns
+- Wartbarkeit
+- Übersichtlichkeit
+- Wiederverwendbarkeit
+
+**Konsequenz**: 
+
+- Wiederverwendbar UI-Elemente werden in `shared` gepflegt
+- App-weite Einstellungen sind im `core`
+- neue Ansichten / Logik werden im `feature` aufgebaut
+
+
+=== Struktur Komponenten im frontend
 TBD
 - Begründung im ts mit html / css oder ohne
+
 
 === Struktur Backend
 TBD
@@ -80,10 +108,12 @@ TBD
 **Entscheid**: Datumsumformatierung wird als globale function zur Verfügung gestellt. 
 
 **Begründung**: 
+
 - String Umwandlung mit 'newDate' führt zu falscher Umrechnungen
 - functionen können in allen componenten wiederverwendet werden
 
 **Konsequenz**:
+
 - refactoring des alten Codes
 - überall wird die gleiche function verwendet
 - einfache Verwendung
@@ -92,8 +122,43 @@ TBD
 **Entscheid**: Create Button wird als shared library zur Verfügung gestellt
 
 **Begründung**: 
+
 - Create Button wird mehr als einmalal benötigt
+- Wartbarkeit und Erweiterung wird verbessert
+- Konsistentes Layout wird gewährleistet
+- Anpassung an einem Ort, falls nicht mehr Angular Material verwendet wird
 
 **Konsequenz**:
+
 - refactoring des alten Codes
 - Button kann wiederverwendet werden
+
+=== Eigene Component Library für page header
+**Entscheid**: Page Header wird als shared library zur Verfügung gestellt
+
+**Begründung**: 
+
+- Header wird mehr als einmalal benötigt
+- Wartbarkeit und Erweiterung wird verbessert
+- Konsistentes Layout wird gewährleistet
+
+**Konsequenz**:
+
+- refactoring des alten Codes
+- Header kann wiederverwendet werden
+
+=== Eigene Component Library für action toolbar
+**Entscheid**: Action Toolbar wird als shared library zur Verfügung gestellt
+
+**Begründung**: 
+
+- Toolbar wird mehr als einmalal benötigt
+- Wartbarkeit und Erweiterung wird verbessert
+- Konsistentes Layout wird gewährleistet
+
+**Konsequenz**:
+
+- refactoring des alten Codes
+- Toolbar kann wiederverwendet werden
+
+//TODO **Erwähnen dass Libaries mit neuer Struktur wieder obsolet sind**
