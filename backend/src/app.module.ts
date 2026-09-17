@@ -5,6 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Workout } from './modules/workouts/entities/workout.entity.js';
 import { TerminusModule } from '@nestjs/terminus';
 import { HealthController } from './health/health.controller.js';
+import { CategoriesModule } from './modules/categories/categories.module.js';
+import { Category } from './modules/categories/entities/categories.entity.js';
 
 @Module({
   imports: [
@@ -15,10 +17,12 @@ import { HealthController } from './health/health.controller.js';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [Workout],
-      synchronize: true, // only for dev //TODO deactivate
+      entities: [Workout, Category],
+      autoLoadEntities: true,
+      synchronize: true,
     }),
     WorkoutsModule,
+    CategoriesModule,
     TerminusModule
   ],
   controllers: [HealthController]
