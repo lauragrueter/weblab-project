@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Put, Param, Delete, HttpCode, HttpStatus }
 import { WorkoutsService } from './workouts.service.js';
 import { CreateWorkoutDto } from './dto/create-workout.dto.js';
 import { UpdateWorkoutDto } from './dto/update-workout.dto.js';
+import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
 @Controller('workouts')
 export class WorkoutsController {

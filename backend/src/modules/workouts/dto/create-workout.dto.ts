@@ -1,5 +1,5 @@
-import { IsDateString, IsInt, IsNotEmpty, IsString, Min } from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
+import { IsDateString, IsInt, IsNotEmpty, IsOptional, IsString, IsUUID, Min } from 'class-validator';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class CreateWorkoutDto {
 
@@ -23,4 +23,9 @@ export class CreateWorkoutDto {
     @IsInt()
     @Min(1)
     duration: number;
+
+    @ApiPropertyOptional({ example: 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11' })
+    @IsUUID()
+    @IsOptional()
+    categoryId?: string;
 }
