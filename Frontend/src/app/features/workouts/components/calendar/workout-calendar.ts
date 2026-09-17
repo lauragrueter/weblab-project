@@ -6,10 +6,21 @@ import { toDateKey, parseBackendDate } from '../../../../shared/utils/date.utils
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { FitLogActionToolbar } from '../../../../shared/components/action-toolbar/action-toolbar';
+import { FitLogPageHeader } from '../../../../shared/components/page-header/page-header';
+
 
 @Component({
-  selector: 'app-workout-calendar',
-  imports: [CommonModule, MatDatepickerModule, MatCardModule, MatListModule, MatIconModule],
+  selector: 'workout-calendar',
+  imports: [
+    CommonModule, 
+    MatDatepickerModule, 
+    MatCardModule, 
+    MatListModule,
+    MatIconModule,
+    FitLogActionToolbar,
+    FitLogPageHeader
+  ],
   templateUrl: './workout-calendar.html',
   styleUrl: './workout-calendar.css',
 })

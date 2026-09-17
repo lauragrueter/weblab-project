@@ -8,6 +8,11 @@
   align-items: start;
 }
 
+fitLog-page-header,
+fitLog-action-toolbar {
+  grid-column: 1 / -1;
+}
+
 .calendar-card,
 .day-detail-card {
   border-radius: 12px;

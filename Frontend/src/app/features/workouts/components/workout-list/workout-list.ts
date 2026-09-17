@@ -13,8 +13,9 @@ import { WorkoutService } from '../../services/workout.service';
 import { WorkoutFormDialogComponent } from '../workout-form-dialog/workout-form-dialog';
 import { Workout } from '../../models/workout.models';
 
+
 @Component({
-  selector: 'app-workout-list',
+  selector: 'workout-list',
   imports: [
     CommonModule,
     FormsModule,
@@ -25,7 +26,7 @@ import { Workout } from '../../models/workout.models';
     MatButtonModule,
     MatDialogModule,
     MatIconButton,
-    MatPaginatorModule,
+    MatPaginatorModule
   ],
   templateUrl: './workout-list.html',
   styleUrls: ['./workout-list.css'],
