@@ -38,6 +38,10 @@ ng serve
 ``` 
 
 ## URL
-fitLog Backend: http://localhost:3000/api
+fitLog Backend:
+- http://localhost:3000/api/categories
+- http://localhost:3000/api/workouts
+
 Swagger: http://localhost:3000/api/swagger
+
 fitLog app: http://localhost:4200/
