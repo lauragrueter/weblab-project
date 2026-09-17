@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Workout } from '../../models/workout.models';
 import { toDateKey } from '../../../../shared/utils/date.utils';
+import { parseBackendDate } from '../../../../shared/utils/date.utils';
 
 @Component({
   selector: 'app-workout-dialog',
@@ -37,7 +38,7 @@ export class WorkoutFormDialogComponent implements OnInit {
 
     this.workoutForm = this.fb.group({
       id: [workout?.id ?? null],
-      date: [workout?.date ?? new Date(), Validators.required],
+      date: [parseBackendDate(workout?.date) ?? new Date(), Validators.required],
       duration: [workout?.duration ?? null, [Validators.required, Validators.min(1)]],
       name: [workout?.name ?? '', Validators.required]
     });
