@@ -1,22 +1,13 @@
 ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-concepts]]
-== Querschnittliche Konzepte
+== Testkonzept
+=== Backend
+- Controller werden nicht getestet um "testing the mock, not the code" zu verhindern. 
+- Services werden mit unit Tests abgedeckt. 
 
+=== Frontend
+TBD
 
-
-
-
-=== _<Konzept 1>_
-
-_<Erklärung>_
-
-=== _<Konzept 2>_
-
-_<Erklärung>_
-
-...
-
-=== _<Konzept n>_
-
-_<Erklärung>_
+=== e2e
+- Framework: 

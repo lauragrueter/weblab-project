@@ -79,6 +79,10 @@ Im folgendem Kapitel werden die Architekturentscheidungen begründet. Diese sind
 - Angular Material muss installiert werden
 - Design sieht nach Angular Material aus
 
+=== Testframeworks
+TBD
+
+
 === Struktur Frontend
 **Entscheid**: Das Frontend wird in `core`, `features` und `shared` gegliedert. 
 
@@ -160,5 +164,3 @@ TBD
 
 - refactoring des alten Codes
 - Toolbar kann wiederverwendet werden
-
-//TODO **Erwähnen dass Libaries mit neuer Struktur wieder obsolet sind**

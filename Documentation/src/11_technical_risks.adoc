@@ -3,9 +3,19 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-technical-risks]]
 == Risiken und technische Schulden
 === Erfassung Workout
-Aktuell kann auch ein Workout auch in der Zukunft erfasst werden. 
+Aktuell kann ein Workout auch in der Zukunft erfasst werden. 
 
 === Mehrere Workouts
 Es kann mehrmals am selben Tag das exakt gleiche Workout erfasst werden. Es gibt keine Prüfung auf Gleichheit. 
 
+=== Wiederverwendbare Komponenten
+Bei Erweiterung der Applikation können weitere wiederverwendbare Komponenten erstellt werden, um die Wartbarkeit zu erhöhen. 
 
+=== Fehlerhandling
+Das Fehlerhandling ist nur auf das nötigste beschränkt und auch nicht durchgehend. Um die Userexperience zu erhöhen und eine falsche Datenhaltung zu vermeinden, müsste mehr Zeit in das Fehlerhandling investiert werden. 
+
+=== Verhalten Workouts / Kategorien
+Das Zusammenspiel von Workouts und Kategorien ist nicht optimal aufgebaut. Damit die Applikaton in der Produktion wirklich besteht, muss das aktuelle Verhalten überdacht werden. Aktuell kann eine Kategorie immer gelöscht werden, das führt einfach dazu, dass das Workout als Kategorie null hat. Um Statistiken oder Auswertung zur Verfügung stellen zu können, sollte die Kategorie nicht nullable sein und Kategorien dürften nicht in Verwendung gelöscht werden (eher auf inaktiv setzen). 
+
+=== Löschung
+Das Löschen eines Datensatzes passiert aktuell ohne zusätzliche Nachfrage beim User.
