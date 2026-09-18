@@ -31,7 +31,10 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert
     create-button, page-header und action-toolbar als shared library und einbauen in bestehende Komponenten, Architekturentscheide ergänzen, improve styling, Kalenderansicht überarbeitet
 | 17.09.2026 | 5 | 
     page header in Kalenderansicht, backend für categories, workouts mit categories eräganzen im backend, backend Tests, manuelles swagger testing, Dokumentation
+| 18.09.2026 | 2 | 
+    fronten für categories
+
 
 |===
 
-**Total Stunden**: 43
+**Total Stunden**: 45

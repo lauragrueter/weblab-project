@@ -1,6 +1,6 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Workout, CreateWorkoutDto, UpdateWorkoutDto } from '../models/workout.models';
+import { Workout, CreateWorkoutDto, UpdateWorkoutDto } from '../models/workout.model';
 
 @Injectable({
   providedIn: 'root'

@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { WorkoutService } from './services/workout.service';
 import { WorkoutFormDialogComponent } from './components/workout-form-dialog/workout-form-dialog';
 import { WorkoutListComponent } from './components/workout-list/workout-list';
-import { Workout } from './models/workout.models';
+import { Workout } from './models/workout.model';
 import { MatIconModule } from '@angular/material/icon';
 import { FitLogCreateButton } from '../../shared/components/create-button/create-button';
 import { FitLogPageHeader } from '../../shared/components/page-header/page-header';
@@ -23,7 +23,7 @@ import { FitLogActionToolbar } from '../../shared/components/action-toolbar/acti
   templateUrl: './workouts.html',
   styleUrl: './workouts.css',
 })
-export class WorkoutsComponent {
+export class Workouts {
   protected workoutService = inject(WorkoutService);
   private dialog = inject(MatDialog);
 

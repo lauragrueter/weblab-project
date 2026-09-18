@@ -1,7 +1,7 @@
 import {NavigationItem} from '../../shared/components/navigation/navigation.types';
 
 export const PATHS: { [key: string]: NavigationItem } = {
-  HOME: {
+  WORKOUTS: {
     path: 'home',
     label: 'Home',
     icon: 'home'
@@ -10,6 +10,11 @@ export const PATHS: { [key: string]: NavigationItem } = {
       path: 'workout-calendar',
       label: 'Kalender',
       icon: 'calendar_month'
+  },
+    CATEGORIES: {
+      path: 'categories',
+      label: 'Kategorien',
+      icon: 'settings'
+    }
 
-  }
 }

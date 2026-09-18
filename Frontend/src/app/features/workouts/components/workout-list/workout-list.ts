@@ -11,7 +11,7 @@ import { MatIconButton } from '@angular/material/button';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { WorkoutService } from '../../services/workout.service';
 import { WorkoutFormDialogComponent } from '../workout-form-dialog/workout-form-dialog';
-import { Workout } from '../../models/workout.models';
+import { Workout } from '../../models/workout.model';
 
 
 @Component({

@@ -24,7 +24,7 @@ import { FitLogPageHeader } from '../../../../shared/components/page-header/page
   templateUrl: './workout-calendar.html',
   styleUrl: './workout-calendar.css',
 })
-export class WorkoutCalendarComponent {
+export class WorkoutCalendar {
   protected workoutService = inject(WorkoutService);
 
   selectedDate = signal<Date>(new Date());

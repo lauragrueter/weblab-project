@@ -19,3 +19,6 @@ Das Zusammenspiel von Workouts und Kategorien ist nicht optimal aufgebaut. Damit
 
 === Löschung
 Das Löschen eines Datensatzes passiert aktuell ohne zusätzliche Nachfrage beim User.
+
+=== Seitenansicht
+Für jede Komponente werden die Seitenränder in einem css definiert. Das könnte man eine Ebene höher definieren. 
