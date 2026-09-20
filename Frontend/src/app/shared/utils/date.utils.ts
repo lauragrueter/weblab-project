@@ -14,5 +14,6 @@ export function parseBackendDate(dateStr: string | null | undefined): Date | nul
   if (!year || !month || !day) return null;
 
   const date = new Date(year, month - 1, day);
+  if (date.getMonth() !== month - 1) return null;
   return isNaN(date.getTime()) ? null : date;
 }

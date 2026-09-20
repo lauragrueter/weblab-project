@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -14,13 +14,13 @@ import { MatIconModule } from '@angular/material/icon';
       (click)="onClick()"
     >
       <mat-icon>add</mat-icon>
-      <span>{{ label }}</span>
+      <span>{{ label() }}</span>
     </button>
   `,
 })
 export class FitLogCreateButton {
-  @Input({ required: true}) label!: string;
-  @Output() btnClick = new EventEmitter<void>();
+  label = input.required<string>();
+  btnClick = output<void>();
 
   onClick(): void {
     this.btnClick.emit();
