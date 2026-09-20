@@ -9,7 +9,7 @@ Aktuell kann ein Workout auch in der Zukunft erfasst werden.
 Es kann mehrmals am selben Tag das exakt gleiche Workout erfasst werden. Es gibt keine Prüfung auf Gleichheit. 
 
 === Wiederverwendbare Komponenten
-Bei Erweiterung der Applikation können weitere wiederverwendbare Komponenten erstellt werden, um die Wartbarkeit zu erhöhen. 
+Bei Erweiterung der Applikation können weitere wiederverwendbare Komponenten erstellt werden, um die Wartbarkeit zu erhöhen.
 
 === Fehlerhandling
 Das Fehlerhandling ist nur auf das nötigste beschränkt und auch nicht durchgehend. Um die Userexperience zu erhöhen und eine falsche Datenhaltung zu vermeinden, müsste mehr Zeit in das Fehlerhandling investiert werden. 
@@ -21,4 +21,22 @@ Das Zusammenspiel von Workouts und Kategorien ist nicht optimal aufgebaut. Damit
 Das Löschen eines Datensatzes passiert aktuell ohne zusätzliche Nachfrage beim User.
 
 === Seitenansicht
-Für jede Komponente werden die Seitenränder in einem css definiert. Das könnte man eine Ebene höher definieren. 
+Für jede Komponente werden die Seitenränder in einem css definiert. Das könnte man eine Ebene höher definieren.
+
+=== Datum
+Die Funktionen aus `date.utils.ts` sind für realistische backend-Antworten geeignet. Falls jedoch rohe User Angaben (z.B. in einem Freitext Datumsfeld) angedacht sind, müssten die Methoden mit weiteren prüfungen erweitert werden. 
+
+=== Form Dialog Component
+Die Dialog Box für das Erstellen oder Bearbeiten von Kategorien und Workouts wird aktuell in beiden Features implementiert. Das könnte man als shared component zur Verfügung stellen. 
+
+=== Responsive Layout
+Die Navigation und der Suchbereich sind nicht optimal auf ein responsive Layout ausgelegt, jedoch für herkömmliche Desktop und Mobile Bildschirme geeignet. 
+
+=== String User Eingaben
+Die Eingaben für Strings (z.B. Name für die Kategorien) sind nicht beschränkt. Bei einer Produktiven Applikation müsste das angepasst werden. 
+
+=== Tabelle und Suchbereich
+Die Tabelle und der Suchbalken sind als eine Komponente definiert. Um die Komponenten kleiner zu halten und die Wiederverwandbarkeit zu erhöhen, müsste je eine Komponente für die Tabelle und eine für den Suchbereich erstellt werden. 
+
+=== CSS Breakpoints
+Die Breakpoints sind aktuell an mehrer Stellen identisch definiert. Das könnte global definiert und wiederverwendet werden. 

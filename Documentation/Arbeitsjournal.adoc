@@ -35,9 +35,10 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert.
     start frontend für Kategorien
 | 19.09.2026 | 2 | 
     Table in shared component auslagern -> Start und Konzept, ohne commit
-| 20.09.2026 |  | 
+| 20.09.2026 | 7 | 
+    Tabelle als shared component ausgelagert, shared components refactor, Tests geschrieben, config angepasst, Kategorien frontend, Workouts mit Kategorien erweitert, frontend Unit Tests, Dokumentation
     
 
 |===
 
-**Total Stunden**: 47
+**Total Stunden**: 54

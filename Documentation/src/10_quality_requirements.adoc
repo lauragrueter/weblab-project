@@ -3,18 +3,34 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-quality-scenarios]]
 == Qualitätsanforderungen
 
+Dieses Kapitel beschreibt die Qualitätsziele.
+
+[cols="1,2", options="header"]
+|===
+| Qualitaetsziel | Konkretisierung
+
+| Performance
+| Lighthouse-Score >= 90 (Mobile & Desktop)
+
+| Benutzbarkeit
+| Responsive fuer Mobile/Tablet/Desktop
+
+| Zuverlaessigkeit
+| Applikation wird mit Unit-, Integrations- und E2E-Tests getestet
+
+| Reproduzierbarkeit
+| `docker compose up` startet den kompletten Stack reproduzierbar
+|===
+
+=== Lighthouse-Ergebnisse
+Der Lighthouse Score wurde manuell via Chrome DevTools Lighthouse gemessen. Der Stack wurde über `docker compose up --build` gestartet. 
+
+[cols="1,2,3", options="header"]
+|===
+| Route | Mobile | Desktop
 
 
-
-
-
-=== Übersicht der Qualitätsanforderungen
-
-
-
-
-
-=== Qualitätsszenarien
+|===
 
 
 

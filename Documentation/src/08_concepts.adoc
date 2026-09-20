@@ -5,9 +5,12 @@ ifndef::imagesdir[:imagesdir: ../images]
 === Backend
 - Controller werden nicht getestet um "testing the mock, not the code" zu verhindern. 
 - Services werden mit unit Tests abgedeckt. 
+- Framework: vitest
 
 === Frontend
-TBD
+- Componente, welche Logik enthalten werden mit Unit Tests abgedeckt.
+- Services werden mit Unit Tests getestet. 
+- Framework: vitest
 
 === e2e
 - Framework: 
