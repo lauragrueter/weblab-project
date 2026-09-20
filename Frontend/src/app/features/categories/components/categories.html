@@ -1,6 +1,15 @@
-<div>
+<div class="categories-page">
   <fitLog-page-header 
     title="Kategorien" 
     subtitle="Verwalte deine Kategorien"
   ></fitLog-page-header>
+
+  <fitLog-action-toolbar>
+    <fitLog-create-button 
+      label="Kategorie erstellen"
+      (btnClick)="openCreateDialog()"
+    ></fitLog-create-button>
+  </fitLog-action-toolbar>
+
+  <category-list />
 </div>
