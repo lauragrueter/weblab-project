@@ -41,6 +41,7 @@ export class WorkoutListComponent implements OnInit {
     },
     { key: 'duration', header: 'Dauer (Min)', value: (w) => `${w.duration} min` },
     { key: 'name', header: 'Beschreibung', value: (w) => w.name },
+    { key: 'category', header: 'Kategorie', value: (w) => w.category?.name ?? '-'}
   ];
 
   workoutSearchFn = (w: Workout, term: string) => w.name.toLowerCase().includes(term);
