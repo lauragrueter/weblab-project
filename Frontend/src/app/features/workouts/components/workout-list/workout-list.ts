@@ -1,78 +1,59 @@
-import { Component, computed, inject, signal, OnInit, viewChild, effect } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule, formatDate } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatIconButton } from '@angular/material/button';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
 import { WorkoutService } from '../../services/workout.service';
 import { WorkoutFormDialogComponent } from '../workout-form-dialog/workout-form-dialog';
 import { Workout } from '../../models/workout.model';
-
+import { FitLogTable, ColumnDef } from '../../../../shared/components/table/table';
+import { parseBackendDate } from '../../../../shared/utils/date.utils';
 
 @Component({
   selector: 'workout-list',
   imports: [
     CommonModule,
     FormsModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatIconButton,
-    MatPaginatorModule
+    FitLogTable
   ],
-  templateUrl: './workout-list.html',
-  styleUrls: ['./workout-list.css'],
+  template: `
+    <fitLog-table
+      [items]="workoutService.workouts()"
+      [columns]="columns"
+      searchPlaceholder="Workouts durchsuchen"
+      [searchFn]="workoutSearchFn"
+      (edit)="editWorkout($event)"
+      (delete)="deleteWorkout($event.id)"
+    />
+  `
 })
 export class WorkoutListComponent implements OnInit {
-  private workoutService = inject(WorkoutService);
+  workoutService = inject(WorkoutService);
   private dialog = inject(MatDialog);
 
-  paginator = viewChild(MatPaginator);
-  dataSource = new MatTableDataSource<Workout>([]);
+  columns: ColumnDef<Workout>[] = [
+    {
+      key: 'date',
+      header: 'Datum',
+      value: (w) => {
+        const date = parseBackendDate(w.date);
+        return date ? formatDate(date, 'dd.MM.yyyy', 'de-CH') : '–';
+      },
+    },
+    { key: 'duration', header: 'Dauer (Min)', value: (w) => `${w.duration} min` },
+    { key: 'name', header: 'Beschreibung', value: (w) => w.name },
+  ];
 
-  displayedColumns: string[] = ['date', 'duration', 'name', 'actions'];
-  searchTerm = signal('');
-
-  filteredWorkouts = computed(() => {
-    const term = this.searchTerm().toLowerCase();
-    const allWorkouts = this.workoutService.workouts();
-
-    if (!term) return allWorkouts;
-
-    return allWorkouts.filter((w) => w.name.toLowerCase().includes(term));
-  });
-
-  private syncPaginatorEffect = effect(() => {
-    this.dataSource.data = this.filteredWorkouts();
-    const paginatorRef = this.paginator();
-    if (paginatorRef) {
-      this.dataSource.paginator = paginatorRef;
-    }
-  });
+  workoutSearchFn = (w: Workout, term: string) => w.name.toLowerCase().includes(term);
 
   ngOnInit(): void {
     this.workoutService.loadWorkouts();
   }
 
-  onSearchChange(event: Event): void {
-    const value = (event.target as HTMLInputElement).value;
-    this.searchTerm.set(value);
-  }
-
   editWorkout(workout: Workout): void {
     const dialogRef = this.dialog.open(WorkoutFormDialogComponent, {
-      width: '400px', //TODO keine fixe grösse
+      width: '400px',
       data: { workout },
     });
-
     dialogRef.afterClosed().subscribe((formData: Workout | undefined) => {
       if (formData) {
         const { id, ...dto } = formData;
