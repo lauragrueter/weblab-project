@@ -14,8 +14,7 @@ import { CategoryFormDialog } from '../category-form-dialog/category-form-dialog
   imports: [
     CommonModule,
     FormsModule,
-    FitLogTable,
-    MatDialogModule
+    FitLogTable
   ],
   template: `
     <fitLog-table
@@ -37,7 +36,7 @@ export class CategoryList implements OnInit {
     { key: 'name', header: 'Beschreibung', value: (w) => w.name },
   ];
 
-  categorySearchFn = (w: Category, term: string) => w.name.toLowerCase().includes(term);
+  categorySearchFn = (w: Category, term: string) => w.name.toLowerCase().includes(term.toLowerCase());
   
   ngOnInit(): void {
     this.categoryService.loadCategories();

@@ -44,7 +44,7 @@ export class WorkoutListComponent implements OnInit {
     { key: 'category', header: 'Kategorie', value: (w) => w.category?.name ?? '-'}
   ];
 
-  workoutSearchFn = (w: Workout, term: string) => w.name.toLowerCase().includes(term);
+  workoutSearchFn = (w: Workout, term: string) => w.name.toLowerCase().includes(term.toLowerCase());
 
   ngOnInit(): void {
     this.workoutService.loadWorkouts();
