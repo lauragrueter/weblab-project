@@ -1,5 +1,5 @@
 .workouts-page {
-  max-width: 1000px;
+  max-width: min(90%, 62.5rem);
   margin: 0 auto;
   padding: 1.5rem 1rem;
 }
@@ -27,7 +27,7 @@ fitLog-create-button {
   font-weight: 700;
   color: var(--color-text-main, #2c3e50);
   margin: 0;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.03125rem;
 }
 
 .page-subtitle {
@@ -36,7 +36,7 @@ fitLog-create-button {
   margin: 0.25rem 0 0 0;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 40rem) {
   .page-header {
     display: flex;
     flex-direction: column;

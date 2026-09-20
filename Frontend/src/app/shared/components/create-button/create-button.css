@@ -1,9 +1,9 @@
 .create-button {
-  height: 44px;
+  height: 2.75rem;
   padding: 0 1.25rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   font-weight: 500;
 }

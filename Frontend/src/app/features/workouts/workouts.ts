@@ -29,7 +29,7 @@ export class Workouts {
 
   openCreateDialog(): void {
     const dialogRef = this.dialog.open(WorkoutFormDialogComponent, {
-      width: '400px',
+      width: '25rem',
       data: {},
     });
 

@@ -34,7 +34,7 @@ import { MatIconModule } from '@angular/material/icon';
   `,
   styles: [`
     .tab-icon {
-      margin-right: 8px;
+      margin-right: 0.5rem;
     }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush,

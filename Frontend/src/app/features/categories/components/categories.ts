@@ -26,7 +26,7 @@ export class Categories {
 
   openCreateDialog(): void {
       const dialogRef = this.dialog.open(CategoryFormDialog, {
-        width: '400px',
+        width: '25rem',
         data: {},
       });
   

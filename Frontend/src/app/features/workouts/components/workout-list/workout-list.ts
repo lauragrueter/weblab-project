@@ -52,7 +52,7 @@ export class WorkoutListComponent implements OnInit {
 
   editWorkout(workout: Workout): void {
     const dialogRef = this.dialog.open(WorkoutFormDialogComponent, {
-      width: '400px',
+      width: '25rem',
       data: { workout },
     });
     dialogRef.afterClosed().subscribe((formData: Workout | undefined) => {

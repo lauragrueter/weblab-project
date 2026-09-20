@@ -45,7 +45,7 @@ export class CategoryList implements OnInit {
 
     editCategory(category: Category): void {
         const dialogRef = this.dialog.open(CategoryFormDialog, {
-          width: '400px',
+          width: '25rem',
           data: { category },
         });
         dialogRef.afterClosed().subscribe((formData: Category | undefined) => {
