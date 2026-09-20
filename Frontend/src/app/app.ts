@@ -10,9 +10,9 @@ import { NavigationItem } from './shared/components/navigation/navigation.types'
   template: `
     <app-navigation [links]="getAvailableLinks()"></app-navigation>
 
-    <div>
+    <main>
       <router-outlet></router-outlet>
-    </div>
+    </main>
   `,
 
 })

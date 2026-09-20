@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
       color="primary" 
       class="create-button" 
       (click)="onClick()"
+      [attr.aria-label]="label()"
     >
       <mat-icon>add</mat-icon>
       <span>{{ label() }}</span>
