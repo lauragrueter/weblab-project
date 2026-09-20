@@ -1,6 +1,6 @@
 = Arbeitsjournal
 
-In diesem File sind die Tätigkeiten zum Projekt dokumentiert
+In diesem File sind die Tätigkeiten zum Projekt dokumentiert.
 
 
 [cols="1,1,6"]
@@ -32,9 +32,12 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert
 | 17.09.2026 | 5 | 
     page header in Kalenderansicht, backend für categories, workouts mit categories eräganzen im backend, backend Tests, manuelles swagger testing, Dokumentation
 | 18.09.2026 | 2 | 
-    fronten für categories
-
+    start frontend für Kategorien
+| 19.09.2026 | 2 | 
+    Table in shared component auslagern -> Start und Konzept, ohne commit
+| 20.09.2026 |  | 
+    
 
 |===
 
-**Total Stunden**: 45
+**Total Stunden**: 47

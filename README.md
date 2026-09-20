@@ -1,4 +1,4 @@
-# Start
+# Start production
 ```shell
 docker compose up --build
 ```
@@ -7,7 +7,7 @@ docker compose up --build
 `http://localhost/`
 
 
-# Start lokale Entwicklung
+# Dev
 ## run DB
 in `infra`
 
@@ -45,3 +45,16 @@ fitLog Backend:
 Swagger: http://localhost:3000/api/swagger
 
 fitLog app: http://localhost:4200/
+
+## run tests
+`frontend`
+
+```bash
+ng test
+```
+
+`backend`
+```bash
+npm test
+```
+
