@@ -1,4 +1,4 @@
-import { LOCALE_ID,ApplicationConfig } from '@angular/core';
+import { LOCALE_ID, ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './core/config/routes.config';
 import { provideHttpClient } from '@angular/common/http';
@@ -16,5 +16,5 @@ export const appConfig: ApplicationConfig = {
     provideNativeDateAdapter(),
     { provide: MAT_DATE_LOCALE, useValue: 'de-CH' },
     { provide: OVERLAY_DEFAULT_CONFIG, useValue: { usePopover: false } },
-  ]
+  ],
 };

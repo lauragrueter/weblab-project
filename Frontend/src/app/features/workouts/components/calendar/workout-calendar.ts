@@ -9,17 +9,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { FitLogActionToolbar } from '../../../../shared/components/action-toolbar/action-toolbar';
 import { FitLogPageHeader } from '../../../../shared/components/page-header/page-header';
 
-
 @Component({
   selector: 'workout-calendar',
   imports: [
-    CommonModule, 
-    MatDatepickerModule, 
-    MatCardModule, 
+    CommonModule,
+    MatDatepickerModule,
+    MatCardModule,
     MatListModule,
     MatIconModule,
     FitLogActionToolbar,
-    FitLogPageHeader
+    FitLogPageHeader,
   ],
   templateUrl: './workout-calendar.html',
   styleUrl: './workout-calendar.css',
@@ -42,12 +41,10 @@ export class WorkoutCalendar {
 
   workoutsOnSelectedDate = computed(() => {
     const key = toDateKey(this.selectedDate());
-    return this.workoutService
-      .workouts()
-      .filter((w) => {
-        const parsed = parseBackendDate(w.date);
-        return parsed ? toDateKey(parsed) === key : false;
-      });
+    return this.workoutService.workouts().filter((w) => {
+      const parsed = parseBackendDate(w.date);
+      return parsed ? toDateKey(parsed) === key : false;
+    });
   });
 
   dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {

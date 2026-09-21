@@ -1,4 +1,12 @@
-import { describe, it, expect, beforeEach, afterEach, vi, type Mock } from 'vitest';
+import {
+  describe,
+  it,
+  expect,
+  beforeEach,
+  afterEach,
+  vi,
+  type Mock,
+} from 'vitest';
 import { Test, TestingModule } from '@nestjs/testing';
 import { NotFoundException } from '@nestjs/common';
 import { getRepositoryToken } from '@nestjs/typeorm';
@@ -26,20 +34,20 @@ describe('WorkoutsService', () => {
   let workoutRepository: MockedRepository<Workout>;
   let categoriesService: MockedCategoriesService;
 
-const mockCategory: Category = {
-  id: 'category-1',
-  name: 'Cardio',
-} as Category;
+  const mockCategory: Category = {
+    id: 'category-1',
+    name: 'Cardio',
+  } as Category;
 
-const mockWorkout: Workout = {
-  id: 'workout-1',
-  name: 'Morning Run',
-  date: '2024-01-01',
-  duration: 30,
-  category: mockCategory,
-  createdAt: new Date('2024-01-01T00:00:00Z'),
-  updatedAt: new Date('2024-01-01T00:00:00Z'),
-};
+  const mockWorkout: Workout = {
+    id: 'workout-1',
+    name: 'Morning Run',
+    date: '2024-01-01',
+    duration: 30,
+    category: mockCategory,
+    createdAt: new Date('2024-01-01T00:00:00Z'),
+    updatedAt: new Date('2024-01-01T00:00:00Z'),
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -112,7 +120,11 @@ const mockWorkout: Workout = {
 
   describe('create', () => {
     it('should create a workout with a valid category', async () => {
-      const dto = { name: 'Morning Run', date: new Date(), categoryId: 'category-1' };
+      const dto = {
+        name: 'Morning Run',
+        date: new Date(),
+        categoryId: 'category-1',
+      };
 
       categoriesService.findOne.mockResolvedValue(mockCategory);
       workoutRepository.create.mockReturnValue(mockWorkout);
@@ -149,7 +161,11 @@ const mockWorkout: Workout = {
     });
 
     it('should throw NotFoundException when categoryId does not exist', async () => {
-      const dto = { name: 'Morning Run', date: new Date(), categoryId: 'invalid-id' };
+      const dto = {
+        name: 'Morning Run',
+        date: new Date(),
+        categoryId: 'invalid-id',
+      };
 
       categoriesService.findOne.mockRejectedValue(
         new NotFoundException('No category found with ID invalid-id'),

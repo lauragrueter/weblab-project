@@ -22,10 +22,7 @@ describe('CategoryService', () => {
     };
 
     TestBed.configureTestingModule({
-      providers: [
-        CategoryService,
-        { provide: HttpClient, useValue: httpClient },
-      ],
+      providers: [CategoryService, { provide: HttpClient, useValue: httpClient }],
     });
 
     service = TestBed.inject(CategoryService);
@@ -38,7 +35,7 @@ describe('CategoryService', () => {
           { id: '1', name: 'Cardio' },
           { id: '2', name: 'arme' },
           { id: '3', name: 'Beine' },
-        ])
+        ]),
       );
 
       service.loadCategories();
@@ -81,7 +78,7 @@ describe('CategoryService', () => {
         of([
           { id: '1', name: 'Cardio' },
           { id: '2', name: 'Kraft' },
-        ])
+        ]),
       );
       service.loadCategories();
 
@@ -98,7 +95,7 @@ describe('CategoryService', () => {
         of([
           { id: '1', name: 'Cardio' },
           { id: '2', name: 'Kraft' },
-        ])
+        ]),
       );
       service.loadCategories();
 

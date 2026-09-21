@@ -17,9 +17,7 @@ describe('SharedTableComponent', () => {
     { id: '2', name: 'Beta' },
   ];
 
-  const columns: ColumnDef<TestItem>[] = [
-    { key: 'name', header: 'Name', value: (i) => i.name },
-  ];
+  const columns: ColumnDef<TestItem>[] = [{ key: 'name', header: 'Name', value: (i) => i.name }];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

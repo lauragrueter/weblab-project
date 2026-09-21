@@ -2,7 +2,7 @@ export interface Category {
   id: string;
   name: string;
   createdAt?: string;
-  updatedAt? : string;
+  updatedAt?: string;
 }
 
 export type CreateCategoryDto = Omit<Category, 'id' | 'createdAt'>;

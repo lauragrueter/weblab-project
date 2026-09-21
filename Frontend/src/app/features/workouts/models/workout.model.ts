@@ -1,4 +1,4 @@
-import { Category } from "../../categories/models/category.model";
+import { Category } from '../../categories/models/category.model';
 
 export interface Workout {
   id: string;
@@ -7,7 +7,7 @@ export interface Workout {
   name: string;
   category?: Category | null;
   createdAt?: string;
-  updatedAt? : string;
+  updatedAt?: string;
 }
 
 export type CreateWorkoutDto = Omit<Workout, 'id' | 'createdAt' | 'updatedAt' | 'category'> & {

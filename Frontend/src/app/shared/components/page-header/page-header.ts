@@ -10,7 +10,7 @@ import { Component, input } from '@angular/core';
       }
     </div>
   `,
-  styleUrl: './page-header.css'
+  styleUrl: './page-header.css',
 })
 export class FitLogPageHeader {
   title = input.required<string>();

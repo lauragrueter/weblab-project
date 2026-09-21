@@ -10,7 +10,16 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
 
   // DTO-validation
-  app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+      transformOptions: {
+        enableImplicitConversion: true,
+      },
+    }),
+  );
 
   // Swagger
   const config = new DocumentBuilder()
@@ -19,9 +28,8 @@ async function bootstrap() {
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('/api/swagger', app, document); 
+  SwaggerModule.setup('/api/swagger', app, document);
 
   await app.listen(3000);
-
 }
 await bootstrap();

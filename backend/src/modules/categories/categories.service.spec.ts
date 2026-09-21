@@ -1,4 +1,12 @@
-import { describe, it, expect, beforeEach, afterEach, vi, type Mock } from 'vitest';
+import {
+  describe,
+  it,
+  expect,
+  beforeEach,
+  afterEach,
+  vi,
+  type Mock,
+} from 'vitest';
 import { Test, TestingModule } from '@nestjs/testing';
 import { NotFoundException } from '@nestjs/common';
 import { getRepositoryToken } from '@nestjs/typeorm';
@@ -123,9 +131,9 @@ describe('CategoriesService', () => {
     it('should throw NotFoundException when the category to update does not exist', async () => {
       categoryRepository.findOneBy.mockResolvedValue(null);
 
-      await expect(
-        service.update('missing-id', { name: 'x' }),
-      ).rejects.toThrow(NotFoundException);
+      await expect(service.update('missing-id', { name: 'x' })).rejects.toThrow(
+        NotFoundException,
+      );
       expect(categoryRepository.merge).not.toHaveBeenCalled();
     });
   });

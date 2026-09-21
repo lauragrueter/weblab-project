@@ -14,7 +14,6 @@ import { NavigationItem } from './shared/components/navigation/navigation.types'
       <router-outlet></router-outlet>
     </main>
   `,
-
 })
 export class App {
   getAvailableLinks(): NavigationItem[] {

@@ -8,7 +8,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Category } from '../../models/category.model';
 
-
 @Component({
   selector: 'category-dialog',
   imports: [
@@ -18,13 +17,13 @@ import { Category } from '../../models/category.model';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatDatepickerModule
+    MatDatepickerModule,
   ],
   styleUrl: './category-form-dialog.css',
   templateUrl: './category-form-dialog.html',
 })
 export class CategoryFormDialog implements OnInit {
-  private fb = inject(FormBuilder)
+  private fb = inject(FormBuilder);
   private dialogRef = inject(MatDialogRef<CategoryFormDialog>);
   public data = inject<{ category?: Category }>(MAT_DIALOG_DATA);
 
@@ -37,19 +36,19 @@ export class CategoryFormDialog implements OnInit {
 
     this.categoryForm = this.fb.group({
       id: [category?.id ?? null],
-      name: [category?.name ?? '', Validators.required]
+      name: [category?.name ?? '', Validators.required],
     });
   }
 
   onSubmit(): void {
-  if (this.categoryForm.valid) {
-    const raw = this.categoryForm.value;
-    const result = {
-      ...raw,
-    };
-    this.dialogRef.close(result);
+    if (this.categoryForm.valid) {
+      const raw = this.categoryForm.value;
+      const result = {
+        ...raw,
+      };
+      this.dialogRef.close(result);
+    }
   }
-}
 
   onCancel(): void {
     this.dialogRef.close();

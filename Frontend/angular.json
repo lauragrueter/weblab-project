@@ -8,8 +8,7 @@
   "projects": {
     "fitLog": {
       "projectType": "application",
-      "schematics": {
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",

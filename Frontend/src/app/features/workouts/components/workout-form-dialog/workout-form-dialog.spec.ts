@@ -59,7 +59,7 @@ describe('WorkoutFormDialogComponent', () => {
           duration: null,
           name: '',
           categoryId: null,
-        })
+        }),
       );
     });
 
@@ -82,7 +82,7 @@ describe('WorkoutFormDialogComponent', () => {
           duration: 30,
           name: 'Running',
           categoryId: 'cat-1',
-        })
+        }),
       );
     });
   });
@@ -145,7 +145,7 @@ describe('WorkoutFormDialogComponent', () => {
       component.onSubmit();
 
       expect(dialogRef.close).toHaveBeenCalledWith(
-        expect.objectContaining({ id: '1', name: 'Updated Run' })
+        expect.objectContaining({ id: '1', name: 'Updated Run' }),
       );
     });
   });

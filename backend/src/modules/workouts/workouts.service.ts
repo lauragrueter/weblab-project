@@ -49,12 +49,17 @@ export class WorkoutsService {
     return this.findOne(savedWorkout.id);
   }
 
-  async update(id: string, updateWorkoutDto: UpdateWorkoutDto): Promise<Workout> {
+  async update(
+    id: string,
+    updateWorkoutDto: UpdateWorkoutDto,
+  ): Promise<Workout> {
     const { categoryId, ...updateData } = updateWorkoutDto;
     const workout = await this.findOne(id);
 
     const category =
-      categoryId !== undefined ? await this.resolveCategory(categoryId) : undefined;
+      categoryId !== undefined
+        ? await this.resolveCategory(categoryId)
+        : undefined;
 
     this.workoutRepository.merge(workout, {
       ...updateData,
@@ -70,7 +75,9 @@ export class WorkoutsService {
     await this.workoutRepository.remove(workout);
   }
 
-  private async resolveCategory(categoryId?: string): Promise<Category | undefined> {
+  private async resolveCategory(
+    categoryId?: string,
+  ): Promise<Category | undefined> {
     if (!categoryId) {
       return undefined;
     }

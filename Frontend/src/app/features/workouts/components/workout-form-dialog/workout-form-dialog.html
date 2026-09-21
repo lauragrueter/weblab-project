@@ -2,17 +2,16 @@
 
 <form [formGroup]="workoutForm" (ngSubmit)="onSubmit()">
   <mat-dialog-content class="dialog-content">
-    
     <mat-form-field appearance="outline">
       <mat-label>Datum</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="date">
+      <input matInput [matDatepicker]="picker" formControlName="date" />
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Dauer (Minuten)</mat-label>
-      <input matInput type="number" formControlName="duration">
+      <input matInput type="number" formControlName="duration" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -29,22 +28,17 @@
       <mat-label>Beschreibung</mat-label>
       <textarea matInput formControlName="name" rows="3"></textarea>
     </mat-form-field>
-
-    
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
-    <button 
-      mat-button type="button" 
-      aria-label="Abbrechen" 
-      (click)="onCancel()">
-      Abbrechen
-    </button>
-    <button 
-      mat-raised-button color="primary" 
-      [attr.aria-label]="isEditMode ? 'Speichern' : 'Erstellen'" 
-      type="submit" 
-      [disabled]="workoutForm.invalid">
+    <button mat-button type="button" aria-label="Abbrechen" (click)="onCancel()">Abbrechen</button>
+    <button
+      mat-raised-button
+      color="primary"
+      [attr.aria-label]="isEditMode ? 'Speichern' : 'Erstellen'"
+      type="submit"
+      [disabled]="workoutForm.invalid"
+    >
       {{ isEditMode ? 'Speichern' : 'Erstellen' }}
     </button>
   </mat-dialog-actions>

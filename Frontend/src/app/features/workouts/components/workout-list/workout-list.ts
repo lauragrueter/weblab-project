@@ -10,11 +10,7 @@ import { parseBackendDate } from '../../../../shared/utils/date.utils';
 
 @Component({
   selector: 'workout-list',
-  imports: [
-    CommonModule,
-    FormsModule,
-    FitLogTable
-  ],
+  imports: [CommonModule, FormsModule, FitLogTable],
   template: `
     <fitLog-table
       [items]="workoutService.workouts()"
@@ -24,7 +20,7 @@ import { parseBackendDate } from '../../../../shared/utils/date.utils';
       (edit)="editWorkout($event)"
       (delete)="deleteWorkout($event.id)"
     />
-  `
+  `,
 })
 export class WorkoutListComponent implements OnInit {
   workoutService = inject(WorkoutService);
@@ -41,7 +37,7 @@ export class WorkoutListComponent implements OnInit {
     },
     { key: 'duration', header: 'Dauer (Min)', value: (w) => `${w.duration} min` },
     { key: 'name', header: 'Beschreibung', value: (w) => w.name },
-    { key: 'category', header: 'Kategorie', value: (w) => w.category?.name ?? '-'}
+    { key: 'category', header: 'Kategorie', value: (w) => w.category?.name ?? '-' },
   ];
 
   workoutSearchFn = (w: Workout, term: string) => w.name.toLowerCase().includes(term.toLowerCase());

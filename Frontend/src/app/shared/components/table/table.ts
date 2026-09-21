@@ -7,7 +7,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 
-
 export interface ColumnDef<T> {
   key: string;
   header: string;
@@ -35,7 +34,7 @@ export class FitLogTable<T> {
   showSearch = input(true);
   searchPlaceholder = input('Suchen');
   searchFn = input<(item: T, term: string) => boolean>((item, term) =>
-    JSON.stringify(item).toLowerCase().includes(term.toLowerCase())
+    JSON.stringify(item).toLowerCase().includes(term.toLowerCase()),
   );
 
   enableEdit = input(true);

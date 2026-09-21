@@ -1,20 +1,19 @@
-import {NavigationItem} from '../../shared/components/navigation/navigation.types';
+import { NavigationItem } from '../../shared/components/navigation/navigation.types';
 
 export const PATHS: { [key: string]: NavigationItem } = {
   WORKOUTS: {
     path: 'home',
     label: 'Home',
-    icon: 'home'
+    icon: 'home',
   },
-    WORKOUTCALENDAR: {
-      path: 'workout-calendar',
-      label: 'Kalender',
-      icon: 'calendar_month'
+  WORKOUTCALENDAR: {
+    path: 'workout-calendar',
+    label: 'Kalender',
+    icon: 'calendar_month',
   },
-    CATEGORIES: {
-      path: 'categories',
-      label: 'Kategorien',
-      icon: 'settings'
-    }
-
-}
+  CATEGORIES: {
+    path: 'categories',
+    label: 'Kategorien',
+    icon: 'settings',
+  },
+};

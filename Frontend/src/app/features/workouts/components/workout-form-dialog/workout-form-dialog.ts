@@ -22,13 +22,13 @@ import { CategoryService } from '../../../categories/services/category.service';
     MatInputModule,
     MatButtonModule,
     MatDatepickerModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   styleUrl: './workout-form-dialog.css',
   templateUrl: './workout-form-dialog.html',
 })
 export class WorkoutFormDialogComponent implements OnInit {
-  private fb = inject(FormBuilder)
+  private fb = inject(FormBuilder);
   private dialogRef = inject(MatDialogRef<WorkoutFormDialogComponent>);
   private categoryService = inject(CategoryService);
   public data = inject<{ workout?: Workout }>(MAT_DIALOG_DATA);
@@ -51,7 +51,7 @@ export class WorkoutFormDialogComponent implements OnInit {
       date: [parseBackendDate(workout?.date) ?? new Date(), Validators.required],
       duration: [workout?.duration ?? null, [Validators.required, Validators.min(1)]],
       name: [workout?.name ?? '', Validators.required],
-      categoryId: [workout?.category?.id ?? null]
+      categoryId: [workout?.category?.id ?? null],
     });
   }
 
@@ -62,7 +62,7 @@ export class WorkoutFormDialogComponent implements OnInit {
         name: raw.name,
         duration: raw.duration,
         date: toDateKey(raw.date),
-        categoryId: raw.categoryId ?? null
+        categoryId: raw.categoryId ?? null,
       };
       this.dialogRef.close(this.isEditMode ? { id: raw.id, ...result } : result);
     }

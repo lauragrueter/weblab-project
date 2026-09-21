@@ -1,4 +1,4 @@
-import 'dotenv/config'
+import 'dotenv/config';
 import { Module } from '@nestjs/common';
 import { WorkoutsModule } from './modules/workouts/workouts.module.js';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -19,12 +19,12 @@ import { Category } from './modules/categories/entities/categories.entity.js';
       database: process.env.DB_DATABASE,
       entities: [Workout, Category],
       autoLoadEntities: true,
-      synchronize: true,
+      synchronize: true, //für dev
     }),
     WorkoutsModule,
     CategoriesModule,
-    TerminusModule
+    TerminusModule,
   ],
-  controllers: [HealthController]
+  controllers: [HealthController],
 })
 export class AppModule {}

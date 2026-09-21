@@ -14,11 +14,11 @@ import { FitLogActionToolbar } from '../../shared/components/action-toolbar/acti
   selector: 'app-workouts',
   imports: [
     MatButtonModule,
-    WorkoutListComponent, 
-    MatIconModule, 
-    FitLogCreateButton, 
-    FitLogPageHeader, 
-    FitLogActionToolbar
+    WorkoutListComponent,
+    MatIconModule,
+    FitLogCreateButton,
+    FitLogPageHeader,
+    FitLogActionToolbar,
   ],
   templateUrl: './workouts.html',
   styleUrl: './workouts.css',

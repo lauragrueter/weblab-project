@@ -7,10 +7,10 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'fitLog-create-button',
   styleUrl: './create-button.css',
   template: `
-    <button 
-      mat-raised-button 
-      color="primary" 
-      class="create-button" 
+    <button
+      mat-raised-button
+      color="primary"
+      class="create-button"
       (click)="onClick()"
       [attr.aria-label]="label()"
     >

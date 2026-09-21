@@ -75,32 +75,32 @@ describe('WorkoutListComponent', () => {
   });
 
   describe('columns', () => {
-  it('formats a valid date', () => {
-    const dateCol = component.columns.find(c => c.key === 'date')!;
-    expect(dateCol.value(mockWorkout)).toBe('15.01.2024');
+    it('formats a valid date', () => {
+      const dateCol = component.columns.find((c) => c.key === 'date')!;
+      expect(dateCol.value(mockWorkout)).toBe('15.01.2024');
+    });
+
+    it('shows "–" for an invalid or missing date', () => {
+      const dateCol = component.columns.find((c) => c.key === 'date')!;
+      expect(dateCol.value({ ...mockWorkout, date: null as any })).toBe('–');
+    });
+
+    it('shows "-" when no category is present', () => {
+      const catCol = component.columns.find((c) => c.key === 'category')!;
+      expect(catCol.value(mockWorkout)).toBe('-');
+    });
+
+    it('shows the category name when present', () => {
+      const catCol = component.columns.find((c) => c.key === 'category')!;
+      expect(catCol.value({ ...mockWorkout, category: { name: 'Cardio' } } as any)).toBe('Cardio');
+    });
   });
 
-  it('shows "–" for an invalid or missing date', () => {
-    const dateCol = component.columns.find(c => c.key === 'date')!;
-    expect(dateCol.value({ ...mockWorkout, date: null as any })).toBe('–');
+  describe('workoutSearchFn', () => {
+    it('matches case-insensitively', () => {
+      expect(component.workoutSearchFn(mockWorkout, 'run')).toBe(true);
+      expect(component.workoutSearchFn(mockWorkout, 'RUN')).toBe(true);
+      expect(component.workoutSearchFn(mockWorkout, 'swim')).toBe(false);
+    });
   });
-
-  it('shows "-" when no category is present', () => {
-    const catCol = component.columns.find(c => c.key === 'category')!;
-    expect(catCol.value(mockWorkout)).toBe('-');
-  });
-
-  it('shows the category name when present', () => {
-    const catCol = component.columns.find(c => c.key === 'category')!;
-    expect(catCol.value({ ...mockWorkout, category: { name: 'Cardio' } } as any)).toBe('Cardio');
-  });
-});
-
-describe('workoutSearchFn', () => {
-  it('matches case-insensitively', () => {
-    expect(component.workoutSearchFn(mockWorkout, 'run')).toBe(true);
-    expect(component.workoutSearchFn(mockWorkout, 'RUN')).toBe(true);
-    expect(component.workoutSearchFn(mockWorkout, 'swim')).toBe(false);
-  });
-});
 });

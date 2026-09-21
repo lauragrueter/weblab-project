@@ -29,6 +29,7 @@ Als User möchte ich für meine Kategorien spezifische Unterkategorien (z. B. Fi
 Als User möchte ich einen Fortschrittsbalken meiner definierten Ziele sehen, um mich zu motivieren.
 
 ## Abgrenzung - Won't have
+
 - Keine Benutzerverwaltung & Authentifizierung
 - Kein Social Feed und Sharing
 - Keine Auswertungen und Statistiken
@@ -44,6 +45,7 @@ Als User möchte ich einen Fortschrittsbalken meiner definierten Ziele sehen, um
 - **Tests**: Vitest (Unit/Integration), E2E TBD
 
 ## Projektanforderungen
+
 ### Funktionale Anforderungen
 
 - Die Applikation muss das Erstellen, Anzeigen, Ändern und Löschen einer selbständig definierten Resource ermöglichen.
@@ -56,7 +58,7 @@ Als User möchte ich einen Fortschrittsbalken meiner definierten Ziele sehen, um
 - Die Funktionalitäten sollen mittels sinnvoller automatisierter Unit/Integration/E2E-Tests überprüft werden.
 - Lighthouse-Score von mindestens 90 (Durchschnitt aller Analysen) für Mobile sowie Desktop.
 - Das Prod-Bundle der Applikation soll reproduzierbar gestartet werden können.
-    - Option 1: Deployed auf einer öffentlichen URL
-    - Option 2: via Docker-Compose mit einem Command (docker compose up) ausführbar
+  - Option 1: Deployed auf einer öffentlichen URL
+  - Option 2: via Docker-Compose mit einem Command (docker compose up) ausführbar
 - Code-Lesbarkeit & Erweiterbarkeit
 - Sinnvolle & durchdachte Strukturierung der gesamten Applikation

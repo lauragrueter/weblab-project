@@ -194,7 +194,9 @@ describe('WorkoutService', () => {
       httpMock.expectOne('/api/workouts').flush([workoutA]);
 
       service.updateWorkout('a', dto);
-      httpMock.expectOne('/api/workouts/a').flush('error', { status: 500, statusText: 'Server Error' });
+      httpMock
+        .expectOne('/api/workouts/a')
+        .flush('error', { status: 500, statusText: 'Server Error' });
 
       expect(service.workouts()).toEqual([workoutA]);
     });
@@ -242,7 +244,9 @@ describe('WorkoutService', () => {
       httpMock.expectOne('/api/workouts').flush([workoutA]);
 
       service.deleteWorkout('a');
-      httpMock.expectOne('/api/workouts/a').flush('error', { status: 500, statusText: 'Server Error' });
+      httpMock
+        .expectOne('/api/workouts/a')
+        .flush('error', { status: 500, statusText: 'Server Error' });
 
       expect(service.workouts()).toEqual([workoutA]);
     });

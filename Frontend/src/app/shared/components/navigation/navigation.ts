@@ -7,20 +7,15 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-navigation',
   styleUrl: 'navigation.css',
-  imports: [
-    RouterLink,
-    RouterLinkActive,
-    MatTabsModule,
-    MatIconModule
-  ],
+  imports: [RouterLink, RouterLinkActive, MatTabsModule, MatIconModule],
   template: `
     <nav mat-tab-nav-bar [tabPanel]="tabPanel" data-testid="TOP_LEVEL_NAVBAR">
       @for (linkItem of links(); track linkItem.path) {
-        <a 
-          mat-tab-link 
-          [routerLink]="linkItem.path" 
-          routerLinkActive 
-          #rla="routerLinkActive" 
+        <a
+          mat-tab-link
+          [routerLink]="linkItem.path"
+          routerLinkActive
+          #rla="routerLinkActive"
           [active]="rla.isActive"
         >
           @if (linkItem.icon) {
@@ -32,11 +27,13 @@ import { MatIconModule } from '@angular/material/icon';
     </nav>
     <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
   `,
-  styles: [`
-    .tab-icon {
-      margin-right: 0.5rem;
-    }
-  `],
+  styles: [
+    `
+      .tab-icon {
+        margin-right: 0.5rem;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Navigation {
