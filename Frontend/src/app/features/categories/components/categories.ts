@@ -16,7 +16,7 @@ import { CreateCategoryDto } from '../models/category.model';
     CategoryList,
     MatDialogModule,
   ],
-  selector: 'fitlog-list',
+  selector: 'fitlog-categories',
   styleUrl: './categories.css',
   templateUrl: './categories.html',
 })
