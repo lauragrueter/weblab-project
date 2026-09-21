@@ -12,6 +12,7 @@ import {
 import { WorkoutsService } from './workouts.service.js';
 import { CreateWorkoutDto } from './dto/create-workout.dto.js';
 import { UpdateWorkoutDto } from './dto/update-workout.dto.js';
+import { ParseUUIDPipe } from '@nestjs/common';
 
 @Controller('workouts')
 export class WorkoutsController {
@@ -23,7 +24,7 @@ export class WorkoutsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id', new ParseUUIDPipe()) id: string) {
     return this.workoutsService.findOne(id);
   }
 
@@ -33,13 +34,16 @@ export class WorkoutsController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateWorkoutDto: UpdateWorkoutDto) {
+  update(
+    @Param('id', new ParseUUIDPipe()) id: string,
+    @Body() updateWorkoutDto: UpdateWorkoutDto,
+  ) {
     return this.workoutsService.update(id, updateWorkoutDto);
   }
 
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  remove(@Param('id') id: string) {
+  remove(@Param('id', new ParseUUIDPipe()) id: string) {
     return this.workoutsService.remove(id);
   }
 }
