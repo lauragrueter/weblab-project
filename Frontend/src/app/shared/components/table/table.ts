@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 
 export interface ColumnDef<T> {
@@ -23,6 +24,7 @@ export interface ColumnDef<T> {
     MatIconModule,
     MatButtonModule,
     MatPaginatorModule,
+    MatProgressBarModule,
   ],
   templateUrl: './table.html',
   styleUrls: ['./table.css'],
@@ -39,6 +41,7 @@ export class FitLogTable<T> {
 
   enableEdit = input(true);
   enableDelete = input(true);
+  loading = input(false);
 
   pageSize = input(10);
   pageSizeOptions = input([5, 10, 25, 100]);

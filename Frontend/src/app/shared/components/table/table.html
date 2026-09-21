@@ -1,4 +1,8 @@
 <div class="fitLog-table-container">
+  @if (loading()) {
+    <mat-progress-bar mode="indeterminate" aria-label="Lädt Daten"></mat-progress-bar>
+  }
+
   @if (showSearch()) {
     <mat-form-field appearance="outline" class="search-field">
       <mat-label>{{ searchPlaceholder() }}</mat-label>
@@ -20,22 +24,20 @@
         <th mat-header-cell *matHeaderCellDef>Aktionen</th>
         <td mat-cell *matCellDef="let item">
           @if (enableEdit()) {
-            <button
-              mat-icon-button
-              color="primary"
-              [attr.aria-label]="item.name ? 'Bearbeiten: ' + item.name : 'Bearbeiten'"
-              (click)="edit.emit(item)"
-            >
+            <button 
+              mat-icon-button 
+              color="primary" 
+              [attr.aria-label]="item.name ? 'Bearbeiten: ' + item.name : 'Bearbeiten'" 
+              (click)="edit.emit(item)">
               <mat-icon>edit</mat-icon>
             </button>
           }
           @if (enableDelete()) {
-            <button
-              mat-icon-button
-              color="warn"
-              [attr.aria-label]="item.name ? 'Löschen: ' + item.name : 'Löschen'"
-              (click)="delete.emit(item)"
-            >
+            <button 
+              mat-icon-button 
+              color="warn" 
+              [attr.aria-label]="item.name ? 'Löschen: ' + item.name : 'Löschen'" 
+              (click)="delete.emit(item)">
               <mat-icon>delete</mat-icon>
             </button>
           }
@@ -53,9 +55,5 @@
     </tr>
   </table>
 
-  <mat-paginator
-    [pageSize]="pageSize()"
-    [pageSizeOptions]="pageSizeOptions()"
-    showFirstLastButtons
-  ></mat-paginator>
+  <mat-paginator [pageSize]="pageSize()" [pageSizeOptions]="pageSizeOptions()" showFirstLastButtons></mat-paginator>
 </div>

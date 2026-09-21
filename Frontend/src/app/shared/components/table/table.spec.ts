@@ -70,4 +70,18 @@ describe('SharedTableComponent', () => {
     expect(component.displayedColumns()).toEqual(['name']);
     expect(fixture.debugElement.query(By.css('button[color="warn"]'))).toBeNull();
   });
+
+  it('shows a progress bar while loading', () => {
+    fixture.componentRef.setInput('loading', true);
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.query(By.css('mat-progress-bar'))).not.toBeNull();
+  });
+
+  it('hides the progress bar when not loading', () => {
+    fixture.componentRef.setInput('loading', false);
+    fixture.detectChanges();
+
+    expect(fixture.debugElement.query(By.css('mat-progress-bar'))).toBeNull();
+  });
 });

@@ -11,6 +11,7 @@ describe('WorkoutListComponent', () => {
   let component: WorkoutListComponent;
   let workoutService: {
     workouts: ReturnType<typeof signal>;
+    isLoading: ReturnType<typeof signal>;
     loadWorkouts: ReturnType<typeof vi.fn>;
     updateWorkout: ReturnType<typeof vi.fn>;
     deleteWorkout: ReturnType<typeof vi.fn>;
@@ -22,6 +23,7 @@ describe('WorkoutListComponent', () => {
   beforeEach(async () => {
     workoutService = {
       workouts: signal([mockWorkout]),
+      isLoading: signal(false),
       loadWorkouts: vi.fn(),
       updateWorkout: vi.fn(),
       deleteWorkout: vi.fn(),

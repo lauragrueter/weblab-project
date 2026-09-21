@@ -8,47 +8,55 @@ import { ColumnDef } from '../../../../shared/components/table/table';
 import { Category } from '../../models/category.model';
 import { CategoryFormDialog } from '../category-form-dialog/category-form-dialog';
 
+
 @Component({
   selector: 'category-list',
-  imports: [CommonModule, FormsModule, FitLogTable],
+  imports: [
+    CommonModule,
+    FormsModule,
+    FitLogTable
+  ],
   template: `
     <fitLog-table
       [items]="categoryService.categories()"
       [columns]="columns"
+      [loading]="categoryService.isLoading()"
       searchPlaceholder="Kategorien durchsuchen"
       [searchFn]="categorySearchFn"
       (edit)="editCategory($event)"
       (delete)="deleteCategory($event.id)"
-    />
-  `,
+  />
+`
 })
+  
 export class CategoryList implements OnInit {
   categoryService = inject(CategoryService);
   private dialog = inject(MatDialog);
 
-  columns: ColumnDef<Category>[] = [{ key: 'name', header: 'Beschreibung', value: (w) => w.name }];
+  columns: ColumnDef<Category>[] = [
+    { key: 'name', header: 'Beschreibung', value: (w) => w.name },
+  ];
 
-  categorySearchFn = (w: Category, term: string) =>
-    w.name.toLowerCase().includes(term.toLowerCase());
-
+  categorySearchFn = (w: Category, term: string) => w.name.toLowerCase().includes(term.toLowerCase());
+  
   ngOnInit(): void {
     this.categoryService.loadCategories();
   }
 
-  editCategory(category: Category): void {
-    const dialogRef = this.dialog.open(CategoryFormDialog, {
-      width: '25rem',
-      data: { category },
-    });
-    dialogRef.afterClosed().subscribe((formData: Category | undefined) => {
-      if (formData) {
-        const { id, ...dto } = formData;
-        this.categoryService.updateCategory(category.id, dto);
+    editCategory(category: Category): void {
+        const dialogRef = this.dialog.open(CategoryFormDialog, {
+          width: '25rem',
+          data: { category },
+        });
+        dialogRef.afterClosed().subscribe((formData: Category | undefined) => {
+          if (formData) {
+            const { id, ...dto } = formData;
+            this.categoryService.updateCategory(category.id, dto);
+          }
+        });
       }
-    });
-  }
-
-  deleteCategory(id: string): void {
-    this.categoryService.deleteCategory(id);
-  }
-}
+    
+      deleteCategory(id: string): void {
+        this.categoryService.deleteCategory(id);
+      }
+    }

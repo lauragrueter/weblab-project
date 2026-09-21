@@ -15,6 +15,7 @@ import { parseBackendDate } from '../../../../shared/utils/date.utils';
     <fitLog-table
       [items]="workoutService.workouts()"
       [columns]="columns"
+      [loading]="workoutService.isLoading()"
       searchPlaceholder="Workouts durchsuchen"
       [searchFn]="workoutSearchFn"
       (edit)="editWorkout($event)"

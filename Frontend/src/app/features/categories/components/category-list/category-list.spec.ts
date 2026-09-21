@@ -11,6 +11,7 @@ describe('CategoryList', () => {
   let component: CategoryList;
   let categoryService: {
     categories: ReturnType<typeof signal>;
+    isLoading: ReturnType<typeof signal>;
     loadCategories: ReturnType<typeof vi.fn>;
     updateCategory: ReturnType<typeof vi.fn>;
     deleteCategory: ReturnType<typeof vi.fn>;
@@ -22,6 +23,7 @@ describe('CategoryList', () => {
   beforeEach(() => {
     categoryService = {
       categories: signal([mockCategory]),
+      isLoading: signal(false),
       loadCategories: vi.fn(),
       updateCategory: vi.fn(),
       deleteCategory: vi.fn(),
