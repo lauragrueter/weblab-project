@@ -36,7 +36,7 @@ Im folgendem Kapitel werden die Architekturentscheidungen begründet. Diese sind
 **Begründung**: 
 
 - Verbreitung: grosse Community und somit viele Informationen frei zugänglich
-- Relationales Datenmodell: fitLog Daten sind strukturiert und gut geeignet für ein relationales Modell
+- Relationales Datenmodell: fitlog Daten sind strukturiert und gut geeignet für ein relationales Modell
 
 **Konsequenz**:
 
@@ -164,3 +164,16 @@ TBD
 
 - refactoring des alten Codes
 - Toolbar kann wiederverwendet werden
+
+=== Generische Tabelle `FitLogTable`
+**Entscheid**: Tabelle wird als eigene generische Komponente zur Verfügung gestellt. 
+
+**Begründung**: 
+
+- Wiederverwendbarkeit
+
+**Konsequenz**:
+
+- Tabelle kann auch mit optionalen Buttons wiederverwendet werden
+
+

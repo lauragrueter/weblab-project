@@ -8,7 +8,7 @@ import { NavigationItem } from './shared/components/navigation/navigation.types'
   imports: [RouterOutlet, Navigation],
   selector: 'app-root',
   template: `
-    <app-navigation [links]="getAvailableLinks()"></app-navigation>
+    <fitlog-navigation [links]="getAvailableLinks()"></fitlog-navigation>
 
     <main>
       <router-outlet></router-outlet>

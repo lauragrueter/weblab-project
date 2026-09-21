@@ -14,9 +14,9 @@ import { CreateCategoryDto } from '../models/category.model';
     FitLogActionToolbar,
     FitLogCreateButton,
     CategoryList,
-    MatDialogModule
+    MatDialogModule,
   ],
-  selector: 'categories',
+  selector: 'fitlog-list',
   styleUrl: './categories.css',
   templateUrl: './categories.html',
 })
@@ -25,15 +25,15 @@ export class Categories {
   private dialog = inject(MatDialog);
 
   openCreateDialog(): void {
-      const dialogRef = this.dialog.open(CategoryFormDialog, {
-        width: '25rem',
-        data: {},
-      });
-  
-      dialogRef.afterClosed().subscribe((formData: CreateCategoryDto | undefined) => {
-        if (formData) {
-          this.categoryService.createCategory(formData);
-        }
-      });
-    }
+    const dialogRef = this.dialog.open(CategoryFormDialog, {
+      width: '25rem',
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe((formData: CreateCategoryDto | undefined) => {
+      if (formData) {
+        this.categoryService.createCategory(formData);
+      }
+    });
   }
+}

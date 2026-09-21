@@ -1,6 +1,6 @@
-# Projektvorschlag - fitLog
+# Projektvorschlag - fitlog
 
-Mit fitLog können Trainingseinheiten getrackt werden. Die Applikation soll einem dabei unterstützen, seine Trainingsziele zu erreichen und in einer strukturierten Darstellung die Übersicht zu behalten.
+Mit fitlog können Trainingseinheiten getrackt werden. Die Applikation soll einem dabei unterstützen, seine Trainingsziele zu erreichen und in einer strukturierten Darstellung die Übersicht zu behalten.
 
 ## User Stories
 

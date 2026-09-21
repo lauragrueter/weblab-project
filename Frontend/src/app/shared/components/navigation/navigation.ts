@@ -5,7 +5,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-navigation',
+  selector: 'fitlog-navigation',
   styleUrl: 'navigation.css',
   imports: [RouterLink, RouterLinkActive, MatTabsModule, MatIconModule],
   template: `

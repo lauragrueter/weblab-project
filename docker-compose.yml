@@ -17,7 +17,7 @@ services:
       retries: 20
 
   backend:
-    container_name: fitLog-backend
+    container_name: fitlog-backend
     build:
       context: ./backend
     restart: unless-stopped
@@ -39,7 +39,7 @@ services:
       retries: 20
 
   frontend:
-    container_name: fitLog-frontend
+    container_name: fitlog-frontend
     build:
       context: ./frontend
     restart: unless-stopped

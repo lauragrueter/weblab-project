@@ -3,16 +3,16 @@ import { CommonModule, formatDate } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { WorkoutService } from '../../services/workout.service';
-import { WorkoutFormDialogComponent } from '../workout-form-dialog/workout-form-dialog';
+import { WorkoutFormDialog } from '../workout-form-dialog/workout-form-dialog';
 import { Workout } from '../../models/workout.model';
 import { FitLogTable, ColumnDef } from '../../../../shared/components/table/table';
 import { parseBackendDate } from '../../../../shared/utils/date.utils';
 
 @Component({
-  selector: 'workout-list',
+  selector: 'fitlog-workout-list',
   imports: [CommonModule, FormsModule, FitLogTable],
   template: `
-    <fitLog-table
+    <fitlog-table
       [items]="workoutService.workouts()"
       [columns]="columns"
       [loading]="workoutService.isLoading()"
@@ -23,7 +23,7 @@ import { parseBackendDate } from '../../../../shared/utils/date.utils';
     />
   `,
 })
-export class WorkoutListComponent implements OnInit {
+export class WorkoutList implements OnInit {
   workoutService = inject(WorkoutService);
   private dialog = inject(MatDialog);
 
@@ -48,7 +48,7 @@ export class WorkoutListComponent implements OnInit {
   }
 
   editWorkout(workout: Workout): void {
-    const dialogRef = this.dialog.open(WorkoutFormDialogComponent, {
+    const dialogRef = this.dialog.open(WorkoutFormDialog, {
       width: '25rem',
       data: { workout },
     });

@@ -44,14 +44,14 @@ ng serve
 
 ## URL
 
-fitLog Backend:
+fitlog Backend:
 
 - http://localhost:3000/api/categories
 - http://localhost:3000/api/workouts
 
 Swagger: http://localhost:3000/api/swagger
 
-fitLog app: http://localhost:4200/
+fitlog app: http://localhost:4200/
 
 ## run tests
 

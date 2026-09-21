@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   imports: [MatButtonModule, MatIconModule],
-  selector: 'fitLog-create-button',
+  selector: 'fitlog-create-button',
   styleUrl: './create-button.css',
   template: `
     <button

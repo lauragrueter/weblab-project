@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 
 @Component({
-  selector: 'fitLog-page-header',
+  selector: 'fitlog-page-header',
   template: `
     <div class="page-header">
       <h1 class="page-title">{{ title() }}</h1>

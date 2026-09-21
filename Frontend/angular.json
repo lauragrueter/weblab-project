@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "fitLog": {
+    "fitlog": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -57,10 +57,10 @@
           },
           "configurations": {
             "production": {
-              "buildTarget": "fitLog:build:production"
+              "buildTarget": "fitlog:build:production"
             },
             "development": {
-              "buildTarget": "fitLog:build:development"
+              "buildTarget": "fitlog:build:development"
             }
           },
           "defaultConfiguration": "development"

@@ -20,7 +20,7 @@ async function bootstrap() {
 
   // Swagger
   const config = new DocumentBuilder()
-    .setTitle('fitLog API')
+    .setTitle('fitlog API')
     .setDescription('API-Documentation with Swagger')
     .setVersion('1.0')
     .build();

@@ -10,7 +10,7 @@ import { FitLogActionToolbar } from '../../../../shared/components/action-toolba
 import { FitLogPageHeader } from '../../../../shared/components/page-header/page-header';
 
 @Component({
-  selector: 'workout-calendar',
+  selector: 'fitlog-workout-calendar',
   imports: [
     CommonModule,
     MatDatepickerModule,

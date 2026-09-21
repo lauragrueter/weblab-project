@@ -8,8 +8,8 @@
   align-items: start;
 }
 
-fitLog-page-header,
-fitLog-action-toolbar {
+fitlog-page-header,
+fitlog-action-toolbar {
   grid-column: 1 / -1;
 }
 

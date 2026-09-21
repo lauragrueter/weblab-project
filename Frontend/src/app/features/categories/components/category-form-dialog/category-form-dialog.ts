@@ -9,7 +9,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Category, CreateCategoryDto, UpdateCategoryDto } from '../../models/category.model';
 
 @Component({
-  selector: 'category-dialog',
+  selector: 'fitlog-category-form-dialog',
   imports: [
     CommonModule,
     ReactiveFormsModule,

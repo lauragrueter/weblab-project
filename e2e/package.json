@@ -1,7 +1,7 @@
 {
   "name": "e2e",
   "version": "1.0.0",
-  "description": "e2e cypress test für fitLog",
+  "description": "e2e cypress test für fitlog",
   "author": "Laura Grüter",
   "type": "module",
   "main": "index.js",

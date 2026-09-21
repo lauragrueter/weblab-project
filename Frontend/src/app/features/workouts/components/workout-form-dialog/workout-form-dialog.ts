@@ -13,7 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { CategoryService } from '../../../categories/services/category.service';
 
 @Component({
-  selector: 'workout-dialog',
+  selector: 'fitlog-workout-form-dialog',
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -27,9 +27,9 @@ import { CategoryService } from '../../../categories/services/category.service';
   styleUrl: './workout-form-dialog.css',
   templateUrl: './workout-form-dialog.html',
 })
-export class WorkoutFormDialogComponent implements OnInit {
+export class WorkoutFormDialog implements OnInit {
   private fb = inject(FormBuilder);
-  private dialogRef = inject(MatDialogRef<WorkoutFormDialogComponent>);
+  private dialogRef = inject(MatDialogRef<WorkoutFormDialog>);
   private categoryService = inject(CategoryService);
   public data = inject<{ workout?: Workout }>(MAT_DIALOG_DATA);
 

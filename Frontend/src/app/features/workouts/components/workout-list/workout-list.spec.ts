@@ -3,12 +3,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialog } from '@angular/material/dialog';
 import { of } from 'rxjs';
 import { signal } from '@angular/core';
-import { WorkoutListComponent } from './workout-list';
+import { WorkoutList } from './workout-list';
 import { WorkoutService } from '../../services/workout.service';
 
 describe('WorkoutListComponent', () => {
-  let fixture: ComponentFixture<WorkoutListComponent>;
-  let component: WorkoutListComponent;
+  let fixture: ComponentFixture<WorkoutList>;
+  let component: WorkoutList;
   let workoutService: {
     workouts: ReturnType<typeof signal>;
     isLoading: ReturnType<typeof signal>;
@@ -31,14 +31,14 @@ describe('WorkoutListComponent', () => {
     dialog = { open: vi.fn() };
 
     await TestBed.configureTestingModule({
-      imports: [WorkoutListComponent],
+      imports: [WorkoutList],
       providers: [
         { provide: WorkoutService, useValue: workoutService },
         { provide: MatDialog, useValue: dialog },
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(WorkoutListComponent);
+    fixture = TestBed.createComponent(WorkoutList);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

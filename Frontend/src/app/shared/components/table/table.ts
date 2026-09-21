@@ -15,7 +15,7 @@ export interface ColumnDef<T> {
 }
 
 @Component({
-  selector: 'fitLog-table',
+  selector: 'fitlog-table',
   imports: [
     CommonModule,
     MatTableModule,

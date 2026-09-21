@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   imports: [],
-  selector: 'fitLog-action-toolbar',
+  selector: 'fitlog-action-toolbar',
   styleUrl: './action-toolbar.css',
   template: `
     <div class="action-toolbar">

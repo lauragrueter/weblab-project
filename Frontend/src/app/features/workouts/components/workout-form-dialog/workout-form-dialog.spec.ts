@@ -3,12 +3,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { signal } from '@angular/core';
-import { WorkoutFormDialogComponent } from './workout-form-dialog';
+import { WorkoutFormDialog } from './workout-form-dialog';
 import { CategoryService } from '../../../categories/services/category.service';
 
 describe('WorkoutFormDialogComponent', () => {
-  let fixture: ComponentFixture<WorkoutFormDialogComponent>;
-  let component: WorkoutFormDialogComponent;
+  let fixture: ComponentFixture<WorkoutFormDialog>;
+  let component: WorkoutFormDialog;
   let dialogRef: { close: ReturnType<typeof vi.fn> };
   let categoryService: {
     categories: ReturnType<typeof signal>;
@@ -31,7 +31,7 @@ describe('WorkoutFormDialogComponent', () => {
     };
 
     TestBed.configureTestingModule({
-      imports: [WorkoutFormDialogComponent],
+      imports: [WorkoutFormDialog],
       providers: [
         provideNativeDateAdapter(),
         { provide: MatDialogRef, useValue: dialogRef },
@@ -40,7 +40,7 @@ describe('WorkoutFormDialogComponent', () => {
       ],
     });
 
-    fixture = TestBed.createComponent(WorkoutFormDialogComponent);
+    fixture = TestBed.createComponent(WorkoutFormDialog);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }
@@ -96,7 +96,7 @@ describe('WorkoutFormDialogComponent', () => {
       dialogRef = { close: vi.fn() };
 
       TestBed.configureTestingModule({
-        imports: [WorkoutFormDialogComponent],
+        imports: [WorkoutFormDialog],
         providers: [
           provideNativeDateAdapter(),
           { provide: MatDialogRef, useValue: dialogRef },
@@ -105,7 +105,7 @@ describe('WorkoutFormDialogComponent', () => {
         ],
       });
 
-      fixture = TestBed.createComponent(WorkoutFormDialogComponent);
+      fixture = TestBed.createComponent(WorkoutFormDialog);
       fixture.detectChanges();
 
       expect(categoryService.loadCategories).not.toHaveBeenCalled();
