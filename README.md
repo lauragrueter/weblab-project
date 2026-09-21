@@ -66,3 +66,15 @@ ng test
 ```bash
 npm test
 ```
+
+## run e2e Tests
+Terminal
+```bash
+npm run e2e
+```
+
+interaktiver Cypress-Runner
+```bash
+npm run cypress:open
+```
+

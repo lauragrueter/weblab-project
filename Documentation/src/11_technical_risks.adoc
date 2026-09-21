@@ -42,3 +42,6 @@ Die Tabelle und der Suchbalken sind als eine Komponente definiert. Um die Kompon
 
 === CSS-Breakpoints
 Die Breakpoints sind aktuell an mehreren Stellen identisch definiert. Das könnte global definiert und wiederverwendet werden.
+
+=== Inline Template
+Um neue Erfahrung zu sammeln wurde entschieden, dass kleiner Komponente inline Template verwenden. Bei grösseren Komponenten wurde noch auf das bekannte splitten in drei Dateien gesetzt. Für ein Studiumsprojekt ist das so in Ordnung, für einen produktiven Code müsste man das aber sicher vereinheitlichen. 
