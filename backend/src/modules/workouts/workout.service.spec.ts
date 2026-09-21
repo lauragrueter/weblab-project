@@ -10,7 +10,6 @@ import {
 import { Test, TestingModule } from '@nestjs/testing';
 import { NotFoundException } from '@nestjs/common';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { WorkoutsService } from './workouts.service.js';
 import { Workout } from './entities/workout.entity.js';
 import { CategoriesService } from '../categories/categories.service.js';

@@ -1,22 +1,29 @@
-// workout.service.spec.ts
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { WorkoutService } from './workout.service';
 import { Workout, CreateWorkoutDto, UpdateWorkoutDto } from '../models/workout.model';
 
 describe('WorkoutService', () => {
   let service: WorkoutService;
   let httpMock: HttpTestingController;
+  let snackBar: { open: ReturnType<typeof vi.fn> };
 
   const workoutA: Workout = { id: 'a', name: 'running', duration: 30, date: '2024-01-10' };
   const workoutB: Workout = { id: 'b', name: 'swimming', duration: 45, date: '2024-03-05' };
   const workoutC: Workout = { id: 'c', name: 'hiking', duration: 60, date: '2024-02-15' };
 
   beforeEach(() => {
+    snackBar = { open: vi.fn() };
+
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: MatSnackBar, useValue: snackBar },
+      ],
     });
 
     service = TestBed.inject(WorkoutService);
@@ -103,6 +110,14 @@ describe('WorkoutService', () => {
       req.flush('error', { status: 500, statusText: 'Server Error' });
 
       expect(console.error).toHaveBeenCalledOnce();
+    });
+
+    it('shows a snack bar message when the request fails', () => {
+      service.loadWorkouts();
+      const req = httpMock.expectOne('/api/workouts');
+      req.flush('error', { status: 500, statusText: 'Server Error' });
+
+      expect(snackBar.open).toHaveBeenCalledOnce();
     });
   });
 

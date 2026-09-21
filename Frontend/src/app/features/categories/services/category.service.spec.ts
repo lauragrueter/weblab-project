@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { TestBed } from '@angular/core/testing';
 import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { of, throwError } from 'rxjs';
 import { CategoryService } from './category.service';
 
@@ -12,6 +13,7 @@ describe('CategoryService', () => {
     put: ReturnType<typeof vi.fn>;
     delete: ReturnType<typeof vi.fn>;
   };
+  let snackBar: { open: ReturnType<typeof vi.fn> };
 
   beforeEach(() => {
     httpClient = {
@@ -20,9 +22,14 @@ describe('CategoryService', () => {
       put: vi.fn(),
       delete: vi.fn(),
     };
+    snackBar = { open: vi.fn() };
 
     TestBed.configureTestingModule({
-      providers: [CategoryService, { provide: HttpClient, useValue: httpClient }],
+      providers: [
+        CategoryService,
+        { provide: HttpClient, useValue: httpClient },
+        { provide: MatSnackBar, useValue: snackBar },
+      ],
     });
 
     service = TestBed.inject(CategoryService);
@@ -57,6 +64,14 @@ describe('CategoryService', () => {
       expect(() => service.loadCategories()).not.toThrow();
       expect(service.isLoading()).toBe(false);
       expect(service.categories()).toEqual([]);
+    });
+
+    it('shows a snack bar message on error', () => {
+      httpClient.get.mockReturnValue(throwError(() => new Error('network error')));
+
+      service.loadCategories();
+
+      expect(snackBar.open).toHaveBeenCalledOnce();
     });
   });
 

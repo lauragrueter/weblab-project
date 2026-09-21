@@ -1,5 +1,6 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Workout, CreateWorkoutDto, UpdateWorkoutDto } from '../models/workout.model';
 
 @Injectable({
@@ -7,6 +8,7 @@ import { Workout, CreateWorkoutDto, UpdateWorkoutDto } from '../models/workout.m
 })
 export class WorkoutService {
   private http = inject(HttpClient);
+  private snackBar = inject(MatSnackBar);
   private apiUrl = `/api/workouts`;
 
   #workouts = signal<Workout[]>([]);
@@ -24,6 +26,11 @@ export class WorkoutService {
     return [...workouts].sort((a, b) => b.date.localeCompare(a.date));
   }
 
+  private notifyError(message: string, err: unknown): void {
+    console.error(message, err);
+    this.snackBar.open(message, 'OK', { duration: 4000 });
+  }
+
   loadWorkouts(): void {
     this.#isLoading.set(true);
     this.http.get<Workout[]>(this.apiUrl).subscribe({
@@ -32,7 +39,7 @@ export class WorkoutService {
         this.#isLoading.set(false);
       },
       error: (err) => {
-        console.error('Fehler beim Laden der Workouts:', err);
+        this.notifyError('Fehler beim Laden der Workouts.', err);
         this.#isLoading.set(false);
       },
     });
@@ -43,7 +50,7 @@ export class WorkoutService {
       next: (newWorkout) => {
         this.#workouts.update((list) => this.sortByDate([newWorkout, ...list]));
       },
-      error: (err) => console.error('Fehler beim Erstellen:', err),
+      error: (err) => this.notifyError('Fehler beim Erstellen des Workouts.', err),
     });
   }
 
@@ -54,7 +61,7 @@ export class WorkoutService {
           this.sortByDate(list.map((w) => (w.id === id ? updated : w))),
         );
       },
-      error: (err) => console.error('Fehler beim Aktualisieren:', err),
+      error: (err) => this.notifyError('Fehler beim Aktualisieren des Workouts.', err),
     });
   }
 
@@ -63,7 +70,7 @@ export class WorkoutService {
       next: () => {
         this.#workouts.update((list) => list.filter((w) => w.id !== id));
       },
-      error: (err) => console.error('Fehler beim Löschen:', err),
+      error: (err) => this.notifyError('Fehler beim Löschen des Workouts.', err),
     });
   }
 }

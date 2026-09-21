@@ -1,5 +1,6 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Category, CreateCategoryDto, UpdateCategoryDto } from '../models/category.model';
 
 @Injectable({
@@ -7,6 +8,7 @@ import { Category, CreateCategoryDto, UpdateCategoryDto } from '../models/catego
 })
 export class CategoryService {
   private http = inject(HttpClient);
+  private snackBar = inject(MatSnackBar);
   private apiUrl = `/api/categories`;
 
   #categories = signal<Category[]>([]);
@@ -23,6 +25,11 @@ export class CategoryService {
     );
   }
 
+  private notifyError(message: string, err: unknown): void {
+    console.error(message, err);
+    this.snackBar.open(message, 'OK', { duration: 4000 });
+  }
+
   loadCategories(): void {
     this.#isLoading.set(true);
     this.http.get<Category[]>(this.apiUrl).subscribe({
@@ -31,7 +38,7 @@ export class CategoryService {
         this.#isLoading.set(false);
       },
       error: (err) => {
-        console.error('Fehler beim Laden der Kategorien:', err);
+        this.notifyError('Fehler beim Laden der Kategorien.', err);
         this.#isLoading.set(false);
       },
     });
@@ -42,7 +49,7 @@ export class CategoryService {
       next: (newCategory) => {
         this.#categories.update((list) => this.sortByName([newCategory, ...list]));
       },
-      error: (err) => console.error('Fehler beim Erstellen:', err),
+      error: (err) => this.notifyError('Fehler beim Erstellen der Kategorie.', err),
     });
   }
 
@@ -53,7 +60,7 @@ export class CategoryService {
           this.sortByName(list.map((c) => (c.id === id ? updated : c))),
         );
       },
-      error: (err) => console.error('Fehler beim Aktualisieren:', err),
+      error: (err) => this.notifyError('Fehler beim Aktualisieren der Kategorie.', err),
     });
   }
 
@@ -62,7 +69,7 @@ export class CategoryService {
       next: () => {
         this.#categories.update((list) => list.filter((c) => c.id !== id));
       },
-      error: (err) => console.error('Fehler beim Löschen:', err),
+      error: (err) => this.notifyError('Fehler beim Löschen der Kategorie.', err),
     });
   }
 }
