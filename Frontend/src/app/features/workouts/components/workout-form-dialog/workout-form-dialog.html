@@ -1,42 +1,43 @@
 <h2 mat-dialog-title>{{ isEditMode ? 'Workout bearbeiten' : 'Neues Workout' }}</h2>
 
-<form [formGroup]="workoutForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="workoutForm" (ngSubmit)="onSubmit()" data-test-id="workout-form">
   <mat-dialog-content class="dialog-content">
     <mat-form-field appearance="outline">
       <mat-label>Datum</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="date" />
+      <input matInput [matDatepicker]="picker" formControlName="date" data-test-id="workout-date-input" />
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Dauer (Minuten)</mat-label>
-      <input matInput type="number" formControlName="duration" />
+      <input matInput type="number" formControlName="duration" data-test-id="workout-duration-input" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Kategorie</mat-label>
-      <mat-select formControlName="categoryId">
+      <mat-select formControlName="categoryId" data-test-id="workout-category-select">
         <mat-option [value]="null">Keine Kategorie</mat-option>
         @for (category of categories(); track category.id) {
-          <mat-option [value]="category.id">{{ category.name }}</mat-option>
+          <mat-option [value]="category.id" [attr.data-test-id]="'category-option-' + category.id">{{ category.name }}</mat-option>
         }
       </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Beschreibung</mat-label>
-      <textarea matInput formControlName="name" rows="3"></textarea>
+      <textarea matInput formControlName="name" rows="3" data-test-id="workout-name-input"></textarea>
     </mat-form-field>
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
-    <button mat-button type="button" aria-label="Abbrechen" (click)="onCancel()">Abbrechen</button>
+    <button mat-button type="button" aria-label="Abbrechen" data-test-id="workout-cancel" (click)="onCancel()">Abbrechen</button>
     <button
       mat-raised-button
       color="primary"
       [attr.aria-label]="isEditMode ? 'Speichern' : 'Erstellen'"
       type="submit"
+      data-test-id="workout-submit"
       [disabled]="workoutForm.invalid"
     >
       {{ isEditMode ? 'Speichern' : 'Erstellen' }}

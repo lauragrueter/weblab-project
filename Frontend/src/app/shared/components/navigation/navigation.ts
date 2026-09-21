@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
           routerLinkActive
           #rla="routerLinkActive"
           [active]="rla.isActive"
+          [attr.data-test-id]="'nav-' + linkItem.path"
         >
           @if (linkItem.icon) {
             <mat-icon class="tab-icon">{{ linkItem.icon }}</mat-icon>

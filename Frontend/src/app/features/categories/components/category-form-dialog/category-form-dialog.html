@@ -1,21 +1,22 @@
 <h2 mat-dialog-title>{{ isEditMode ? 'Kategorie bearbeiten' : 'Neue Kategorie' }}</h2>
 
-<form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" data-test-id="category-form">
   <mat-dialog-content class="dialog-content">
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
-      <textarea matInput formControlName="name" rows="3"></textarea>
+      <textarea matInput formControlName="name" rows="3" data-test-id="category-name-input"></textarea>
     </mat-form-field>
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
-    <button mat-button type="button" aria-label="Abbrechen" (click)="onCancel()">Abbrechen</button>
+    <button mat-button type="button" aria-label="Abbrechen" data-test-id="category-cancel" (click)="onCancel()">Abbrechen</button>
 
     <button
       mat-raised-button
       color="primary"
       type="submit"
       [attr.aria-label]="isEditMode ? 'Speichern' : 'Erstellen'"
+      data-test-id="category-submit"
       [disabled]="categoryForm.invalid"
     >
       {{ isEditMode ? 'Speichern' : 'Erstellen' }}

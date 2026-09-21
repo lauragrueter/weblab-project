@@ -4,9 +4,9 @@
   }
 
   @if (showSearch()) {
-    <mat-form-field appearance="outline" class="search-field">
+    <mat-form-field appearance="outline" class="search-field" data-test-id="search">
       <mat-label>{{ searchPlaceholder() }}</mat-label>
-      <input matInput [value]="searchTerm()" (input)="onSearchChange($event)" />
+      <input matInput [value]="searchTerm()" (input)="onSearchChange($event)" data-test-id="search-input" />
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
   }
@@ -28,6 +28,7 @@
               mat-icon-button 
               color="primary" 
               [attr.aria-label]="item.name ? 'Bearbeiten: ' + item.name : 'Bearbeiten'" 
+              [attr.data-test-id]="'edit-' + item.id"
               (click)="edit.emit(item)">
               <mat-icon>edit</mat-icon>
             </button>
@@ -37,6 +38,7 @@
               mat-icon-button 
               color="warn" 
               [attr.aria-label]="item.name ? 'Löschen: ' + item.name : 'Löschen'" 
+              [attr.data-test-id]="'delete-' + item.id"
               (click)="delete.emit(item)">
               <mat-icon>delete</mat-icon>
             </button>
@@ -46,10 +48,10 @@
     }
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns()"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns()"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns()" [attr.data-test-id]="'row-' + row.id"></tr>
 
     <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" [attr.colspan]="displayedColumns().length">
+      <td class="mat-cell" [attr.colspan]="displayedColumns().length" data-test-id="empty-state">
         Keine Einträge {{ searchTerm() ? 'für "' + searchTerm() + '"' : '' }} gefunden.
       </td>
     </tr>
