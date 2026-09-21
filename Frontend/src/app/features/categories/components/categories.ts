@@ -6,7 +6,7 @@ import { CategoryList } from './category-list/category-list';
 import { CategoryFormDialog } from './category-form-dialog/category-form-dialog';
 import { CategoryService } from '../services/category.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { Category } from '../models/category.model';
+import { CreateCategoryDto } from '../models/category.model';
 
 @Component({
   imports: [
@@ -14,7 +14,7 @@ import { Category } from '../models/category.model';
     FitLogActionToolbar,
     FitLogCreateButton,
     CategoryList,
-    MatDialogModule,
+    MatDialogModule
   ],
   selector: 'categories',
   styleUrl: './categories.css',
@@ -25,15 +25,15 @@ export class Categories {
   private dialog = inject(MatDialog);
 
   openCreateDialog(): void {
-    const dialogRef = this.dialog.open(CategoryFormDialog, {
-      width: '25rem',
-      data: {},
-    });
-
-    dialogRef.afterClosed().subscribe((formData: Category | undefined) => {
-      if (formData) {
-        this.categoryService.createCategory(formData);
-      }
-    });
+      const dialogRef = this.dialog.open(CategoryFormDialog, {
+        width: '25rem',
+        data: {},
+      });
+  
+      dialogRef.afterClosed().subscribe((formData: CreateCategoryDto | undefined) => {
+        if (formData) {
+          this.categoryService.createCategory(formData);
+        }
+      });
+    }
   }
-}

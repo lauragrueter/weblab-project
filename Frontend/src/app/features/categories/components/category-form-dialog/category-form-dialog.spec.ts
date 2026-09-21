@@ -57,13 +57,13 @@ describe('CategoryFormDialog', () => {
       expect(dialogRef.close).not.toHaveBeenCalled();
     });
 
-    it('closes with id: null in create mode (documents current behavior)', () => {
+    it('closes with a create DTO without an id field in create mode', () => {
       setup({});
       component.categoryForm.patchValue({ name: 'Ausdauer' });
 
       component.onSubmit();
 
-      expect(dialogRef.close).toHaveBeenCalledWith({ id: null, name: 'Ausdauer' });
+      expect(dialogRef.close).toHaveBeenCalledWith({ name: 'Ausdauer' });
     });
 
     it('closes with the id included in edit mode', () => {

@@ -6,7 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { Category } from '../../models/category.model';
+import { Category, CreateCategoryDto, UpdateCategoryDto } from '../../models/category.model';
 
 @Component({
   selector: 'category-dialog',
@@ -43,10 +43,10 @@ export class CategoryFormDialog implements OnInit {
   onSubmit(): void {
     if (this.categoryForm.valid) {
       const raw = this.categoryForm.value;
-      const result = {
-        ...raw,
+      const result: CreateCategoryDto | UpdateCategoryDto = {
+        name: raw.name,
       };
-      this.dialogRef.close(result);
+      this.dialogRef.close(this.isEditMode ? { id: raw.id, ...result } : result);
     }
   }
 
