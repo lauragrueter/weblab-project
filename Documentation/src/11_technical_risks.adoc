@@ -2,6 +2,8 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-technical-risks]]
 == Risiken und technische Schulden
+In diesem Kapitel werden die Risiken und technischen Schulden aufgelistet. 
+
 === Erfassung Workout
 Aktuell kann ein Workout auch in der Zukunft erfasst werden. 
 
@@ -12,34 +14,31 @@ Es kann mehrmals am selben Tag das exakt gleiche Workout erfasst werden. Es gibt
 Bei Erweiterung der Applikation können weitere wiederverwendbare Komponenten erstellt werden, um die Wartbarkeit zu erhöhen.
 
 === Fehlerhandling
-Keine globale Exception-Filter/Error-Handling-Strategie über die eingebaute Nest-Defaults hinaus vorhanden. Das Fehlerhandling ist nur auf das nötigste beschränkt.
-
-== User-Feedback bei Fehlern
-Alle Services (`WorkoutService`, `CategoryService`) loggen Fehler nur mit `console.error`.
+Keine globale Exception-Filter-/Error-Handling-Strategie über die eingebauten Nest-Defaults hinaus vorhanden. Das Fehlerhandling ist nur auf das Nötigste beschränkt.
 
 === Verhalten Workouts / Kategorien
-Das Zusammenspiel von Workouts und Kategorien ist nicht optimal aufgebaut. Damit die Applikaton in der Produktion wirklich besteht, muss das aktuelle Verhalten überdacht werden. Aktuell kann eine Kategorie immer gelöscht werden, das führt einfach dazu, dass das Workout als Kategorie null hat. Um Statistiken oder Auswertung zur Verfügung stellen zu können, sollte die Kategorie nicht nullable sein und Kategorien dürften nicht in Verwendung gelöscht werden (eher auf inaktiv setzen). 
+Das Zusammenspiel von Workouts und Kategorien ist nicht optimal aufgebaut. Damit die Applikation in der Produktion wirklich besteht, muss das aktuelle Verhalten überdacht werden. Aktuell kann eine Kategorie immer gelöscht werden, das führt einfach dazu, dass das Workout als Kategorie `null` hat. Um Statistiken oder Auswertungen zur Verfügung stellen zu können, sollte die Kategorie nicht `nullable` sein und Kategorien dürften nicht gelöscht werden, wenn sie in Verwendung sind (eher auf inaktiv setzen). 
 
 === Löschung
 Das Löschen eines Datensatzes passiert aktuell ohne zusätzliche Nachfrage beim User.
 
 === Seitenansicht
-Für jede Komponente werden die Seitenränder in einem css definiert. Das könnte man eine Ebene höher definieren.
+Für jede Komponente werden die Seitenränder in einem CSS definiert. Das könnte man eine Ebene höher definieren.
 
 === Datum
-Die Funktionen aus `date.utils.ts` sind für realistische backend-Antworten geeignet. Falls jedoch rohe User Angaben (z.B. in einem Freitext Datumsfeld) angedacht sind, müssten die Methoden mit weiteren prüfungen erweitert werden. 
+Die Funktionen aus `date.utils.ts` sind für realistische Backend-Antworten geeignet. Falls jedoch rohe User-Angaben (z. B. in einem Freitext-Datumsfeld) angedacht sind, müssten die Methoden mit weiteren Prüfungen erweitert werden. 
 
 === Form Dialog Component
-Die Dialog Box für das Erstellen oder Bearbeiten von Kategorien und Workouts wird aktuell in beiden Features implementiert. Das könnte man als shared component zur Verfügung stellen. 
+Die Dialog-Box für das Erstellen oder Bearbeiten von Kategorien und Workouts wird aktuell in beiden Features implementiert. Das könnte man als Shared Component zur Verfügung stellen. 
 
 === Responsive Layout
-Die Navigation und der Suchbereich sind nicht optimal auf ein responsive Layout ausgelegt, jedoch für herkömmliche Desktop und Mobile Bildschirme geeignet. 
+Die Navigation und der Suchbereich sind nicht optimal auf ein responsives Layout ausgelegt, jedoch für herkömmliche Desktop- und Mobile-Bildschirme geeignet. 
 
-=== String User Eingaben
-Die Eingaben für Strings (z.B. Name für die Kategorien) sind nicht beschränkt. Bei einer Produktiven Applikation müsste das angepasst werden. 
+=== String-User-Eingaben
+Die Eingaben für Strings (z. B. Name für die Kategorien) sind nicht beschränkt. Bei einer produktiven Applikation müsste das angepasst werden. 
 
 === Tabelle und Suchbereich
-Die Tabelle und der Suchbalken sind als eine Komponente definiert. Um die Komponenten kleiner zu halten und die Wiederverwandbarkeit zu erhöhen, müsste je eine Komponente für die Tabelle und eine für den Suchbereich erstellt werden. 
+Die Tabelle und der Suchbalken sind als eine Komponente definiert. Um die Komponenten kleiner zu halten und die Wiederverwendbarkeit zu erhöhen, müsste je eine Komponente für die Tabelle und eine für den Suchbereich erstellt werden. 
 
-=== CSS Breakpoints
-Die Breakpoints sind aktuell an mehrer Stellen identisch definiert. Das könnte global definiert und wiederverwendet werden. 
+=== CSS-Breakpoints
+Die Breakpoints sind aktuell an mehreren Stellen identisch definiert. Das könnte global definiert und wiederverwendet werden.

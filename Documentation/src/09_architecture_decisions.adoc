@@ -2,10 +2,10 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-design-decisions]]
 == Architekturentscheidungen
-Im folgendem Kapitel werden die Architekturentscheidungen begründet. Diese sind in der zeitlichen Reihenfolge aufgelistet. Ein paar Arkchitekturentscheidungen wurden während des Projektes gefällt, was als Konsequnez das refactoring des Codes zur Folge hat. 
+Im folgenden Kapitel werden die Architekturentscheidungen begründet. Diese sind in chronologischer Reihenfolge aufgelistet. Einige Entscheidungen wurden erst im Verlauf des Projektes getroffen, was ein Refactoring bestehender Codeabschnitte zur Folge hatte.
 
 === Angular als Frontend-Framework
-**Entscheid**: Angular als frontend Framework
+**Entscheid**: Angular als Frontend-Framework
 
 **Begründung**: 
 
@@ -17,7 +17,7 @@ Im folgendem Kapitel werden die Architekturentscheidungen begründet. Diese sind
 - Höhere Lernkurve
 
 === NestJS als Backend-Framework
-**Entscheid**: NestJS als Node.js backend framework
+**Entscheid**: NestJS als Node.js-Backend-Framework
 
 **Begründung**: 
 
@@ -60,13 +60,15 @@ Im folgendem Kapitel werden die Architekturentscheidungen begründet. Diese sind
 **Begründung**: 
 
 - Dev- und Bewertungsumgebung laufen in identischen isolierten Containern
-- DB bleibt isoliert und befindet sich nicht lokal
+- Datenbank bleibt isoliert und befindet sich nicht lokal
 
 **Konsequenz**:
-- Docker wird benötigt
+
+- Docker-Laufzeitumgebung wird auf den Zielsystemen vorausgesetzt
+- Erstellung von `docker-compose.yml`- und `Dockerfile`-Konfigurationen
 
 === Angular Material
-**Entscheid**: Angular Material wird als UI-Komponenten Libary verwendet
+**Entscheid**: Angular Material als UI-Komponentenbibliothek
 
 **Begründung**: 
 
@@ -79,57 +81,91 @@ Im folgendem Kapitel werden die Architekturentscheidungen begründet. Diese sind
 - Angular Material muss installiert werden
 - Design sieht nach Angular Material aus
 
-=== Testframeworks
-TBD
+=== Testframeworks für Backend und Frontend
+**Entscheid**: Vitest als Test-Runner für Frontend- und Backend-Unit-Tests
 
+**Begründung**:
 
-=== Struktur Frontend
-**Entscheid**: Das Frontend wird in `core`, `features` und `shared` gegliedert. 
-
-**Begründung**: 
-
-- Seperation of Concerns
-- Wartbarkeit
-- Übersichtlichkeit
-- Wiederverwendbarkeit
-
-**Konsequenz**: 
-
-- Wiederverwendbar UI-Elemente werden in `shared` gepflegt
-- App-weite Einstellungen sind im `core`
-- neue Ansichten / Logik werden im `feature` aufgebaut
-
-
-=== Struktur Komponenten im frontend
-TBD
-- Begründung im ts mit html / css oder ohne
-
-
-=== Struktur Backend
-TBD
-
-=== Datum - Workout
-**Entscheid**: Datumsumformatierung wird als globale function zur Verfügung gestellt. 
-
-**Begründung**: 
-
-- String Umwandlung mit 'newDate' führt zu falscher Umrechnungen
-- functionen können in allen componenten wiederverwendet werden
+- Einheitliche Testwerkzeuge
+- einfache Handhabung
 
 **Konsequenz**:
 
-- refactoring des alten Codes
-- überall wird die gleiche function verwendet
-- einfache Verwendung
+- Konfigurationsaufwand für die Anbindung an Angular und NestJS
 
-=== Eigene Component Library für create button
-**Entscheid**: Create Button wird als shared library zur Verfügung gestellt
+=== End-to-End-Testframework
+**Entscheid**: Cypress für E2E-Tests
+
+**Begründung**:
+
+- Bereits aus dem Unterricht bekannt
+- Gute Entwicklererfahrung und intuitive Handhabung bei der Testerstellung
+
+**Konsequenz**:
+
+- Einrichten und Pflegen der E2E-Testumgebung sowie der Testdaten
+
+=== Strukturierung des Frontends
+**Entscheid**: Gliederung des Frontends in die Ordnerbereiche `core`, `features` und `shared`
 
 **Begründung**: 
 
-- Create Button wird mehr als einmalal benötigt
-- Wartbarkeit und Erweiterung wird verbessert
-- Konsistentes Layout wird gewährleistet
+- Klare Trennung von Zuständigkeiten (Separation of Concerns)
+- Erhöhte Wartbarkeit und Übersichtlichkeit bei wachsendem Funktionsumfang
+- Gezielte Wiederverwendbarkeit von Modulen
+
+**Konsequenz**: 
+
+- Wiederverwendbare UI-Elemente werden in `shared` ausgelagert
+- App-weite Singletons, Services und Konfigurationen liegen in `core`
+- Fachliche Domänen und Ansichten werden isoliert in `features` aufgebaut
+
+=== Komponentenstruktur im Frontend (Inline-Templates)
+**Entscheid**: Nutzung von Inline-Templates bei kleineren Komponenten
+
+**Begründung**: 
+
+- Höhere Übersichtlichkeit bei sehr kompakten Komponenten durch Bündelung in einer Datei
+- Ausprobieren neuer Framework-Strukturen um Erfahrungen zu sammeln
+
+**Konsequenz**: 
+
+- Uneinheitliche Dateienstruktur (einige Komponenten mit separaten HTML-Dateien, andere inline)
+- Für Lehr- und Lernzwecke akzeptabel, bei komplexeren Komponenten wird jedoch weiterhin auf eine Dateitrennung gesetzt
+
+=== Strukturierung des Backends
+**Entscheid**: Verwendung einer Modularchitektur
+
+**Begründung**: 
+
+- Entspricht den gängigen Best Practices von NestJS
+- Kapselung von fachlichen Domänen in eigenständige Module
+
+**Konsequenz**: 
+
+- Vorgegebene, aber saubere und erweiterbare Ordner- und Dateistruktur
+
+=== Datumsverarbeitung (Workout)
+**Entscheid**: Bereitstellung von zentralen Hilfsfunktionen für die Datumsformatierung
+
+**Begründung**: 
+
+- Direkte String-Umwandlungen mittels `new Date()` führten zu fehlerhaften Zeitzonen-Umrechnungen
+- Zentrale Hilfsfunktionen können in allen Komponenten wiederverwendet werden
+
+**Konsequenz**:
+
+- Refactoring von bestehendem Code
+- Vermeidung von redundantem Code und Zeitzonenfehlern
+
+=== Shared Component: Create-Button
+**Entscheid**: Bereitstellung des Create-Buttons als wiederverwendbare Shared Component
+
+**Begründung**: 
+
+- Der Button wird an mehreren Stellen in der Anwendung benötigt
+- Verbesserung der Wartbarkeit und Erweiterbarkeit
+- Gewährleistung eines einheitlichen Layouts
 - Anpassung an einem Ort, falls nicht mehr Angular Material verwendet wird
 
 **Konsequenz**:
@@ -137,43 +173,39 @@ TBD
 - refactoring des alten Codes
 - Button kann wiederverwendet werden
 
-=== Eigene Component Library für page header
-**Entscheid**: Page Header wird als shared library zur Verfügung gestellt
+=== Shared Component: Page Header
+**Entscheid**: Bereitstellung des Page Headers als wiederverwendbare Shared Component
 
 **Begründung**: 
 
-- Header wird mehr als einmalal benötigt
-- Wartbarkeit und Erweiterung wird verbessert
-- Konsistentes Layout wird gewährleistet
+- Der Header wird auf mehreren Seiten wiederverwendet
+- Erhöhung der Wartbarkeit
+- Konsistentes Layout
 
 **Konsequenz**:
 
-- refactoring des alten Codes
-- Header kann wiederverwendet werden
+- Refactoring der bestehenden Seiten-Header
 
-=== Eigene Component Library für action toolbar
-**Entscheid**: Action Toolbar wird als shared library zur Verfügung gestellt
+=== Shared Component: Action Toolbar
+**Entscheid**: Bereitstellung der Action Toolbar als wiederverwendbare Shared Component
 
 **Begründung**: 
 
-- Toolbar wird mehr als einmalal benötigt
-- Wartbarkeit und Erweiterung wird verbessert
-- Konsistentes Layout wird gewährleistet
+- Wiederkehrendes UI-Muster auf verschiedenen Ansichten
+- Einheitliche Platzierung von Aktions-Schaltflächen
 
 **Konsequenz**:
 
-- refactoring des alten Codes
-- Toolbar kann wiederverwendet werden
+- Refactoring des bestehenden Codes
 
 === Generische Tabelle `FitLogTable`
-**Entscheid**: Tabelle wird als eigene generische Komponente zur Verfügung gestellt. 
+**Entscheid**: Implementierung einer generischen Tabellenkomponente (`FitLogTable`)
 
 **Begründung**: 
 
-- Wiederverwendbarkeit
+- Hohe Wiederverwendbarkeit für unterschiedliche Datensätze
+- Vermeidung von doppeltem Tabellencode
 
 **Konsequenz**:
 
-- Tabelle kann auch mit optionalen Buttons wiederverwendet werden
-
-
+- Die Tabelle unterstützt dynamische Spaltendefinitionen sowie optionale Aktions-Buttons

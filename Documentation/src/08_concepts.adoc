@@ -3,8 +3,8 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-concepts]]
 == Testkonzept
 === Backend
-- Controller werden nicht getestet um "testing the mock, not the code" zu verhindern. 
 - Services werden mit unit Tests abgedeckt. 
+- Controller werden nicht getestet um "testing the mock, not the code" zu verhindern. 
 - Framework: vitest
 
 === Frontend
@@ -13,4 +13,5 @@ ifndef::imagesdir[:imagesdir: ../images]
 - Framework: vitest
 
 === e2e
-- Framework: 
+- Kritische Funktionen werden mit automatisieren e2e Tests abgedeckt. 
+- Framework: Cypress

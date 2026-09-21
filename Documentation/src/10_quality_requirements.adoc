@@ -7,7 +7,7 @@ Dieses Kapitel beschreibt die Qualitätsziele.
 
 [cols="1,2", options="header"]
 |===
-| Qualitaetsziel | Konkretisierung
+| Qualitätsziel | Beschreibung
 
 | Performance
 | Lighthouse-Score >= 90 (Mobile & Desktop)
@@ -23,14 +23,26 @@ Dieses Kapitel beschreibt die Qualitätsziele.
 |===
 
 === Lighthouse-Ergebnisse
-Der Lighthouse Score wurde manuell via Chrome DevTools Lighthouse gemessen. Der Stack wurde über `docker compose up --build` gestartet. 
+Der Lighthouse Score wurde manuell via Chrome DevTools Lighthouse gemessen. Der Stack wurde über `docker compose up --build` gestartet. Es wurden vorgängig einige Workouts und Kategorien erfasst. Das Qualitätsziel von einem Durchschnitt von 90 konnte erreicht werden. 
 
-[cols="1,2,3", options="header"]
+[cols="1,2a,2a", options="header"]
 |===
 | Route | Mobile | Desktop
 
+| `/home` 
+| image:home_mobile.png[Home Mobile] 
+| image:home_desktop.png[Home Desktop]
+
+| `/workout-calendar` 
+| image:calendar_mobile.png[Kalender Mobile] 
+| image:calendar_desktop.png[Kalender Desktop]
+
+| `/categories` 
+| image:categories_mobile.png[Kategorien Mobile] 
+| image:categories_desktop.png[Kategorien Desktop]
 
 |===
+
 
 
 
