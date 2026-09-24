@@ -11,5 +11,10 @@
     ></fitlog-create-button>
   </fitlog-action-toolbar>
 
-  <fitlog-workout-list />
+  <fitlog-workout-list
+  [workouts]="workoutService.workouts()"
+  [loading]="workoutService.isLoading()"
+  (edit)="editWorkout($event)"
+  (delete)="deleteWorkout($event)"
+/>
 </div>

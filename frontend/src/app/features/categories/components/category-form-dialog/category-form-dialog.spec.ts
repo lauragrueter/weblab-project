@@ -30,7 +30,7 @@ describe('CategoryFormDialog', () => {
     beforeEach(() => setup({}));
 
     it('sets isEditMode to false', () => {
-      expect(component.isEditMode).toBe(false);
+      expect(component.isEditMode()).toBe(false);
     });
 
     it('initializes the form with empty defaults', () => {
@@ -42,7 +42,7 @@ describe('CategoryFormDialog', () => {
     beforeEach(() => setup({ category: mockCategory }));
 
     it('sets isEditMode to true', () => {
-      expect(component.isEditMode).toBe(true);
+      expect(component.isEditMode()).toBe(true);
     });
 
     it('initializes the form with the category values', () => {

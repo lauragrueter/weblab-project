@@ -1,0 +1,34 @@
+<mat-card class="calendar-card mat-elevation-z2">
+  <mat-calendar
+    [selected]="selectedDate()"
+    [dateClass]="dateClass()"
+    (selectedChange)="selectedChange.emit($event)"
+  ></mat-calendar>
+</mat-card>
+
+<mat-card class="day-detail-card mat-elevation-z2">
+  <mat-card-header>
+    <mat-card-title class="detail-title">
+      Workouts am {{ selectedDate() | date: 'dd.MM.yyyy' }}
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="detail-content">
+    @if (workoutsOnSelectedDate().length === 0) {
+      <div class="empty-state">
+        <mat-icon class="empty-icon">event_busy</mat-icon>
+        <p>Keine Workouts an diesem Tag.</p>
+      </div>
+    } @else {
+      <mat-list class="workout-list">
+        @for (w of workoutsOnSelectedDate(); track w.id) {
+          <mat-list-item class="workout-item">
+            <mat-icon matListItemIcon color="primary">fitness_center</mat-icon>
+            <span matListItemTitle class="workout-name">{{ w.name }}</span>
+            <span matListItemLine class="workout-duration">{{ w.duration }} min</span>
+          </mat-list-item>
+        }
+      </mat-list>
+    }
+  </mat-card-content>
+</mat-card>

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
@@ -27,12 +27,12 @@ export class CategoryFormDialog implements OnInit {
   private dialogRef = inject(MatDialogRef<CategoryFormDialog>);
   public data = inject<{ category?: Category }>(MAT_DIALOG_DATA);
 
-  isEditMode = false;
+  isEditMode = signal(false);
   categoryForm!: FormGroup;
 
   ngOnInit(): void {
     const category = this.data?.category;
-    this.isEditMode = !!category;
+    this.isEditMode.set(!!category);
 
     this.categoryForm = this.fb.group({
       id: [category?.id ?? null],
@@ -46,7 +46,7 @@ export class CategoryFormDialog implements OnInit {
       const result: CreateCategoryDto | UpdateCategoryDto = {
         name: raw.name,
       };
-      this.dialogRef.close(this.isEditMode ? { id: raw.id, ...result } : result);
+      this.dialogRef.close(this.isEditMode() ? { id: raw.id, ...result } : result);
     }
   }
 

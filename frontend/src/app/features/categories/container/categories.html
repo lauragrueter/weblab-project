@@ -8,5 +8,10 @@
     ></fitlog-create-button>
   </fitlog-action-toolbar>
 
-  <fitlog-category-list />
+  <fitlog-category-list
+    [categories]="categoryService.categories()"
+    [loading]="categoryService.isLoading()"
+    (edit)="editCategory($event)"
+    (delete)="deleteCategory($event)"
+  />
 </div>

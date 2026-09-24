@@ -1,31 +1,30 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CommonModule, formatDate } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { WorkoutService } from '../../services/workout.service';
-import { WorkoutFormDialog } from '../workout-form-dialog/workout-form-dialog';
-import { Workout } from '../../models/workout.model';
 import { FitLogTable, ColumnDef } from '../../../../shared/components/table/table';
+import { Workout } from '../../models/workout.model';
 import { parseBackendDate } from '../../../../shared/utils/date.utils';
 
 @Component({
   selector: 'fitlog-workout-list',
-  imports: [CommonModule, FormsModule, FitLogTable],
+  imports: [CommonModule, FitLogTable],
   template: `
     <fitlog-table
-      [items]="workoutService.workouts()"
+      [items]="workouts()"
       [columns]="columns"
-      [loading]="workoutService.isLoading()"
+      [loading]="loading()"
       searchPlaceholder="Workouts durchsuchen"
       [searchFn]="workoutSearchFn"
-      (edit)="editWorkout($event)"
-      (delete)="deleteWorkout($event.id)"
+      (edit)="edit.emit($event)"
+      (delete)="delete.emit($event.id)"
     />
   `,
 })
-export class WorkoutList implements OnInit {
-  workoutService = inject(WorkoutService);
-  private dialog = inject(MatDialog);
+export class WorkoutList {
+  workouts = input.required<Workout[]>();
+  loading = input(false);
+
+  edit = output<Workout>();
+  delete = output<string>();
 
   columns: ColumnDef<Workout>[] = [
     {
@@ -42,25 +41,4 @@ export class WorkoutList implements OnInit {
   ];
 
   workoutSearchFn = (w: Workout, term: string) => w.name.toLowerCase().includes(term.toLowerCase());
-
-  ngOnInit(): void {
-    this.workoutService.loadWorkouts();
-  }
-
-  editWorkout(workout: Workout): void {
-    const dialogRef = this.dialog.open(WorkoutFormDialog, {
-      width: '25rem',
-      data: { workout },
-    });
-    dialogRef.afterClosed().subscribe((formData: Workout | undefined) => {
-      if (formData) {
-        const { id, ...dto } = formData;
-        this.workoutService.updateWorkout(workout.id, dto);
-      }
-    });
-  }
-
-  deleteWorkout(id: string): void {
-    this.workoutService.deleteWorkout(id);
-  }
 }

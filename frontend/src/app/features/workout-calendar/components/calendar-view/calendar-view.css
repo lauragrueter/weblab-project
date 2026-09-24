@@ -1,16 +1,5 @@
-.calendar-page {
-  max-width: min(90%, 62.5rem);
-  margin: 0 auto;
-  padding: 1.5rem 1rem;
-  display: grid;
-  grid-template-columns: minmax(18.75rem, 23.75rem) 1fr;
-  gap: 1.5rem;
-  align-items: start;
-}
-
-fitlog-page-header,
-fitlog-action-toolbar {
-  grid-column: 1 / -1;
+:host {
+  display: contents;
 }
 
 .calendar-card,
@@ -80,10 +69,4 @@ mat-calendar {
 
 .workout-duration {
   color: var(--mat-sys-on-surface-variant);
-}
-
-@media (max-width: 48rem) {
-  .calendar-page {
-    grid-template-columns: 1fr;
-  }
 }

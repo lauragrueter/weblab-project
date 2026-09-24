@@ -1,46 +1,53 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatDialog } from '@angular/material/dialog';
-import { of } from 'rxjs';
-import { signal } from '@angular/core';
+import { By } from '@angular/platform-browser';
 import { CategoryList } from './category-list';
-import { CategoryService } from '../../services/category.service';
+import { FitLogTable } from '../../../../shared/components/table/table';
 
 describe('CategoryList', () => {
   let fixture: ComponentFixture<CategoryList>;
   let component: CategoryList;
-  let categoryService: {
-    categories: ReturnType<typeof signal>;
-    isLoading: ReturnType<typeof signal>;
-    loadCategories: ReturnType<typeof vi.fn>;
-    updateCategory: ReturnType<typeof vi.fn>;
-    deleteCategory: ReturnType<typeof vi.fn>;
-  };
-  let dialog: { open: ReturnType<typeof vi.fn> };
 
   const mockCategory = { id: '1', name: 'Cardio' };
 
-  beforeEach(() => {
-    categoryService = {
-      categories: signal([mockCategory]),
-      isLoading: signal(false),
-      loadCategories: vi.fn(),
-      updateCategory: vi.fn(),
-      deleteCategory: vi.fn(),
-    };
-    dialog = { open: vi.fn() };
-
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [CategoryList],
-      providers: [
-        { provide: CategoryService, useValue: categoryService },
-        { provide: MatDialog, useValue: dialog },
-      ],
-    });
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CategoryList);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('categories', [mockCategory]);
     fixture.detectChanges();
+  });
+
+  it('passes categories and loading down to the table', () => {
+    fixture.componentRef.setInput('loading', true);
+    fixture.detectChanges();
+
+    const table = fixture.debugElement.query(By.directive(FitLogTable)).componentInstance;
+    expect(table.items()).toEqual([mockCategory]);
+    expect(table.loading()).toBe(true);
+  });
+
+  it('emits delete with the category id when the table emits delete', () => {
+    let emitted: string | undefined;
+    component.delete.subscribe((id) => (emitted = id));
+
+    const table = fixture.debugElement.query(By.directive(FitLogTable)).componentInstance;
+    table.delete.emit(mockCategory);
+
+    expect(emitted).toBe('1');
+  });
+
+  it('emits edit when the table emits edit', () => {
+    let emitted: typeof mockCategory | undefined;
+    component.edit.subscribe((c) => (emitted = c));
+
+    const table = fixture.debugElement.query(By.directive(FitLogTable)).componentInstance;
+    table.edit.emit(mockCategory);
+
+    expect(emitted).toEqual(mockCategory);
   });
 
   describe('categorySearchFn', () => {
@@ -49,25 +56,6 @@ describe('CategoryList', () => {
       expect(component.categorySearchFn(c, 'card')).toBe(true);
       expect(component.categorySearchFn(c, 'CARD')).toBe(true);
       expect(component.categorySearchFn(c, 'kraft')).toBe(false);
-    });
-  });
-
-  describe('editCategory', () => {
-    it('calls updateCategory with the original id and dto without id', () => {
-      const formData = { id: 'should-be-stripped', name: 'Zirkeltraining' } as any;
-      dialog.open.mockReturnValue({ afterClosed: () => of(formData) });
-
-      component.editCategory(mockCategory);
-
-      expect(categoryService.updateCategory).toHaveBeenCalledWith('1', { name: 'Zirkeltraining' });
-    });
-
-    it('does not call updateCategory when the dialog is cancelled', () => {
-      dialog.open.mockReturnValue({ afterClosed: () => of(undefined) });
-
-      component.editCategory(mockCategory);
-
-      expect(categoryService.updateCategory).not.toHaveBeenCalled();
     });
   });
 });
