@@ -39,10 +39,12 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert.
     Tabelle als shared component ausgelagert, shared components refactor, Tests geschrieben, config angepasst, Kategorien frontend, Workouts mit Kategorien erweitert, frontend Unit Tests, Dokumentation
 | 21.09.2026 | 5 | 
     code rafactor, error messages im frontend, Einheitlichkeit, bug fixes, Lighthouse Performance verbessern, Dokumentation, e2e Tests
-| 2?.09.2026 | ? | 
-    Dokumentation, Reflexion
+| 24.09.2026 | 4 | 
+    Refactoring, Doku
+| 25.09.2026 | ? | 
+    Abschluss Doku und Abgabe
     
 
 |===
 
-**Total Stunden**: 59
+**Total Stunden**: 63

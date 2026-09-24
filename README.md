@@ -1,10 +1,14 @@
+# fitlog - WEBLAB Projekt
+
+Dieses Projekt wurde im Rahmen der Blockwoche „WEBLAB” des Bachelor-Studiengangs „Computer Science” der Hochschule Luzern für das Frühlingssemester 2026 erstellt.
+
 # Start production
 
 ```shell
 docker compose up --build
 ```
 
-# URL
+## URL
 
 `http://localhost/`
 
@@ -15,11 +19,12 @@ docker compose up --build
 in `infra`
 
 ```bash
-docker compose up -d
 docker compose up
 ```
 
 ## Compile and run the backend project
+
+Vorher `.env` im `backend`-Ordner anlegen (siehe `.env.example`) oder die DB via `infra`-Docker-Compose starten.
 
 in `backend`
 
@@ -68,13 +73,15 @@ npm test
 ```
 
 ## run e2e Tests
+
 Terminal
+
 ```bash
 npm run e2e
 ```
 
 interaktiver Cypress-Runner
+
 ```bash
 npm run cypress:open
 ```
-

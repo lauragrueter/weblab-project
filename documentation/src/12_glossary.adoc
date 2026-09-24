@@ -3,17 +3,22 @@ ifndef::imagesdir[:imagesdir: ../images]
 [[section-glossary]]
 == Glossar
 
-
-
-
-
 [cols="e,2e" options="header"]
 |===
 |Begriff |Definition
 
-|<Begriff-1>
-|<Definition-1>
+|Workout
+|Eine einzelne, vom Benutzer erfasste Trainingseinheit mit Datum, Dauer, Name und optionaler Kategorie.
 
-|<Begriff-2
-|<Definition-2>
+|Kategorie
+|Frei definierbare Gruppierung für Workouts (z. B. "Cardio", "Kraft"), dient der Zuordnung.
+
+|SPA
+|Single Page Application: die gesamte Frontend-Logik läuft im Browser, Navigation ohne vollständigen Seiten-Reload.
+
+|Signal
+|Angular-Reaktivitätsprimitive: hält einen Wert und benachrichtigt abhängige Berechnungen (`computed()`) automatisch bei Änderungen.
+
+|DTO
+|Data Transfer Object: definiert die Form der Daten, die zwischen Frontend und Backend über die REST-API ausgetauscht werden.
 |===
