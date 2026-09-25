@@ -7,19 +7,12 @@ ifndef::imagesdir[:imagesdir: ../images]
 Die Anwendung wird lokal von einer einzelnen Person verwendet, um Trainingseinheiten administrieren zu können.
 Es gibt keine Mehrbenutzerverwaltung oder externe Benutzerrollen. 
 
-image::context.png[fachlicher Kontext]
+image::context.png[fachlicher Kontext, 500]
 
 === Technischer Kontext
 
-Das System wird lokal via Docker bereitgestellt und läuft in getrennten Containern. Der Benutzer greift über einen Standard-Webbrowser auf die Webanwendung zu.
+Das System wird lokal via Docker bereitgestellt und läuft in getrennten Containern. Der Benutzer greift über einen Standard-Webbrowser auf die Webanwendung zu. Die technische Schnittstelle ist eine REST-API über HTTP/JSON. 
 
-//TODO anpassen
-image::context_technisch.jpg[technischer Kontext]
-
+image::context_technisch.png[technischer Kontext]
 
 
-**<Diagramm oder Tabelle>**
-
-**<optional: Erläuterung der externen technischen Schnittstellen>**
-
-**<Mapping fachliche auf technische Schnittstellen>**

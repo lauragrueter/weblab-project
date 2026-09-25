@@ -4,37 +4,49 @@ ifndef::imagesdir[:imagesdir: ../images]
 == Bausteinsicht
 === Whitebox Gesamtsystem
 
-TBD: Diagramm
+image::whitebox.png[Whitebox, 200]
 
-_**<Übersichtsdiagramm>**_
-
-Begründung:: Das System ist nach einer 3-Schichten-Architektur (Frontend, Backend, Datenbank) aufgebaut, um Benutzeroberfläche und Datenhaltung zu trennen.
+Begründung:: Das System ist nach einer 3-Schichten-Architektur (Frontend, Backend, Datenbank) aufgebaut, um Benutzeroberfläche, Geschäftslogik und Datenhaltung zu trennen.
 
 Enthaltene Bausteine:: 
 - Web-Client (Single Page Application)
 - API-Server (Backend)
 - Datenbank (Persistenzschicht)
 
-Wichtige Schnittstellen:: REST-API zwischen Web-Client und API-Server.
+Wichtige Schnittstellen:: 
+- REST-API (JSON über HTTP) zwischen Web-Client und API-Server
+- SQL zwischen API-Server und Datenbank.
 
 ==== Web-Client
 
-Zweck:: Ermöglicht User das Erstellen, Löschen, Bearbeiten und Durchsuchen von Workouts
+Zweck:: Ermöglicht dem Benutzer das Erstellen, Löschen, Bearbeiten und Durchsuchen von Workouts und Kategorien, und die Darstellung als Tabelle und als Kalender.
 Schnittstelle:: Bietet keine eigenen Services an, konsumiert die REST-API des API-Servers.
-Ablageort:: `/src/frontend/` -> TBD
+Ablageort:: `frontend/src/app/` (Angular SPA, unterteilt in `features/`, `shared/`, `core/`)
 
 ==== API-Server
-Zweck:: Verarbeitet Geschäftslogik, validiert Workouts und kommuniziert mit der Datenbank.
-Schnittstelle:: REST-Schnittstelle über HTTP/JSON (Port ?) TBD
-Ablageort:: `/src/backend/ -> TBD
+Zweck:: Verarbeitet Geschäftslogik, validiert Workouts/Kategorien und kommuniziert mit der Datenbank.
+Schnittstelle:: REST-API über HTTP/JSON, Port 3000, mit globalem Prefix `/api` (z. B. `/api/workouts`, `/api/categories`). API-Dokumentation via Swagger unter `/api/swagger`.
+Ablageort:: `backend/src/` (NestJS, unterteilt in `modules/workouts/`, `modules/categories/`, `health/`)
 
 ==== Datenbank
-Zweck:: Speichert Workouts persistent
-Schnittstelle:: TBD
+Zweck:: Speichert Workouts und Kategorien persistent.
+Schnittstelle:: Wird vom API-Server über TypeORM (SQL) angesprochen, Port 5432. Kein direkter Zugriff durch den Web-Client.
+Ablageort:: PostgreSQL-Container (`fitlog_db`), Datenhaltung im Docker-Volume `postgres_data`.
 
 === Ebene 2
-==== Whitebox _<Baustein 1>_
+==== Whitebox Web-Client
 
-TBD Diagramm frontend / (backend) zusammenspiel
+image::Baustein_frontend.png[Baustein Frontend, 500]
 
+Begründung:: Der Web-Client ist nach Features gegliedert (Workouts, Kategorien, Workout-Kalender), um unabhängig voneinander weiterentwickeln zu können. Jedes Feature folgt intern dem Container/Component-Pattern. Container übernehmen Business-Logik und Service-Zugriff, Components sind rein präsentational.
 
+Enthaltene Bausteine::
+- `core/` – Routing-Konfiguration
+- `features/workouts/` – Erfassen/Bearbeiten von Workouts (Tabellenansicht)
+- `features/categories/` – Verwalten von Kategorien
+- `features/workout-calendar/` – Kalenderansicht der Workouts
+- `shared/` – wiederverwendbare Components (Tabelle, Navigation, ...)
+
+Wichtige Schnittstellen:: `features/workout-calendar/` verwendet direkt den `WorkoutService` aus `features/workouts/`, um dieselben Workout-Daten in der Kalenderansicht wiederzuverwenden.
+
+Hinweis: Das das backend und die Datenbank zu simple sind, werden sie nicht weiter aufgeteilt. 

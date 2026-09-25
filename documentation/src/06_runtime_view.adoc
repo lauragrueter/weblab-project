@@ -1,21 +1,17 @@
 ifndef::imagesdir[:imagesdir: ../images]
-
 [[section-runtime-view]]
 == Laufzeitsicht
 
+Nachfolgend werden zwei Szenarien beschrieben.
 
+=== Workout erstellen
 
+image::runtime_workouterstellen.png[Workout erstellen]
 
+Der Benutzer öffnet über den Container `Workouts` einen Dialog (`WorkoutFormDialog`) und füllt das Formular aus. Nach Bestätigung sendet der Container die Daten über den `WorkoutService` per POST an die REST-API, die den Datensatz in der Datenbank ablegt. Die Antwort wird in das lokale `workouts`-Signal übernommen, ein erneutes Laden der gesamten Liste ist nicht nötig. Da die Tabellenansicht (`WorkoutList`) das Signal im Template konsumiert, aktualisiert sich die Darstellung automatisch.
 
-=== _<Bezeichnung Laufzeitszenario 1>_
+=== Kalender
 
-*  <hier Laufzeitdiagramm oder Ablaufbeschreibung einfügen>
-*  <hier Besonderheiten bei dem Zusammenspiel der Bausteine in diesem Szenario erläutern>
+image::runtime_kalender.png[Kalender]
 
-=== _<Bezeichnung Laufzeitszenario 2>_
-
-...
-
-=== _<Bezeichnung Laufzeitszenario n>_
-
-...
+Beim direkten Aufruf der Route `/workout-calendar` lädt der Container `WorkoutCalendar` die Workouts über denselben `WorkoutService`, der auch von der Tabellenansicht verwendet wird. Die Kalenderansicht berechnet daraus über ein `computed()`-Signal die Workouts des jeweils ausgewählten Tages. Dies ist ein Architekturentscheid, siehe <<section-design-decisions,Kapitel 9 (Architekturentscheidungen)>>.

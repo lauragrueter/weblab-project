@@ -22,3 +22,6 @@ ifndef::imagesdir[:imagesdir: ../images]
 |DTO
 |Data Transfer Object: definiert die Form der Daten, die zwischen Frontend und Backend über die REST-API ausgetauscht werden.
 |===
+
+== Hinweise
+Die Diagramme wurden mit mermaid.live erstellt und als png in die Doku übernommen. 

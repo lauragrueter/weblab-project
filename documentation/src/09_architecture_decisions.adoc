@@ -209,3 +209,16 @@ Im folgenden Kapitel werden die Architekturentscheidungen begründet. Diese sind
 **Konsequenz**:
 
 - Die Tabelle unterstützt dynamische Spaltendefinitionen sowie optionale Aktions-Buttons
+
+=== `WorkoutService` für Erstellung und Kalender
+**Entscheid**: Der `WorkoutService` wird vom feature `workout-calendar` und `workouts` verwendet. 
+
+**Begründung**: 
+
+- Vermeidung von Codedublikaten
+- Benötigt die gleichen Daten
+
+**Konsequenz**:
+
+- Höhere Koppelung
+- keine Codeduplikate
