@@ -5,8 +5,8 @@ ifndef::imagesdir[:imagesdir: ../images]
 === Organisatorisches
 - Einzelarbeit
 - Ca. 60h Aufwand
-- Abgabe des Projekts bis am 25. September 2026, 23:55 Uhr
-- zu Abgabe gehört ein Arbeitsjournal und eine Reflexion / Fazit
+- Abgabe des Projekts bis zum 25. September 2026, 23:55 Uhr
+- Zur Abgabe gehört ein Arbeitsjournal und eine Reflexion / Fazit
 
 
 

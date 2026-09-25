@@ -10,7 +10,7 @@ Im folgenden Kapitel werden die Architekturentscheidungen begründet. Diese sind
 **Begründung**: 
 
 - Neues Wissen aufbauen
-- In der Blockwoche gelerntes gleich umsetzen
+- In der Blockwoche Gelerntes gleich umsetzen
 
 **Konsequenz**:
 
@@ -21,8 +21,8 @@ Im folgenden Kapitel werden die Architekturentscheidungen begründet. Diese sind
 
 **Begründung**: 
 
-- Architekturähnlichkeit zu Angular: Wechsel zwischen frontend und backend wird vereinfacht
-- Vorgegebene Projektstruktur: Code Struktur Entscheidungen werden vereinfacht
+- Architekturähnlichkeit zu Angular: Wechsel zwischen Frontend und Backend wird vereinfacht
+- Vorgegebene Projektstruktur: Codestrukturentscheidungen werden vereinfacht
 - TypeScript Unterstützung: Typisierung in frontend und backend (Fehlervermeidung)
 
 **Konsequenz**:
@@ -41,7 +41,7 @@ Im folgenden Kapitel werden die Architekturentscheidungen begründet. Diese sind
 **Konsequenz**:
 
 - Schema muss definiert werden
-- Installation etwas komplexer als z.B. bei MongoDB
+- Installation etwas komplexer als z. B. bei MongoDB
 
 === TypeORM
 **Entscheid**: TypeORM zur Datenbankabstraktion und Persistenz
@@ -72,9 +72,9 @@ Im folgenden Kapitel werden die Architekturentscheidungen begründet. Diese sind
 
 **Begründung**: 
 
-- Fertige Komponten können verwendet werden
+- Fertige Komponenten können verwendet werden
 - Integrierte Accessibility
-- einfaches Design
+- Einfaches Design
 
 **Konsequenz**:
 
@@ -126,7 +126,7 @@ Im folgenden Kapitel werden die Architekturentscheidungen begründet. Diese sind
 **Begründung**: 
 
 - Höhere Übersichtlichkeit bei sehr kompakten Komponenten durch Bündelung in einer Datei
-- Ausprobieren neuer Framework-Strukturen um Erfahrungen zu sammeln
+- Ausprobieren neuer Framework-Strukturen, um Erfahrungen zu sammeln
 
 **Konsequenz**: 
 
@@ -170,7 +170,7 @@ Im folgenden Kapitel werden die Architekturentscheidungen begründet. Diese sind
 
 **Konsequenz**:
 
-- refactoring des alten Codes
+- Refactoring des alten Codes
 - Button kann wiederverwendet werden
 
 === Shared Component: Page Header
@@ -211,11 +211,11 @@ Im folgenden Kapitel werden die Architekturentscheidungen begründet. Diese sind
 - Die Tabelle unterstützt dynamische Spaltendefinitionen sowie optionale Aktions-Buttons
 
 === `WorkoutService` für Erstellung und Kalender
-**Entscheid**: Der `WorkoutService` wird vom feature `workout-calendar` und `workouts` verwendet. 
+**Entscheid**: Der `WorkoutService` wird vom Feature `workout-calendar` und `workouts` verwendet. 
 
 **Begründung**: 
 
-- Vermeidung von Codedublikaten
+- Vermeidung von Codeduplikaten
 - Benötigt die gleichen Daten
 
 **Konsequenz**:

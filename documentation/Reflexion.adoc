@@ -1,7 +1,29 @@
 = Fazit und Reflexion
-//TODO
+In diesem Fazit geht es mehr um eine persönliche Reflexion. Technische Verbesserungen zum Projekt selber sind unter den technischen Schulden zu finden. 
 
-einfach die Kategorie zu erweitern
+== Positiv
+=== Kategorieerweiterung
+Die Kategorien habe ich erst zu einem späteren Zeitpunkt ergänzt. Ich war positiv überrascht, wie einfach die Erweiterung funktioniert hat. 
 
-viele Anpassungen die technische Schulen minimieren würden, jedoch waren die 60h schnell um
+=== Angular Material
+Ich konnte durch die Verwendung von Angular Material viel Zeit sparen, das war sehr wertvoll, um mich auf andere Dinge konzentrieren zu können. 
 
+=== Persönliche Ziele
+Ich habe durch das Projekt viel Neues lernen können. Ich arbeite erst seit ein paar Monaten als Softwareentwicklerin und konnte so sehr von einem eigenen Projekt mit Angular profitieren, da wir auf der Arbeit ebenfalls Angular verwenden. Auch fand ich es sehr spannend, beim Aufbau eines Projektes Architekturentscheide selber zu treffen (und dann auch die Konsequenzen daraus zu ziehen). Es war auch schön zu sehen, dass ich doch einiges im Studium und auch durch meinen neuen Job dazugelernt habe. 
+
+=== Lernjournal
+Ich habe ehrlich gesagt noch nie für ein Hochschulprojekt meine Arbeit so detailliert dokumentiert. Es hat mir aber sehr geholfen, meine Zeit im Blick zu behalten und zu priorisieren. 
+
+== Herausforderungen
+=== Container Component Pattern
+Ich muss gestehen, dass ich das Pattern nicht konsequent durchgezogen habe. Bei den Shared Components fiel es mir relativ einfach, bei den Features habe ich es aber einfach nicht angewandt. Das hat dann dazu geführt, dass ich sehr viel refactoren musste. 
+
+=== Technische Schulden
+Es gibt natürlich einige Unschönheiten im Projekt, die ich gerne korrigieren würde. Es war dann für mich eine persönliche Herausforderung, auch Dinge einfach so stehen zu lassen. Das Lernjournal hat mir dabei sehr geholfen. 
+
+== Zukünftige Verbesserungen
+=== Planung
+Ich habe mir am Anfang zu wenig Gedanken über das Projekt gemacht, was dazu geführt hat, dass ich zum Teil auch wichtige Entscheide erst während des Projekts getroffen habe und auch die User Stories nicht alle umsetzen konnte (Ziele, Unterkategorien, Fortschrittsbalken).
+
+=== Pattern
+Wenn ich in Zukunft ein Pattern anwenden möchte, das ich noch nicht so kenne, möchte ich mir mehr Zeit nehmen, um es wirklich zu verstehen. So kann ich mühsames Refactoring eventuell etwas vermeiden.

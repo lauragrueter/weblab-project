@@ -4,7 +4,7 @@ ifndef::imagesdir[:imagesdir: ../images]
 == Risiken und technische Schulden
 In diesem Kapitel werden die Risiken und technischen Schulden aufgelistet. 
 
-=== Erfassung Workout
+=== Erfassung einesWorkout
 Aktuell kann ein Workout auch in der Zukunft erfasst werden. 
 
 === Mehrere Workouts
@@ -44,4 +44,4 @@ Die Tabelle und der Suchbalken sind als eine Komponente definiert. Um die Kompon
 Die Breakpoints sind aktuell an mehreren Stellen identisch definiert. Das könnte global definiert und wiederverwendet werden.
 
 === Inline Template
-Um neue Erfahrung zu sammeln wurde entschieden, dass kleiner Komponente inline Template verwenden. Bei grösseren Komponenten wurde noch auf das bekannte splitten in drei Dateien gesetzt. Für ein Studiumsprojekt ist das so in Ordnung, für einen produktiven Code müsste man das aber sicher vereinheitlichen. 
+Um neue Erfahrung zu sammeln, wurde entschieden, dass kleinere Komponenten Inline-Templates verwenden. Bei grösseren Komponenten wurde noch auf das bekannte Aufteilen in drei Dateien Für ein Studiumsprojekt ist das so in Ordnung, für einen produktiven Code müsste man das aber sicher vereinheitlichen. 

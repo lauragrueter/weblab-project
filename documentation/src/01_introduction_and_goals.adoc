@@ -2,15 +2,15 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-introduction-and-goals]]
 ==	Einführung und Ziele
-fitlog wurde in der Blockwoche "WEBLAB" im Frühlingssemester 2026 an der Hochschuel Luzern, Studiengang Computer Sience, umgesetzt. Das Ziel dieses Projektes ist es eine Webanwendung von Grund auf zu entwickeln inklusive deployment. 
+fitlog wurde in der Blockwoche "WEBLAB" im Frühlingssemester 2026 an der Hochschule Luzern, Studiengang Computer Science, umgesetzt. Das Ziel dieses Projektes ist es, eine Webanwendung von Grund auf zu entwickeln inklusive Deployment. 
 
 === Persönliche Ziele
 - Webapplikation von Grund auf selber schreiben
-- Angular Grundlagenwissen erhöhen
+- Angular-Grundlagenwissen erhöhen
 - NestJS kennenlernen
 - Architekturentscheide treffen und begründen können -> auch mal etwas ausprobieren und damit versuchen zu arbeiten
 
-=== Mean Features fitlog
+=== Main Features fitlog
 - Workouts manuell tracken (manuelle Eingabe von Einheiten)
 - Suchen der Einheiten in einer Listenansicht
 - Löschen und Bearbeiten von Einheiten direkt in der Listenansicht

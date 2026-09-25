@@ -41,10 +41,10 @@ In diesem File sind die Tätigkeiten zum Projekt dokumentiert.
     code rafactor, error messages im frontend, Einheitlichkeit, bug fixes, Lighthouse Performance verbessern, Dokumentation, e2e Tests
 | 24.09.2026 | 4 | 
     Refactoring, Doku
-| 25.09.2026 | ? | 
+| 25.09.2026 | 2 | 
     Abschluss Doku und Abgabe
     
 
 |===
 
-**Total Stunden**: 63
+**Total Stunden**: 65

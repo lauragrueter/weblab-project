@@ -2,41 +2,17 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 [[section-deployment-view]]
 == Verteilungssicht
+image::deployment.png[Verteilungssicht,200]
 
+Begründung:: Die Applikation wird als Docker-Compose-Stack mit drei Containern auf einem einzigen Host betrieben. Dies erfüllt die Anforderung, das Prod-Bundle mit einem einzigen Befehl (`docker compose up`) reproduzierbar zu starten.
 
+Qualitäts- und/oder Leistungsmerkmale:: 
+- Reproduzierbarkeit: Ein Befehl startet den Stack inkl. Datenbank
+- Isolation: Jede Komponente läuft in einem eigenen Container mit definierter Schnittstelle (Ports)
+- Persistenz: Datenbank-Daten überleben Container-Neustarts durch das Volume `postgres_data`
+- Startreihenfolge: `depends_on` stellt sicher, dass das Backend erst startet, wenn die Datenbank bereit ist (analog Frontend → Backend)
 
-
-
-=== Infrastruktur Ebene 1
-
-
-
-
-
-_**<Übersichtsdiagramm>**_
-
-Begründung:: _<Erläuternder Text>_
-
-Qualitäts- und/oder Leistungsmerkmale:: _<Erläuternder Text>_
-
-Zuordnung von Bausteinen zu Infrastruktur:: _<Beschreibung der Zuordnung>_
-
-=== Infrastruktur Ebene 2
-
-
-
-
-
-==== _<Infrastrukturelement 1>_
-
-_<Diagramm + Erläuterungen>_
-
-==== _<Infrastrukturelement 2>_
-
-_<Diagramm + Erläuterungen>_
-
-...
-
-==== _<Infrastrukturelement n>_
-
-_<Diagramm + Erläuterungen>_
+Zuordnung von Bausteinen zu Infrastruktur:: 
+- Der Baustein **Web-Client** (siehe Bausteinsicht) läuft im Container `fitlog-frontend` (nginx, liefert den Angular-Production-Build als statische Dateien aus und leitet `/api/*`-Requests an das Backend weiter).
+- Der Baustein **API-Server** läuft im Container `fitlog-backend` (Node.js/NestJS), Port 3000 ist nur intern (`expose`) erreichbar, nicht direkt vom Host aus.
+- Der Baustein **Datenbank** läuft im Container `fitlog_db` (PostgreSQL 16), dessen Daten im Volume `postgres_data` persistiert werden.

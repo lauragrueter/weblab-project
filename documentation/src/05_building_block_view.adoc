@@ -15,11 +15,11 @@ Enthaltene Bausteine::
 
 Wichtige Schnittstellen:: 
 - REST-API (JSON über HTTP) zwischen Web-Client und API-Server
-- SQL zwischen API-Server und Datenbank.
+- SQL zwischen API-Server und Datenbank
 
 ==== Web-Client
 
-Zweck:: Ermöglicht dem Benutzer das Erstellen, Löschen, Bearbeiten und Durchsuchen von Workouts und Kategorien, und die Darstellung als Tabelle und als Kalender.
+Zweck:: Ermöglicht dem Benutzer das Erstellen, Löschen, Bearbeiten und Durchsuchen von Workouts und Kategorien und die Darstellung als Tabelle und als Kalender.
 Schnittstelle:: Bietet keine eigenen Services an, konsumiert die REST-API des API-Servers.
 Ablageort:: `frontend/src/app/` (Angular SPA, unterteilt in `features/`, `shared/`, `core/`)
 
@@ -49,4 +49,4 @@ Enthaltene Bausteine::
 
 Wichtige Schnittstellen:: `features/workout-calendar/` verwendet direkt den `WorkoutService` aus `features/workouts/`, um dieselben Workout-Daten in der Kalenderansicht wiederzuverwenden.
 
-Hinweis: Das das backend und die Datenbank zu simple sind, werden sie nicht weiter aufgeteilt. 
+Hinweis: Da das Backend und die Datenbank zu simpel sind, werden sie nicht weiter aufgeteilt.

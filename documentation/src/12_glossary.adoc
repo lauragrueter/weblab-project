@@ -21,7 +21,25 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 |DTO
 |Data Transfer Object: definiert die Form der Daten, die zwischen Frontend und Backend über die REST-API ausgetauscht werden.
+
+|REST-API
+|Programmierschnittstelle, über die Frontend und Backend nach den Prinzipien des Representational State Transfer kommunizieren: zustandslose HTTP-Requests (GET/POST/PUT/DELETE) auf Ressourcen wie `/api/workouts` oder `/api/categories`, Datenaustausch im JSON-Format.
+
+|TypeORM
+|Object-Relational-Mapping-Bibliothek für Node.js/TypeScript, die im Backend die Entities (z. B. `Workout`, `Category`) auf Tabellen der PostgreSQL-Datenbank abbildet und den Zugriff darauf kapselt.
+
+|Docker Compose
+|Tool zur Definition und zum Start mehrerer zusammengehöriger Container (hier: Frontend, Backend, Datenbank) über eine einzige Konfigurationsdatei und einen einzigen Befehl (`docker compose up`).
+
+|Lighthouse
+|Automatisiertes Analyse-Tool (u. a. in den Chrome DevTools), das eine Webseite bezüglich Performance, Accessibility, Best Practices und SEO bewertet und einen Score von 0–100 pro Kategorie liefert.
+
+|E2E-Test
+|End-to-End-Test: prüft einen kompletten Ablauf aus Benutzersicht über die gesamte Applikation hinweg (Browser → Frontend → Backend → Datenbank), im Projekt umgesetzt mit Cypress.
+
+|Container/Component-Pattern
+|Architekturmuster für Angular-Components: Container-Components enthalten die Business-Logik (Service-Zugriff, State-Handling) und reichen Daten über Inputs/Outputs an rein präsentationale Components weiter, die selbst keine Services injizieren.
 |===
 
 == Hinweise
-Die Diagramme wurden mit mermaid.live erstellt und als png in die Doku übernommen. 
+Die Diagramme wurden mit mermaid.live erstellt und als png in die Doku übernommen.

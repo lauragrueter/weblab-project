@@ -13,7 +13,7 @@ Dieses Kapitel beschreibt die Qualitätsziele.
 | Lighthouse-Score >= 90 (Mobile & Desktop)
 
 | Benutzbarkeit
-| Responsive fuer Mobile/Tablet/Desktop
+| Responsive für Mobile/Tablet/Desktop
 
 | Zuverlaessigkeit
 | Applikation wird mit Unit-, Integrations- und E2E-Tests getestet
@@ -23,7 +23,7 @@ Dieses Kapitel beschreibt die Qualitätsziele.
 |===
 
 === Lighthouse-Ergebnisse
-Der Lighthouse Score wurde manuell via Chrome DevTools Lighthouse gemessen. Der Stack wurde über `docker compose up --build` gestartet. Es wurden vorgängig einige Workouts und Kategorien erfasst. Das Qualitätsziel von einem Durchschnitt von 90 konnte erreicht werden. 
+Der Lighthouse Score wurde manuell via Chrome DevTools Lighthouse gemessen. Der Stack wurde über `docker compose up --build` gestartet. Es wurden vorgängig einige Workouts und Kategorien erfasst. Das Qualitätsziel mit einem Durchschnitt von 90 konnte erreicht werden. 
 
 [cols="1,2a,2a", options="header"]
 |===
